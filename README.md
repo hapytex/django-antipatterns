@@ -1,2 +1,11 @@
 # django-antipatterns
-A set of antipatterns found over the years used by multiple users.
+
+A repository documenting anti-patterns often found in Django projects.
+
+The antipatterns each explain the problem, why it is a problem, and what can be
+done to mitigate the problem.
+
+---
+
+You can contribute by writing an anti-pattern yourself and making a pull request
+to add it to this repository.
