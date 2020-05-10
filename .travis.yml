@@ -1,0 +1,26 @@
+sudo: false
+os:
+- linux
+language: minimal
+cache:
+  directories:
+  - "$HOME/.stack"
+before_install:
+- sudo apt-get update
+- sudo apt-get install pandoc
+install:
+- make
+before_script: []
+script: []
+after_script: []
+deploy:
+- provider: pages
+  local_dir: out_
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  keep_history: false
+  on:
+    branch: master
+env:
+  global:
+  - secure: CAepp1SAVbleZFOdGlFyMZGCWc7ZLiXjwtUGmsmrJ0F6X6r0lLlITXR0weaYrvYviV6wvKZGxUqhz1mfdw3Fwbq8Ht/CK9WWeT5rGWRJ371bQRUNag1uvcJgdTsEO5yOaDVfAKXNONBKbn5WeKgHMpVdXklMX6JSjSgBGCXGafy3QdXlj2LYxE/jUKs/Nx2mYG5GgHF+vIyuMCaL4jEtdIxAr8QQpBgLSWbgBVTrUhoItD6cqqkmzz0MU/K3Gy/pw6lLU8TEDdwdhfJdvb3ShgP1WMJ8EjnCKSieOPJp6RoUJBgDwAUpLAlIIbdy7muoCEj9HBGrYcL1rhabwoY269byAxInh1td/nkdRRM3zNPHJgIplaajIkOZZJiluoaU9Zyyp8Qm2eCi4aEfQjRHQK+WQu5Xv/L8c2CsQlzfGrw1fdv1PDD/JaMw478wxKi+C+xaXjlDvoeUtJx3gnudTK6hA++XTMAbsCRil35Jqyj9NHVE8YMyySWqHubOQ9RBwcLZogPrRzsJouF+uqO+aR6Ohkp1TduJ71R4Ysj7J3+osqc/2+hQYSgTpPiEiWPcXSwMq/4MyoCgsM8sKA0OENOJVhs3BSeHtxCAKHDD9GVqgEKckndBG7TnncPynfMdzyc+zoTS0XXVMpr0bz5lS54NhcOrXHfOIhx6CgacyE4=

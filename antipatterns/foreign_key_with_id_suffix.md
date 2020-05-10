@@ -1,4 +1,4 @@
-# Foreign Key with `_id` suffix
+# Foreign key with `_id` suffix
 
 Often people add an `_id` suffix to the `ForeignKey`s or `OneToOneField`s in
 their models, for example:

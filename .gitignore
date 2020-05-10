@@ -1,1 +1,5 @@
 .*.sw?
+out_
+out_/
+out_/*
+out_/**
