@@ -1,4 +1,4 @@
-# Plural model class names
+% Plural model class names
 
 Often people write model classes with a plural name. For example:
 
@@ -8,7 +8,7 @@ class Cars(models.Model):
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
 ```
 
-## Why it is a problem
+# Why it is a problem?
 
 Django defines some meta data based on the name of the class. For example the
 [**`verbose_name`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/options/#django.db.models.Options.verbose_name)
@@ -49,7 +49,7 @@ ford.cars_set.all()
 
 which again is less elegant compared to `car_set`.
 
-## What can be done to resolve the problem
+# What can be done to resolve the problem?
 
 You give the class of the model a singular name, so `Car` instead of `Cars`:
 

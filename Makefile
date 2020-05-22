@@ -5,4 +5,4 @@ all: out_ $(outpdf)
 out_ :
 	mkdir -p out_
 out_/%.html: antipatterns/%.md Makefile
-	pandoc -s -c 'https://raw.githubusercontent.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css' --highlight-style haddock -o "$@" "$<"
+	pandoc -s -t html -c 'https://raw.githubusercontent.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css' --highlight-style haddock -o "$@" "$<"

@@ -1,4 +1,4 @@
-# Foreign key with `_id` suffix
+% Foreign key with `_id` suffix
 
 Often people add an `_id` suffix to the `ForeignKey`s or `OneToOneField`s in
 their models, for example:
@@ -6,7 +6,7 @@ their models, for example:
 <pre><code>class MyModel(models.Model):
     other_model<b>_id</b> = models.ForeignKey(OtherModel, on_delete=models.CASCADE)</code></pre>
 
-## Why it is a problem
+# Why it is a problem?
 
 The main reason why it is a problem is because the `.other_model` itself does
 *not* store the id. Indeed, Django makes an implicit *twin*-field with an `_id`
@@ -18,7 +18,7 @@ It furthermore means that the twin-field Django has constructed is now named
 `other_model_id_id`, which is also the default name of the column where it
 stores the primary key. This name is rather "*ugly*".
 
-## What can be done to resolve the problem
+# What can be done to resolve the problem
 
 Renaming the field without the `_id` suffix, so change it to:
 

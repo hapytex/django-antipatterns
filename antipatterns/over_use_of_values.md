@@ -1,4 +1,4 @@
-# (Over)use of `.values()`
+% (Over)use of `.values()`
 
 Often in views, one can find code that looks like:
 
@@ -9,7 +9,7 @@ Often in views, one can find code that looks like:
 The [**<code>.values(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#values)
 part will return a (`QuerySet`) of *dictionaries*, not `MyModel` objects.
 
-## Why is it a problem
+# Why is it a problem?
 
 Dictionaries are less "rich". These simply map keys to values. A model enhances
 that with several extra functionalities:
@@ -21,7 +21,7 @@ that with several extra functionalities:
  4. retrieve related model objects (`ForeignKey`s act like lazy queries); and
  5. updating, removing, etc. of the model to the database.
 
-## How can we fix this?
+# How can we fix this?
 
 Do *not* make use of <code>.values(&hellip;)</code> unless in *certain* circumstances. One can
 make use of <code>.values(&hellip;)</code> for example to group by a certain
@@ -32,7 +32,7 @@ creates a query that looks like:
     my_objects = MyModel.objects.all()
     return render(request, 'some_template.html', {'my_objects': my_objects})</code></pre>
 
-## Extra tips
+# Extra tips
 
 Sometimes people make use of **<code>.values(&hellip;)</code>** to boost queries, by only selecting columns they are interested in.
 One can make use of [**<code>.only(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#only)
