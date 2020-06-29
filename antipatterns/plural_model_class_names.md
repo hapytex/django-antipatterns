@@ -37,7 +37,7 @@ Which can be translated as:
 
 > All the *cars objects*.
 
-The *objects* are already plular, so it makes no sense to make *cars* plural as
+The *objects* are already plural, so it makes no sense to make *cars* plural as
 well.
 
 For related models, this results in ugly looking names as well, for example one
