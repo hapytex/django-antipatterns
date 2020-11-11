@@ -5,7 +5,7 @@ A repository documenting anti-patterns often found in Django projects.
 The antipatterns each explain the problem, why it is a problem, and what can be
 done to mitigate the problem.
 
-You can find the antipatterns in the [**`antipatterns/`** directory](antipatterns/).
+The rendered version of the (anti)patterns can be found at at the [GitHub pages](https://hapytex.github.io/django-antipatterns/)
 
 ---
 

@@ -1,4 +1,4 @@
-% Do not use request.POST or None
+% Do not use `request.POST or None`
 
 Often one initializes a form with:
 
