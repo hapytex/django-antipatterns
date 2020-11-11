@@ -21,6 +21,8 @@ that with several extra functionalities:
  4. retrieve related model objects (`ForeignKey`s act like lazy queries); and
  5. updating, removing, etc. of the model to the database.
 
+These are typical problems that arise by the [*primitive obsession* antipattern [refactoring.guru]](https://refactoring.guru/smells/primitive-obsession).
+
 # How can we fix this?
 
 Do *not* make use of <code>.values(&hellip;)</code> unless in *certain* circumstances. One can
