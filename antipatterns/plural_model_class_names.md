@@ -3,6 +3,8 @@
 Often people write model classes with a plural name. For example:
 
 ```python3
+from django.db import models
+
 class Cars(models.Model):
     name = models.CharField(max_length=128)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
@@ -53,7 +55,9 @@ which again is less elegant compared to `car_set`.
 
 You give the class of the model a singular name, so `Car` instead of `Cars`:
 
-<pre><code>class <b>Car</b>(models.Model):
+<pre><code>from django.db import models
+
+class <b>Car</b>(models.Model):
     name = models.CharField(max_length=128)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)</code></pre>
 

@@ -15,6 +15,8 @@ One can wrap the `Q` object in a `ExpressionWrapper` and specify the
 `BooleanField` as <code>output_field=&hellip;</code>, for example:
 
 ```python3
+from django.db.models import BooleanField, ExpressionWrapper, Q
+
 MyModel.objects.annotate(
     my_condition=ExpressionWrapper(
         Q(pk__lt=14),

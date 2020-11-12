@@ -3,7 +3,9 @@
 Often people add an `_id` suffix to the `ForeignKey`s or `OneToOneField`s in
 their models, for example:
 
-<pre><code>class MyModel(models.Model):
+<pre><code>from django.db import models
+
+class MyModel(models.Model):
     other_model<b>_id</b> = models.ForeignKey(OtherModel, on_delete=models.CASCADE)</code></pre>
 
 # Why it is a problem?
@@ -22,7 +24,9 @@ stores the primary key. This name is rather "*ugly*".
 
 Renaming the field without the `_id` suffix, so change it to:
 
-<pre><code>class MyModel(models.Model):
+<pre><code>from django.db import models
+
+class MyModel(models.Model):
     <b>other_model</b> = models.ForeignKey(OtherMOdel, on_delete=models.CASCADE)</code></pre>
 
 You will need to run `makemigrations` to rename the field. The django
