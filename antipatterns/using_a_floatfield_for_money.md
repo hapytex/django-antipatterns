@@ -20,7 +20,9 @@ One can make use of a [**`DecimalField`** [Django-doc]](https://docs.djangoproje
 at the database often use a dedicated decimal type. These represent numbers as
 decimal numbers, and thus make, for decimal numbers, correct sums, etc.
 
-<pre><code>class Product(models.Model):
+<pre><code>from django.db import models
+
+class Product(models.Model):
     price = models.<b>DecimalField(max_digits=12, decimal_places=2)</b></code></pre>
 
 The Django documentation has a section on [*`FloatField` vs. `DecimalField`*](https://docs.djangoproject.com/en/dev/ref/models/fields/#floatfield-vs-decimalfield)
