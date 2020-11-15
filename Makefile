@@ -7,7 +7,7 @@ out_ :
 	mkdir -p out_
 index.md : toc.sh $(outhtml)
 	bash toc.sh > "$@"
-out_/%.html: %.md Makefile
+out_/%.html: %.md Makefile templates/easy_template.html
 	pandoc -s -t html --template=templates/easy_template.html -c "${style}" --highlight-style haddock -o "$@" "$<"
 
 out_/%:
