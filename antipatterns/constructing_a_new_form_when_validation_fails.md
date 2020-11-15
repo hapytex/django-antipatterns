@@ -15,7 +15,7 @@ def my_view(request):
             form = <b>MyForm()</b>
     else:
         form = MyForm()
-    return render(request, '<i>name-of-some-template.html', {'form': form})</code></pre>
+    return render(request, '<i>name-of-some-template.html</i>', {'form': form})</code></pre>
 
 # Why it is a problem?
 
@@ -41,7 +41,7 @@ def my_view(request):
         # <i>no</i> new form
     else:
         form = MyForm()
-    return render(request, '<i>name-of-some-template.html', {'form': form})</code></pre>
+    return render(request, '<i>name-of-some-template.html</i>', {'form': form})</code></pre>
 
 
 # Extra tips
