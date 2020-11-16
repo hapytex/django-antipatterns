@@ -20,14 +20,14 @@ It furthermore means that the twin-field Django has constructed is now named
 `other_model_id_id`, which is also the default name of the column where it
 stores the primary key. This name is rather "*ugly*".
 
-# What can be done to resolve the problem
+# What can be done to resolve the problem?
 
 Renaming the field without the `_id` suffix, so change it to:
 
 <pre><code>from django.db import models
 
 class MyModel(models.Model):
-    <b>other_model</b> = models.ForeignKey(OtherMOdel, on_delete=models.CASCADE)</code></pre>
+    <b>other_model</b> = models.ForeignKey(OtherModel, on_delete=models.CASCADE)</code></pre>
 
 You will need to run `makemigrations` to rename the field. The django
 makemigrations tool will likely detect that you renamed the field and ask:

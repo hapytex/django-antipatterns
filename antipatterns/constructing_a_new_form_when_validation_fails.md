@@ -10,7 +10,7 @@ def my_view(request):
         form = MyForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect(<i>name-of-some-view</i>)
+            return redirect('<i>name-of-some-view</i>')
         else:
             form = <b>MyForm()</b>
     else:
@@ -37,7 +37,7 @@ def my_view(request):
         form = MyForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect(<i>name-of-some-view</i>)
+            return redirect('<i>name-of-some-view</i>')
         # <i>no</i> new form
     else:
         form = MyForm()
