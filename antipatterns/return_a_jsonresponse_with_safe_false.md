@@ -1,4 +1,4 @@
-% Return a JsonResponse with safe=False
+% Return a `JsonResponse` with `safe=False`
 
 Often people find out that you can not return a *list* as outer item in a
 [**`JsonResponse`** [Django-doc]](https://docs.djangoproject.com/en/3.1/ref/request-response/#jsonresponse-objects)
