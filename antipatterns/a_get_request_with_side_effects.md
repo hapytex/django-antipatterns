@@ -43,7 +43,7 @@ to warn the client that this request was not allowed:
 
 <b>@require_http_methods(['POST'])</b>
 def remove_comment(request, comment_pk):
-    Comment.objects.<b>create(</b>
+    Comment.objects.<b>filter(</b>
         comment_id=comment_pk
     <b>).delete()</b>
     # &hellip;</code></pre>
