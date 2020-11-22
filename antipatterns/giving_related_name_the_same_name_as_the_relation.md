@@ -54,7 +54,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
-        <b>related_name='autored_posts'</b>
+        <b>related_name='authored_posts'</b>
     )</code></pre>
 
 Then we thus query with:
