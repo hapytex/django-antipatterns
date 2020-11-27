@@ -14,3 +14,7 @@ make_toc antipatterns
 echo -e "\n\n## Patterns\n"
 
 make_toc patterns
+
+echo -e "\n\n## Troubleshooting\n"
+
+make_toc troubleshooting
