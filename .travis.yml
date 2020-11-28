@@ -7,8 +7,8 @@ cache:
   - "$HOME/.stack"
 before_install:
 - sudo apt-get update
-- wget 'https://github.com/jgm/pandoc/releases/download/2.11.2/pandoc-2.11.2-1-amd64.deb'
-- sudo dpkg -i "pandoc-2.11.2-1-amd64.deb"
+# - wget 'https://github.com/jgm/pandoc/releases/download/2.11.2/pandoc-2.11.2-1-amd64.deb'
+# - sudo dpkg -i "pandoc-2.11.2-1-amd64.deb"
 - sudo apt-get install pandoc
 install:
 - make
