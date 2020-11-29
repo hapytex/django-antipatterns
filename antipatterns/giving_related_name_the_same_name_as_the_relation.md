@@ -11,7 +11,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
-        <b>related_name='autor'</b>
+        <b>related_name='author'</b>
     )</code></pre>
 
 # Why it is a problem?
