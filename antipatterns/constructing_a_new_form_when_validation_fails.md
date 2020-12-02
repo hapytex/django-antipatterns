@@ -1,4 +1,7 @@
 % Constructing a new form when validation fails
+---
+severity: 3
+---
 
 Often in a view a *new* form is constructed when validating a bounded form
 fails, for example:

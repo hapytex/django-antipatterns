@@ -1,5 +1,7 @@
 % A GET request with side-effects
-
+---
+severity: 4
+---
 Often people construct views that have side, effects, for example:
 
 <pre><code>def remove_comment(request, comment_pk):

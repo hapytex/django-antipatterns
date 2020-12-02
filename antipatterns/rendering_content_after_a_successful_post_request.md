@@ -1,4 +1,7 @@
 % Rendering content after a successful POST request
+---
+severity: 3
+---
 
 A view sometimes renders content after a *successful* POST request, for example:
 

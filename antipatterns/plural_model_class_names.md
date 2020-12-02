@@ -1,4 +1,7 @@
 % Plural model class names
+---
+severity: 1
+---
 
 Often people write model classes with a plural name. For example:
 

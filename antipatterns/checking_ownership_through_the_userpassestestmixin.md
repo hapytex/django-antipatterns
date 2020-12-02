@@ -1,4 +1,7 @@
 % Checking ownership through the `UserPassesTestMixin`
+---
+severity: 2
+---
 
 In a view we often want to restrict access to edit an object, for example only
 the `author`s of the blog are allowed to edit their `Post`s.

@@ -1,4 +1,7 @@
 % Using `request.POST or None`
+---
+severity: 2
+---
 
 Often one initializes a form with:
 

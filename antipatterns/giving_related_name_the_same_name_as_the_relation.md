@@ -1,4 +1,7 @@
 % Giving <code>related_name=&hellip;</code> the same name as the relation
+---
+severity: 1
+---
 
 Often one sees modeling with:
 

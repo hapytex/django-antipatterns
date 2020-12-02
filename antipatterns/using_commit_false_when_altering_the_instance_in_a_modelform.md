@@ -1,4 +1,7 @@
 % Using `commit=False` when altering the instance in a `ModelForm`
+---
+severity: 2
+---
 
 Often one sees a pattern where one aims to update an instance wrapped in a
 `ModelForm` before creating a record in the database. A programmer often writes:

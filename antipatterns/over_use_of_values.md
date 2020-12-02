@@ -1,4 +1,7 @@
 % (Over)use of `.values()`
+---
+severity: 2
+---
 
 Often in views, one can find code that looks like:
 
