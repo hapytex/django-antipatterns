@@ -1,4 +1,4 @@
-% Refer to the User model directly
+% Refer to the `User` model directly
 ---
 severity: 2
 ---
