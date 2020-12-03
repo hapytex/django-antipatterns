@@ -15,7 +15,7 @@ class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     # &hellip;
 
     def test_func(self):
-        return <b>self.get_object().author = self.request.user</b></code></pre>
+        return <b>self.get_object().author == self.request.user</b></code></pre>
 
 # Why it is a problem?
 
@@ -37,7 +37,7 @@ class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     # &hellip;
 
     def test_func(self):
-        return <b>self.get_object().author_id = self.request.user.pk</b></code></pre>
+        return <b>self.get_object().author_id == self.request.user.pk</b></code></pre>
 
 but now we still call `.get_object()` multiple times. This might even generate
 problems if we use extra mixins for example that need to performed *before*
