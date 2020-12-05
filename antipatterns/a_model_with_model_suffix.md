@@ -1,0 +1,44 @@
+% A model with <code>&hellip;Model</code> suffix
+---
+severity: 1
+---
+
+Often people use a <code>&hellip;Model</code> suffix for their model, for
+example:
+
+<pre><code>from django.db import models
+
+class <b>CarModel</b>(models.Model):
+    # &hellip;
+    pass</code></pre>
+
+# Why it is a problem?
+
+Because objects from a model are not *models*, these are *cars*, not *car
+models*. Django will also construct verbose named based on the name of the
+class. Indeed, unless you specify
+[**`verbose_name`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/options/#verbose-name) and
+[**`verbose_name_plural`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/options/#verbose-name-plural)
+yourself, Django will "unsnake" the name and thus give a verbose name like:
+
+```pycon
+>>> CarModel._meta.verbose_name
+'car model'
+>>> CarModel._meta.verbose_name_plural
+'car models'
+```
+
+This thus means that Django will ask questions in the model admin like:
+
+> Are you sure you want to remove this car model?
+
+# What can be done to resolve the problem?
+
+Remove the <code>&hellip;Model</code> suffix. Django models are not supposed to
+have a <code>&hellip;Model</code> suffix, so:
+
+<pre><code>from django.db import models
+
+class <b>Car</b>(models.Model):
+    # &hellip;
+    pass</code></pre>
