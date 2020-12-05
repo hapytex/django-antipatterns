@@ -29,8 +29,8 @@ We can branch based on the request *method*, and use `request.POST` in case of a
 POST request:
 
 <pre><code>def someview(request):
-    if request.method == 'POST':
-        form = MyForm(request.POST)
+    <b>if request.method == 'POST'</b>:
+        form = MyForm(request.POST, request.FILES)
         # &hellip;
     else:
         form = MyForm()
