@@ -1,4 +1,4 @@
-% A model with <code>&hellip;Model</code> suffix
+% A model with a <code>&hellip;Model</code> suffix
 ---
 severity: 1
 ---
