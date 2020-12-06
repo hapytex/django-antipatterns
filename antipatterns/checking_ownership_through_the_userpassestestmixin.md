@@ -48,9 +48,9 @@ using `self.get_object()`.
 We can filter the `QuerySet` to only retrieve objects where the user is the
 author:
 
-<pre><code>from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+<pre><code>from django.contrib.auth.mixins import LoginRequiredMixin
 
-class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class BlogEditView(LoginRequiredMixin, UpdateView):
     model = Blog
     # &hellip;
 
