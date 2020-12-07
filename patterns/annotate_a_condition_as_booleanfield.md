@@ -3,7 +3,7 @@
 One sometimes does not want to filter on a condition, but use a condition as a
 boolean field.
 
-# What is solved with this?
+# What problems are solved with this?
 
 One can use `Q` objects to filter a condition. But sometimes you also want to
 use it in an annotation. For example to add an extra attribute to the model
