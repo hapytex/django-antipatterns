@@ -9,7 +9,7 @@ One can use `Q` objects to filter a condition. But sometimes you also want to
 use it in an annotation. For example to add an extra attribute to the model
 objects, or to order for example.
 
-# How does the pattern look like?
+# What does this pattern look like?
 
 One can wrap the `Q` object in a `ExpressionWrapper` and specify the
 `BooleanField` as <code>output_field=&hellip;</code>, for example:
