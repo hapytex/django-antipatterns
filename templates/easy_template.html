@@ -8,8 +8,7 @@
         <![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
-    <meta http-equiv="Content-Security-Policy" content="frame-src 'none'; style-src 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.rawgit.com https://vjs.zencdn.net 'self'; script-src https://cdnjs.buymeacoffee.com https://code.jquery.com https://cdnjs.cloudflare.com https://cdn.rawgit.com https://vjs.zencdn.net 'self'">
-    <meta http-equiv="X-Frame-Options" content="deny">
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'none'; style-src 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.rawgit.com https://vjs.zencdn.net 'self'; script-src 'unsafe-inline' https://cdnjs.buymeacoffee.com https://code.jquery.com https://cdnjs.cloudflare.com https://cdn.rawgit.com https://vjs.zencdn.net 'self'">
     <meta name="keywords" content="Django, web, programming">
     <meta name="author" content="Willem Van Onsem">
     <meta name="description" content="A set of Django (anti)patterns.">
@@ -84,7 +83,7 @@ $for(header-includes)$
   $header-includes$
 $endfor$
 </head>
-<body>
+<body id="body" onload="hljs.initHighlightingOnLoad();">
   <a class="github-fork-ribbon" href="https://github.com/hapytex/django-antipatterns" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
     
   $if(title)$
