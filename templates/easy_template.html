@@ -8,7 +8,7 @@
         <![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'none'; style-src 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.rawgit.com https://vjs.zencdn.net 'self'; script-src https://cdnjs.buymeacoffee.com https://code.jquery.com https://cdnjs.cloudflare.com https://cdn.rawgit.com https://vjs.zencdn.net 'self'">
     <meta http-equiv="X-Frame-Options" content="deny">
     <meta name="keywords" content="Django, web, programming">
     <meta name="author" content="Willem Van Onsem">
@@ -40,7 +40,7 @@
     <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
         
   
-    <!-- <script src="script.js"></script> -->
+    <script src="/script.js"></script>
   
     <!-- <script src="jquery.sticky-kit.js "></script> -->
     <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js'></script>
@@ -48,13 +48,14 @@
     <script type='text/javascript' src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
 
     <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="/style.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
   
-    <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/script.js"></script>
+    <!--script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/script.js"></script-->
   
     <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js"></script>
     <meta name="generator" content="pandoc" />
@@ -65,7 +66,6 @@ $if(date-meta)$
   <meta name="date" content="$date-meta$" />
 $endif$
   <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$ - Django antipatterns</title>
-  <style type="text/css">code{white-space: pre;}</style>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
 $endif$
@@ -83,99 +83,6 @@ $endif$
 $for(header-includes)$
   $header-includes$
 $endfor$
-<style type="text/css">
-.rating {
-  margin: 10px 0;
-}
-
-.rating i {
-  display: inline-block;
-  width: 0;
-  height: 1.5em;
-  border-width: 0 0.75em;
-  border-style: solid;
-  border-color: #eee;
-  border-radius: 0.22em;
-  color: white;
-  background: #eee;
-  font-style: normal;
-  line-height: 1.6em;
-  text-indent: -0.5em;
-  text-shadow: 1px 0 1px #b3b3b3;
-}
-
-/** Colors */
-[data-rating^="1"] .star-1 {
-  border-color: #cc8b1f;
-  background: #cc8b1f;
-}
-
-[data-rating^="1.5"] .star-2 {
-  border-left-color: #cc8b1f;
-}
-
-[data-rating^="2"] .star-1 {
-  border-color: #dcb228;
-  background: #dcb228;
-}
-
-[data-rating^="2"] .star-2 {
-  border-color: #dcb228;
-  background: #dcb228;
-}
-
-[data-rating^="2.5"] .star-3 {
-  border-left-color: #dcb228;
-}
-
-[data-rating^="3"] .star-1 {
-  border-color: #f0991e;
-  background: #f0991e;
-}
-
-[data-rating^="3"] .star-2 {
-  border-color: #f0991e;
-  background: #f0991e;
-}
-
-[data-rating^="3"] .star-3 {
-  border-color: #f0991e;
-  background: #f0991e;
-}
-
-[data-rating^="3.5"] .star-4 {
-  border-left-color: #f0991e;
-}
-
-[data-rating^="4"] .star-1 {
-  border-color: #f26a2c;
-  background: #f26a2c;
-}
-
-[data-rating^="4"] .star-2 {
-  border-color: #f26a2c;
-  background: #f26a2c;
-}
-
-[data-rating^="4"] .star-3 {
-  border-color: #f26a2c;
-  background: #f26a2c;
-}
-
-[data-rating^="4"] .star-4 {
-  border-color: #f26a2c;
-  background: #f26a2c;
-}
-
-[data-rating^="4.5"] .star-5 {
-  border-left-color: #f26a2c;
-}
-
-[data-rating="5"] i {
-  background: #dd050b;
-  border-color: #dd050b;
-}
-</style>
 </head>
 <body>
   <a class="github-fork-ribbon" href="https://github.com/hapytex/django-antipatterns" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
@@ -228,22 +135,11 @@ $endfor$
       $for(include-after)$
       $include-after$
       $endfor$
-<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="hapytex" data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+<script nonce data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="hapytex" data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
       </div>
     </div>
   </div>
-$if(analytics)$                    
-            <script>
-                  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', '$analytics$', 'auto');
-  ga('send', 'pageview');
-$endif$
-  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="script.js">hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

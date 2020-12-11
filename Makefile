@@ -6,6 +6,7 @@ all: out_ out_/antipatterns out_/patterns out_/troubleshooting $(outhtml) out_/i
 out_ :
 	mkdir -p out_
 	ln CNAME out_
+	ln site/* out_
 index.md : toc.sh $(outhtml)
 	bash toc.sh > "$@"
 out_/%.html: %.md Makefile templates/easy_template.html
