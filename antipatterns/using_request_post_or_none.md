@@ -12,7 +12,7 @@ Often one initializes a form with:
 This is often used to construct a form for both the GET and the POST request
 since it seems to make things shorter.
 
-# Why it is a problem?
+# Why is it a problem?
 
 Although it is common, a POST request does not *per se* has content. The `or`
 operator evaluates the *truthiness* of the `request.POST` operand, and if it is

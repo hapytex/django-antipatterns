@@ -12,7 +12,7 @@ and decide to use `safe=False` to still allow this. This thus looks like:
 # &hellip;
 return JsonResponse([1,4,2,5]<b>, safe=False</b>)</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 As the parameter already indicates, it is unsafe. *Phil Haack* published a [blog
 post in

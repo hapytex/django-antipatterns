@@ -13,7 +13,7 @@ class Cars(models.Model):
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
 ```
 
-# Why it is a problem?
+# Why is it a problem?
 
 Django defines some meta data based on the name of the class. For example the
 [**`verbose_name`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/options/#django.db.models.Options.verbose_name)

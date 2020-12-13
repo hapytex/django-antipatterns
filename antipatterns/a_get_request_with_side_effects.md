@@ -10,7 +10,7 @@ Often people construct views that have side, effects, for example:
     )<b>.delete()</b>
     # &hellip;</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 Because this violates the HTTP standard. In the section [*safe methods* of the HTTP specifications [w3.org]](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.1)
 it specifies that:

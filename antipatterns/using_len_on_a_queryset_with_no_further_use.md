@@ -9,7 +9,7 @@ the number of comments with:
 
 <pre><code>number_of_comments = <b>len(</b>Comment.objects.filter(post_id=<i>id_of_post</i>)<b>)</b></code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 Because it is inefficient. It means that Django will *evaluate* the `QuerySet`
 and thus load all records into memory. When this is done, it will determine the

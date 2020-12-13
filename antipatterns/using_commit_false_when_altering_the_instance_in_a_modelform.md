@@ -12,7 +12,7 @@ if form.is_valid():
     object.some_attribute = some_value
     object.save()</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 Because `commit=False` does not only result in *not* creating a record at the
 database. It also has for example impact on many-to-many fields in the form.

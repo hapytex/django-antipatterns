@@ -12,7 +12,7 @@ class <b>CarModel</b>(models.Model):
     # &hellip;
     pass</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 Because objects from a model are not *models*, these are *cars*, not *car
 models*. Django will also construct verbose named based on the name of the

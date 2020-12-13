@@ -17,7 +17,7 @@ def my_view(request):
         form = MyForm()
     return render(request, '<i>some_template.html</i>', {'form': form})</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 This means that for this specific HTTP request, it returns a HTTP response. If
 the client later performs a refresh on the browser, it means that the browser

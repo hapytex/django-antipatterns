@@ -8,7 +8,7 @@ is used. This is not a good idea since *decimal* numbers often can not be precis
 converted to a `float`, so it will result in rounding errors. These errors will
 further propagate when one performs calculations.
 
-# Why it is a problem?
+# Why is it a problem?
 
 A `float` uses the [*IEEE-754 standard* [wiki]](https://en.wikipedia.org/wiki/IEEE_754)
 to represent floating point numbers. While this is a good standard and actually

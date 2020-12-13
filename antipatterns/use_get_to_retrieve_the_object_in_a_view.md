@@ -11,7 +11,7 @@ call, for example:
     mypost = Post.objects<b>.get(pk=pk)</b>
     # &hellip;</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 If no such `Post` object exists, then the call will raise a `Post.DoesNotExist`
 exception. If this exception is not handled properly, it means that the server

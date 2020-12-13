@@ -20,7 +20,7 @@ def my_view(request):
         form = MyForm()
     return render(request, '<i>name-of-some-template.html</i>', {'form': form})</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 A `Form` (and `ModelForm`) is not only useful to render HTML forms, validate
 input and save data to the database. It also generates *error messages*. If you

@@ -12,7 +12,7 @@ from django.db import models
 class Post(models.Model):
     created_at = models.DateTimeField(<b>default=datetime.now</b>)</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 A field is by default editable and not optional. This thus means that if you
 construct a `ModelForm` with `fields = '__all__'`, then this will incude the

@@ -11,7 +11,7 @@ their models, for example:
 class MyModel(models.Model):
     other_model<b>_id</b> = models.ForeignKey(OtherModel, on_delete=models.CASCADE)</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 The main reason why it is a problem is because the `.other_model` itself does
 *not* store the id. Indeed, Django makes an implicit *twin*-field with an `_id`

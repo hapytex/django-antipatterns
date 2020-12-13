@@ -16,7 +16,7 @@ class Post(models.Model):
         on_delete=models.CASCADE
     )</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 One does not per se needs to use Django's `User` model. It is possible that one
 now sticks to Django's default `User` model, but later one defines a [*custom

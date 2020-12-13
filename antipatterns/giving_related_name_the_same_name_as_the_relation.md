@@ -17,7 +17,7 @@ class Post(models.Model):
         <b>related_name='author'</b>
     )</code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 There is often some confusion about the
 [**<code>related_name=&hellip;</code>** parameter [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.ForeignKey.related_name).

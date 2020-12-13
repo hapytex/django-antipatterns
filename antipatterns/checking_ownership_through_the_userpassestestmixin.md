@@ -17,7 +17,7 @@ class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         return <b>self.get_object().author == self.request.user</b></code></pre>
 
-# Why it is a problem?
+# Why is it a problem?
 
 It is not very efficient, because now the `self.get_object()` call will be done
 *twice*. Indeed, once for the `test_func`, and one in the
