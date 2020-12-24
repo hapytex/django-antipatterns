@@ -31,7 +31,7 @@ If one makes use of the [**`freezegun`**
 `datetime.now` directly will not work. Indeed, if we first define a reference to
 `now()`, then freezing the time will not have impact:
 
-```
+```pycon
 >>> from datetime import datetime
 >>> from freezegun import freeze_time
 >>> nw = datetime.now

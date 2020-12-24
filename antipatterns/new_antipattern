@@ -11,7 +11,9 @@ name=$(echo "$@")
 # https://gist.github.com/oneohthree/f528c7ae1e701ad990e6
 file=$(iconv -t ascii//TRANSLIT <<<$name | sed -r 's/[^a-zA-Z0-9]+/_/g' | sed -r 's/^-+\|-+$//g' | tr A-Z a-z)
 
-printf "$(< 'template.md.tmp')" "$name" > "$file.md"
+if [ ! -f "$file" ]; then
+  printf "$(< 'template.md.tmp')" "$name" > "$file.md"
+fi
 
 editor "$file.md"
 

@@ -21,7 +21,7 @@ and the [**`verbose_name_plural`** [Django-doc]](https://docs.djangoproject.com/
 are automatically defined if you do not specify these. That thus means that if we inspect
 the `verbose_name_plural`, we see:
 
-```
+```pycon
 >>> Cars._meta.verbose_name_plural
 'carss'
 ```
