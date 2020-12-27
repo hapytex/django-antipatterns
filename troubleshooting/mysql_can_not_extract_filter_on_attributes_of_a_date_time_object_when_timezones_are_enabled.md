@@ -25,7 +25,7 @@ MySQL often comes with a script that can generate the SQL queries necessary
 based on the timezone files. Often these files are stored in the
 `/usr/share/zoneinfo` directory, so we can generate the queries with:
 
-```
+```bash
 time_zone_transition /usr/share/zoneinfo
 ```
 
