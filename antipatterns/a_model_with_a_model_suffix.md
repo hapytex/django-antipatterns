@@ -6,7 +6,7 @@ severity: 1
 Often people use a <code>&hellip;Model</code> suffix for their model, for
 example:
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class <b>CarModel</b>(models.Model):
     # &hellip;
@@ -37,7 +37,7 @@ This thus means that Django will ask questions in the model admin like:
 Remove the <code>&hellip;Model</code> suffix. Django models are not supposed to
 have a <code>&hellip;Model</code> suffix, so:
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class <b>Car</b>(models.Model):
     # &hellip;

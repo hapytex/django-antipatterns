@@ -7,7 +7,7 @@ Often people find out that you can not return a *list* as outer item in a
 [**`JsonResponse`** [Django-doc]](https://docs.djangoproject.com/en/3.1/ref/request-response/#jsonresponse-objects)
 and decide to use `safe=False` to still allow this. This thus looks like:
 
-<pre><code>from django.http import JsonResponse
+<pre class="python"><code>from django.http import JsonResponse
 
 # &hellip;
 return JsonResponse([1,4,2,5]<b>, safe=False</b>)</code></pre>
@@ -29,7 +29,7 @@ Therefore it might be better to still return safe responses.
 You can wrap the data in an extra dictionary. For example a dictionary where you
 have a key `"data"` that then maps to the list:
 
-<pre><code>from django.http import JsonResponse
+<pre class="python"><code>from django.http import JsonResponse
 
 # &hellip;
 return JsonResponse(<b>{'data':</b> [1,4,2,5]<b>}</b>)</code></pre>

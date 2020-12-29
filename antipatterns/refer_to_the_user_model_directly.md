@@ -7,7 +7,7 @@ We often need to link data to the user model used by Django, for example to stor
 the author of a `Post`. People often refer to the [**`User`** model [Django-doc]](https://docs.djangoproject.com/en/dev/ref/contrib/auth/#user-model)
 directly, for example with:
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 from django.contrib.auth.models import User
 
 class Post(models.Model):
@@ -39,7 +39,7 @@ corresponding model.
 We thus can thus let the `ForeignKey` reference the value of the
 `AUTH_USER_MODEL` setting:
 
-<pre><code>from django.conf import <b>settings</b>
+<pre class="python"><code>from django.conf import <b>settings</b>
 from django.db import models
 
 class Post(models.Model):

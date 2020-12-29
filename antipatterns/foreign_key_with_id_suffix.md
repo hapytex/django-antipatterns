@@ -6,7 +6,7 @@ severity: 1
 Often people add an `_id` suffix to the `ForeignKey`s or `OneToOneField`s in
 their models, for example:
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class MyModel(models.Model):
     other_model<b>_id</b> = models.ForeignKey(OtherModel, on_delete=models.CASCADE)</code></pre>
@@ -27,7 +27,7 @@ stores the primary key. This name is rather "*ugly*".
 
 Renaming the field without the `_id` suffix, so change it to:
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class MyModel(models.Model):
     <b>other_model</b> = models.ForeignKey(OtherModel, on_delete=models.CASCADE)</code></pre>

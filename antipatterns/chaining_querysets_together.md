@@ -7,7 +7,7 @@ We can chain querysets together with the [**<code>chain(&hellip;)</code>** funct
 of the [**`itertools`** package [python-doc]](https://docs.python.org/3/library/itertools.html#itertools.chain). For example if we have two `Post`s, we can chain
 the posts with a `publish_date` and then the ones where the `publish_date` is `NULL`:
 
-<pre><code>from itertools import chain
+<pre class="python"><code>from itertools import chain
 
 qs1 = Post.objects.filter(publish_date__isnull=False).order_by('publish_date')
 qs2 = Post.objects.filter(publish_date=None)
@@ -20,7 +20,7 @@ The main problem is that the result is *not* a `QuerySet`, but a `chain` object.
 This means that all methods offered by a `QuerySet` can no longer be used.
 Indeed, say that we want to filter the `Post`s with:
 
-<pre><code>result.filter(author=<i>some_author</i>)</code></pre>
+<pre class="python"><code>result.filter(author=<i>some_author</i>)</code></pre>
 
 then this will raise an error. Often such filtering is *not* done explicitly in
 the view, but for example by a `FilterSet` the developer wants to use.
@@ -49,18 +49,18 @@ expensive.
 Group the queries together into a single queryset. If the order is of no
 importance, we can make use of the `|` operator:
 
-<pre><code>result = qs1 <b>|</b> qs2</code></pre>
+<pre class="python"><code>result = qs1 <b>|</b> qs2</code></pre>
 
 if the order is of importance, we can make use of [**<code>.union(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#union):
 
-<pre><code>qs1.<b>union(</b>qs2<b>, all=True)</b></code></pre>
+<pre class="python"><code>qs1.<b>union(</b>qs2<b>, all=True)</b></code></pre>
 
 # Extra tips
 
 We can use <code>chain(&hellip;)</code> when we query for example different
 models like:
 
-<pre><code>from itertools import chain
+<pre class="python"><code>from itertools import chain
 
 qs1 = Post.objects.all()
 qs2 = Author.objects.all()

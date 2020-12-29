@@ -6,7 +6,7 @@ severity: 2
 Often people make use of `datetime.now` as a default value to specify a field
 that stores when a record was created, so something like:
 
-<pre><code>from datetime import datetime
+<pre class="python"><code>from datetime import datetime
 from django.db import models
 
 class Post(models.Model):
@@ -53,7 +53,7 @@ By setting this parameter to `True`, you automatically use the current timestamp
 when you construct the model object. We thus can construct a `DateTimeField`
 with `auto_now_add=True`:
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class Post(models.Model):
     created_at = models.DateTimeField(<b>auto_now_add=True</b>)</code></pre>

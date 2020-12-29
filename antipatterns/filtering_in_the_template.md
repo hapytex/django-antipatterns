@@ -6,7 +6,7 @@ severity: 3
 Instead of filtering data in the view, we can filter data in the template.
 For example with:
 
-<pre><code>{% for product in products %}
+<pre class="django"><code>{% for product in products %}
     {% if <b>product.is_active</b> %}
         {{ product.name }}
     {% endif %}
@@ -29,7 +29,7 @@ and could thus easily go into timeout if the number of products is large.
 
 One often filters on related models as well, for example:
 
-<pre><code>{% for product in products %}
+<pre class="django"><code>{% for product in products %}
     {% if <b>product.category.is_active</b> %}
         {{ product.name }}
     {% endif %}
@@ -48,7 +48,7 @@ database and the Django/Python layer.
 
 Instead of filtering the `products` in the template, we thus filter in the view:
 
-<pre><code>from django.shortcuts import render
+<pre class="python"><code>from django.shortcuts import render
 
 def my_view(request):
     # &hellip;
@@ -61,6 +61,6 @@ def my_view(request):
 
 then we can render the active products with:
 
-<pre><code>{% for product in products %}
+<pre class="django"><code>{% for product in products %}
     {{ product.name }}
 {% endfor %}</code></pre>

@@ -58,7 +58,7 @@ which again is less elegant compared to `car_set`.
 
 You give the class of the model a singular name, so `Car` instead of `Cars`:
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class <b>Car</b>(models.Model):
     name = models.CharField(max_length=128)

@@ -7,7 +7,7 @@ In a view, people often retrieve the object with the
 [**<code>.get(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#get)
 call, for example:
 
-<pre><code>def post_details(request, pk):
+<pre class="python"><code>def post_details(request, pk):
     mypost = Post.objects<b>.get(pk=pk)</b>
     # &hellip;</code></pre>
 
@@ -27,7 +27,7 @@ This function will raise a `Http404` exception in case the model object does not
 exists. This will then be handled by Django and eventually a HTTP 404 response
 will be returned:
 
-<pre><code>from django.shortcuts import <b>get_object_or_404</b>
+<pre class="python"><code>from django.shortcuts import <b>get_object_or_404</b>
 
 def post_details(request, pk):
     mypost = <b>get_object_or_404(</b>Post, pk=pk<b>)</b>

@@ -6,7 +6,7 @@ severity: 2
 Often one sees a pattern where one aims to update an instance wrapped in a
 `ModelForm` before creating a record in the database. A programmer often writes:
 
-<pre><code>form = MyFormClass(request.POST, request.FILES)
+<pre class="python"><code>form = MyFormClass(request.POST, request.FILES)
 if form.is_valid():
     object = form.save(<b>commit=False</b>)
     object.some_attribute = some_value
@@ -29,7 +29,7 @@ is to remove as much boilerplate code as possible.
 
 You alter the instance wrapped in the form *before* saving the form, so:
 
-<pre><code>form = MyFormClass(request.POST, request.FILES)
+<pre class="python"><code>form = MyFormClass(request.POST, request.FILES)
 if form.is_valid():
     form<b>.instance.some_attribute = some_value</b>
     form.save()</code></pre>

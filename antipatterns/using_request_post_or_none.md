@@ -5,7 +5,7 @@ severity: 2
 
 Often one initializes a form with:
 
-<pre><code>def someview(request):
+<pre class="python"><code>def someview(request):
     form = MyForm(request.POST or None)
     # &hellip;</code></pre>
 
@@ -28,7 +28,7 @@ an empty `QueryDict` for `request.POST` was a valid request.
 We can branch based on the request *method*, and use `request.POST` in case of a
 POST request:
 
-<pre><code>def someview(request):
+<pre class="python"><code>def someview(request):
     <b>if request.method == 'POST'</b>:
         form = MyForm(request.POST, request.FILES)
         # &hellip;

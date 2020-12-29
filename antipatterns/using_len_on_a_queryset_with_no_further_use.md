@@ -7,7 +7,7 @@ People sometimes calculate the number of records by using <code>len(&hellip;)</c
 For example, if we have a model where comments relate to a post, we can obtain
 the number of comments with:
 
-<pre><code>number_of_comments = <b>len(</b>Comment.objects.filter(post_id=<i>id_of_post</i>)<b>)</b></code></pre>
+<pre class="python"><code>number_of_comments = <b>len(</b>Comment.objects.filter(post_id=<i>id_of_post</i>)<b>)</b></code></pre>
 
 # Why is it a problem?
 
@@ -30,7 +30,7 @@ This will make a <code>COUNT(\*) FROM &hellip;</code> query such that
 the database will determine the number of records. We thus can transform query
 at the top to:
 
-<pre><code>number_of_comments = Comment.objects.filter(post_id=<i>id_of_post</i>)<b>.count()</b></code></pre>
+<pre class="python"><code>number_of_comments = Comment.objects.filter(post_id=<i>id_of_post</i>)<b>.count()</b></code></pre>
 
 This is always more efficient, *unless* we later *iterate* over the `QuerySet`.
 Indeed, if we would determine the number of comments and then iterate over it,
@@ -38,7 +38,7 @@ for example to print the comments, using <code>len(&hellip;)</code> is more
 efficient, because then we retrieve and count the number of records with the
 same query:
 
-<pre><code># we here iterate over the <i>same</i> queryset, so this is more
+<pre class="python"><code># we here iterate over the <i>same</i> queryset, so this is more
 # efficient.
 
 qs = Comment.objects.filter(post_id=<i>id_of_post</i>)

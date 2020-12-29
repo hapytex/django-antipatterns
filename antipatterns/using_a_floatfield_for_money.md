@@ -23,7 +23,7 @@ One can make use of a [**`DecimalField`** [Django-doc]](https://docs.djangoproje
 at the database often use a dedicated decimal type. These represent numbers as
 decimal numbers, and thus make, for decimal numbers, correct sums, etc.
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class Product(models.Model):
     price = models.<b>DecimalField(max_digits=12, decimal_places=2)</b></code></pre>

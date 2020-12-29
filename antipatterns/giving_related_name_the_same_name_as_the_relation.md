@@ -5,7 +5,7 @@ severity: 1
 
 Often one sees modeling with:
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class Profile(models.Model):
     pass
@@ -26,7 +26,7 @@ name of the relation to access the *related* `Post` objects for a given
 `Profile` object. Indeed, with the modeling above, we access the `Post` objects
 with:
 
-<pre><code># QuerySet of related <i>Post</i> objects
+<pre class="python"><code># QuerySet of related <i>Post</i> objects
 my_profile.<b>author</b>.all()</code></pre>
 
 But here the relation does not hint that it deals with `Post`s, one here would
@@ -48,7 +48,7 @@ more relations to the same model, because then the default
 Nevertheless, one should look how the source model relates to the target model,
 here these are the authored `Post`s, so we can rewrite this to:
 
-<pre><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class Profile(models.Model):
     pass
@@ -62,5 +62,5 @@ class Post(models.Model):
 
 Then we thus query with:
 
-<pre><code># QuerySet of related <i>Post</i> objects
+<pre class="python"><code># QuerySet of related <i>Post</i> objects
 my_profile.<b>authored_posts</b>.all()</code></pre>

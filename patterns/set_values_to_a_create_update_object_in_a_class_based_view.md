@@ -31,7 +31,7 @@ class CommentForm(forms.ModelForm):
 and the path to the view will have a primary key that specifies to what post we
 comment:
 
-<pre><code>from django.urls import path
+<pre class="python"><code>from django.urls import path
 from <i>app_name</i>.views import CreateCommentView
 
 urlpatterns = [
@@ -56,7 +56,7 @@ We override the [**<code>.form_valid(&hellip;)</code>** method [Django-doc]](htt
 of the view with the `FormMixin`, and there we can alter the `.instance` wrapped
 in the form, for example:
 
-<pre><code>from django.contrib.auth.mixins import LoginRequiredMixin
+<pre class="python"><code>from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView
 from <i>app_name</i>.forms import CommentForm
 
@@ -71,7 +71,7 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
 If we need the logic in multiple views, we can easily encapsulate this in a
 mixin, for example:
 
-<pre><code>from django.contrib.auth.mixins import LoginRequiredMixin
+<pre class="python"><code>from django.contrib.auth.mixins import LoginRequiredMixin
 
 class SetAuthorMixin(LoginRequiredMixin):
 
@@ -82,7 +82,7 @@ class SetAuthorMixin(LoginRequiredMixin):
 then the mixin can be used, for example in both views that create a `Post` and a
 `Comment`:
 
-<pre><code>from django.views.generic.edit import CreateView
+<pre class="python"><code>from django.views.generic.edit import CreateView
 from <i>app_name</i>.forms import CommentForm, PostForm
 
 class CommentCreateView(SetAuthorMixin, CreateView):

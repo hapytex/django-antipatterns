@@ -6,7 +6,7 @@ severity: 3
 Often in a view a *new* form is constructed when validating a bounded form
 fails, for example:
 
-<pre><code>from django.shortcuts import redirect, render
+<pre class="python"><code>from django.shortcuts import redirect, render
 
 def my_view(request):
     if request.method == 'POST':
@@ -33,7 +33,7 @@ another place if you manually render this).
 Omit constructing a new form. In case `form.is_valid()` returns `False`, just
 render *that* form, and not a new one, so the view can be modified to:
 
-<pre><code>from django.shortcuts import redirect, render
+<pre class="python"><code>from django.shortcuts import redirect, render
 
 def my_view(request):
     if request.method == 'POST':

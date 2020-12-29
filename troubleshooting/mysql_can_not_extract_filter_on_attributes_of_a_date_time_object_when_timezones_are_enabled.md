@@ -33,7 +33,7 @@ This of course does not changes the database itself. The queries need to be
 performed on the `mysql` database. We can do this manually or make use of a
 pipe and work with:
 
-<pre><code>time_zone_transition /usr/share/zoneinfo | mysql -u <i>root</i> -p mysql</code></pre>
+<pre class="bash"><code>time_zone_transition /usr/share/zoneinfo | mysql -u <i>root</i> -p mysql</code></pre>
 
 By entering the password of the *`root`* user (or another user that can alter
 the `mysql` database), we thus can update the tables to work with the (new) timezones.

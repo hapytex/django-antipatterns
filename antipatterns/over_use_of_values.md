@@ -5,7 +5,7 @@ severity: 2
 
 Often in views, one can find code that looks like:
 
-<pre><code>from django.shortcuts import render
+<pre class="python"><code>from django.shortcuts import render
 
 def some_view(request):
     my_objects = MyModel.objects<b>.values()</b>
@@ -35,7 +35,7 @@ make use of <code>.values(&hellip;)</code> for example to group by a certain
 value. But normally using `.values()` is not a good idea, one thus better
 creates a query that looks like: 
 
-<pre><code>from django.shortcuts import render
+<pre class="python"><code>from django.shortcuts import render
 
 def some_view(request):
     my_objects = MyModel.objects.all()

@@ -5,7 +5,7 @@ severity: 3
 
 A view sometimes renders content after a *successful* POST request, for example:
 
-<pre><code>from django.shortcuts import render
+<pre class="python"><code>from django.shortcuts import render
 
 def my_view(request):
     if request.method == 'POST':
@@ -35,7 +35,7 @@ no longer make a second POST request.
 
 The view thus then looks like:
 
-<pre><code>from django.shortcuts import redirect, render
+<pre class="python"><code>from django.shortcuts import redirect, render
 
 def my_view(request):
     if request.method == 'POST':

@@ -8,7 +8,7 @@ the `author`s of the blog are allowed to edit their `Post`s.
 
 One often checks this with a `UserPassesTestMixin`, which looks like:
 
-<pre><code>from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+<pre class="python"><code>from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Blog
@@ -30,7 +30,7 @@ fetch, this thus means we make *two* unnecessary queries.
 We can optimize this by dropping a query by using `.author_id` instead of
 `.author`:
 
-<pre><code>from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+<pre class="python"><code>from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Blog
@@ -48,7 +48,7 @@ using `self.get_object()`.
 We can filter the `QuerySet` to only retrieve objects where the user is the
 author:
 
-<pre><code>from django.contrib.auth.mixins import LoginRequiredMixin
+<pre class="python"><code>from django.contrib.auth.mixins import LoginRequiredMixin
 
 class BlogEditView(LoginRequiredMixin, UpdateView):
     model = Blog

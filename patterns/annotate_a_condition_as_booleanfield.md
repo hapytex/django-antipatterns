@@ -14,7 +14,7 @@ objects, or to order for example.
 One can wrap the `Q` object in a `ExpressionWrapper` and specify the
 `BooleanField` as <code>output_field=&hellip;</code>, for example:
 
-<pre><code>from django.db.models import BooleanField, ExpressionWrapper, Q
+<pre class="python"><code>from django.db.models import BooleanField, ExpressionWrapper, Q
 
 MyModel.objects.annotate(
     my_condition=<b>ExpressionWrapper(</b>

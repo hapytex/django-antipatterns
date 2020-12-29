@@ -4,7 +4,7 @@ severity: 4
 ---
 Often people construct views that have side, effects, for example:
 
-<pre><code>def remove_comment(request, comment_pk):
+<pre class="python"><code>def remove_comment(request, comment_pk):
     Comment.objects.<b>filter(</b>
         comment_id=comment_pk
     )<b>.delete()</b>
@@ -41,7 +41,7 @@ are the HTTP methods designed for this. One can use for example the
 to restrict a view to certain HTTP methods. This will return a [HTTP 405 "*Method Not Allowed*" response [wiki]](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_client_errors)
 to warn the client that this request was not allowed:
 
-<pre><code>from django.views.decorators.http import <b>require_http_methods</b>
+<pre class="python"><code>from django.views.decorators.http import <b>require_http_methods</b>
 
 <b>@require_http_methods(['POST'])</b>
 def remove_comment(request, comment_pk):
