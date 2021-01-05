@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sep=$(echo -e ". \n")
 
 function make_toc() {

@@ -7,8 +7,6 @@ cache:
   - "$HOME/.stack"
 before_install:
 - sudo apt-get update
-# - wget 'https://github.com/jgm/pandoc/releases/download/2.11.2/pandoc-2.11.2-1-amd64.deb'
-# - sudo dpkg -i "pandoc-2.11.2-1-amd64.deb"
 - sudo apt-get install pandoc php php-curl
 install:
 - make
@@ -25,4 +23,4 @@ deploy:
     branch: master
 env:
   global:
-  - secure: CAepp1SAVbleZFOdGlFyMZGCWc7ZLiXjwtUGmsmrJ0F6X6r0lLlITXR0weaYrvYviV6wvKZGxUqhz1mfdw3Fwbq8Ht/CK9WWeT5rGWRJ371bQRUNag1uvcJgdTsEO5yOaDVfAKXNONBKbn5WeKgHMpVdXklMX6JSjSgBGCXGafy3QdXlj2LYxE/jUKs/Nx2mYG5GgHF+vIyuMCaL4jEtdIxAr8QQpBgLSWbgBVTrUhoItD6cqqkmzz0MU/K3Gy/pw6lLU8TEDdwdhfJdvb3ShgP1WMJ8EjnCKSieOPJp6RoUJBgDwAUpLAlIIbdy7muoCEj9HBGrYcL1rhabwoY269byAxInh1td/nkdRRM3zNPHJgIplaajIkOZZJiluoaU9Zyyp8Qm2eCi4aEfQjRHQK+WQu5Xv/L8c2CsQlzfGrw1fdv1PDD/JaMw478wxKi+C+xaXjlDvoeUtJx3gnudTK6hA++XTMAbsCRil35Jqyj9NHVE8YMyySWqHubOQ9RBwcLZogPrRzsJouF+uqO+aR6Ohkp1TduJ71R4Ysj7J3+osqc/2+hQYSgTpPiEiWPcXSwMq/4MyoCgsM8sKA0OENOJVhs3BSeHtxCAKHDD9GVqgEKckndBG7TnncPynfMdzyc+zoTS0XXVMpr0bz5lS54NhcOrXHfOIhx6CgacyE4=
+  - secure: lDDTCu13Kvdoun28EYqUUlgJqBQ/mgKC8/Zf3H3ESPznQXJESaYMA3EmQPYcHOzYk13oZuGZDwudA65Y97FgBxP4NXBLD0u/sveQV/a2uB48TgPfkGCZ5B1WsEwvZcbQdKAHyM4DO7QUF6KGrEbNCohhiA5HU2slch7deCqvp1SXERMcpYpMvEm0CqVxC5CGmt3G3Jg2ovttL+QwBgdxxmdKBE7diNEJxKIH5mBZtzG6QwerujXunkiS3SVP+4bNDXjtBxHtZAX4RDF7uhruX6WVdw32LoJ3mI16Lqo4DiMusv04hO+3tpaxzBd+BIiscRvwIMwsj+dpNkCIQDfRrHO345AP+QmjkA2hKwB+ENtvqo/ei0y9wO+R4Li+obA+zimtiauslNFMXMScvXhYTmxhvDZOn5OblbfWNlPeL2igpOarCdwWTZTP+JqI4KenxO6veTAgHJAsCUq9NE0Dr/riPE+JndkxBqCMqhnq9zOvMpF3h5pK/efFHWDed5uUsumvhUtR5xCXGHb5g2qJFABmgAJXmNKPbjAI0F8WSfms1854BMWFNfw0MHzVMCX5rbCka2vm2BVy5NkA+bVg2hwHXStfzeVDw4wwOCuyVt3XmH/Zk60Fi0i4PCzvr0Zs0WZCPw6DVRuB1qemjLugUwOQ9TWKvBXfPRzew4/8qLs=
