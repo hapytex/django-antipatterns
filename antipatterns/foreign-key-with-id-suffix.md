@@ -1,6 +1,7 @@
 % Foreign key with `_id` suffix
 ---
 severity: 1
+type: antipattern
 ---
 
 Often people add an `_id` suffix to the `ForeignKey`s or `OneToOneField`s in

@@ -1,6 +1,7 @@
 % Filtering in the template
 ---
 severity: 3
+type: antipattern
 ---
 
 Instead of filtering data in the view, we can filter data in the template.

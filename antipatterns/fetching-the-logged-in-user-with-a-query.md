@@ -1,6 +1,7 @@
 % Fetching the logged in user with a query
 ---
 severity: 2
+type: antipattern
 ---
 
 If we use Django's [**`AuthenticationMiddleware`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/middleware/#module-django.contrib.auth.middleware),

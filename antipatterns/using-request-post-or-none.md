@@ -1,6 +1,7 @@
 % Using `request.POST or None`
 ---
 severity: 2
+type: antipattern
 ---
 
 Often one initializes a form with:

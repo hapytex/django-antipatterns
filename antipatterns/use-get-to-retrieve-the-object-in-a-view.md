@@ -1,6 +1,7 @@
 % Use <code>.get(&hellip;)</code> to retrieve the object in a view
 ---
 severity: 2
+type: antipattern
 ---
 
 In a view, people often retrieve the object with the

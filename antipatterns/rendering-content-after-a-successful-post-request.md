@@ -1,6 +1,7 @@
 % Rendering content after a successful POST request
 ---
 severity: 3
+type: antipattern
 ---
 
 A view sometimes renders content after a *successful* POST request, for example:

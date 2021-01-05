@@ -1,6 +1,7 @@
 % Using <code>len(&hellip;)</code> on a `QuerySet` with no further use
 ---
 severity: 3
+type: antipattern
 ---
 
 People sometimes calculate the number of records by using <code>len(&hellip;)</code>.

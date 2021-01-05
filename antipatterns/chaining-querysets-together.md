@@ -1,6 +1,7 @@
 % `Chain`ing querysets together
 ---
 severity: 3
+type: antipattern
 ---
 
 We can chain querysets together with the [**<code>chain(&hellip;)</code>** function [python-doc]](https://docs.python.org/3/library/itertools.html#itertools.chain)

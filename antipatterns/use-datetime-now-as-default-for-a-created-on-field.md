@@ -1,6 +1,7 @@
 % Use `datetime.now` as <code>default=&hellip;</code> for a `created_on` field
 ---
 severity: 2
+type: antipattern
 ---
 
 Often people make use of `datetime.now` as a default value to specify a field

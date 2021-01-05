@@ -1,6 +1,7 @@
 % Checking ownership through the `UserPassesTestMixin`
 ---
 severity: 2
+type: antipattern
 ---
 
 In a view we often want to restrict access to edit an object, for example only

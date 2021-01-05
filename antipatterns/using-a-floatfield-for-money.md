@@ -1,6 +1,7 @@
 % Using a `FloatField` for money
 ---
 severity: 2
+type: antipattern
 ---
 
 Often for quantities that require *precise* calculations, a [**`FloatField`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#floatfield)

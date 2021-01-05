@@ -1,6 +1,7 @@
 % Plural model class names
 ---
 severity: 1
+type: antipattern
 ---
 
 Often people write model classes with a plural name. For example:

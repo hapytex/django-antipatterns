@@ -1,6 +1,7 @@
 % A model with a <code>&hellip;Model</code> suffix
 ---
 severity: 1
+type: antipattern
 ---
 
 Often people use a <code>&hellip;Model</code> suffix for their model, for

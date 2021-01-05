@@ -1,6 +1,7 @@
 % (Over)use of `.values()`
 ---
 severity: 2
+type: antipattern
 ---
 
 Often in views, one can find code that looks like:

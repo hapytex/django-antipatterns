@@ -1,6 +1,7 @@
 % Return a `JsonResponse` with `safe=False`
 ---
 severity: 3
+type: antipattern
 ---
 
 Often people find out that you can not return a *list* as outer item in a

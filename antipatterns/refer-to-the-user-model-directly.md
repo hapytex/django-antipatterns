@@ -1,6 +1,7 @@
 % Refer to the `User` model directly
 ---
 severity: 2
+type: antipattern
 ---
 
 We often need to link data to the user model used by Django, for example to store

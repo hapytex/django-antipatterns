@@ -1,6 +1,7 @@
 % Using `commit=False` when altering the instance in a `ModelForm`
 ---
 severity: 2
+type: antipattern
 ---
 
 Often one sees a pattern where one aims to update an instance wrapped in a

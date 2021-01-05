@@ -1,6 +1,7 @@
 % A GET request with side-effects
 ---
 severity: 4
+type: antipattern
 ---
 Often people construct views that have side, effects, for example:
 
