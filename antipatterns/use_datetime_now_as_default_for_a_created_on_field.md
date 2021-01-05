@@ -1,4 +1,4 @@
-% Use `datetime.now` as <code>default=&hellip;</code> for a `created_at` field
+% Use `datetime.now` as <code>default=&hellip;</code> for a `created_on` field
 ---
 severity: 2
 ---
