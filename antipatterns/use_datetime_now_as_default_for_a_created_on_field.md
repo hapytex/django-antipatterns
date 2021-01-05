@@ -10,13 +10,13 @@ that stores when a record was created, so something like:
 from django.db import models
 
 class Post(models.Model):
-    created_at = models.DateTimeField(<b>default=datetime.now</b>)</code></pre>
+    created_on = models.DateTimeField(<b>default=datetime.now</b>)</code></pre>
 
 # Why is it a problem?
 
 A field is by default editable and not optional. This thus means that if you
 construct a `ModelForm` with `fields = '__all__'`, then this will incude the
-`created_at` in the form. Normally we do not want to include this. While it is
+`created_on` in the form. Normally we do not want to include this. While it is
 of course possible to create a `DateTimeField` with `blank=True` and
 `editable=False`, but if later additional features arise, one needs to specify
 more attributes.
@@ -56,7 +56,7 @@ with `auto_now_add=True`:
 <pre class="python"><code>from django.db import models
 
 class Post(models.Model):
-    created_at = models.DateTimeField(<b>auto_now_add=True</b>)</code></pre>
+    created_on = models.DateTimeField(<b>auto_now_add=True</b>)</code></pre>
 
 # Extra tips
 
