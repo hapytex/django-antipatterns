@@ -1,5 +1,7 @@
 % Set values to a create/update object in a class-based view
-
+---
+type: pattern
+---
 Often not all fields specified in a model are specified through a form.
 These for example originate for example through the path, or we make use of the
 logged in user. Take for example the following model:

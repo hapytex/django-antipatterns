@@ -1,5 +1,7 @@
 % MySQL can not extract/filter on attributes of a `date(time)` object when timezones are enabled
-
+---
+type: pattern
+---
 When using MySQL and we set the [**`USE_TZ`** setting [Django-doc]](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-USE_TZ) to `True`,
 it can happen that certain (date)time-related queries no longer work.
 

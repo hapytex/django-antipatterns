@@ -62,7 +62,7 @@ $endfor$
 $if(date-meta)$
   <meta name="date" content="$date-meta$" />
 $endif$
-  <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$ - Django antipatterns</title>
+  <title>Django antipatterns$if(type)$ &#x3009; $type$$endif$ &#x3009;$pagetitle$</title>
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
 $endif$
