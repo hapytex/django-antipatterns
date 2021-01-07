@@ -11,5 +11,4 @@ The rendered version of the (anti)patterns can be found at at [django-antipatter
 
 ---
 
-You can contribute by writing an anti-pattern yourself and making a pull request
-to add it to this repository.
+You can contribute by writing an anti-pattern yourself by [raising an issue](https://github.com/hapytex/django-antipatterns/issues/new?assignees=&labels=&template=antipattern.md&title=%5BAntipattern%5D).

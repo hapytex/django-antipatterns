@@ -1,5 +1,6 @@
 %% %s
 ---
+type: antipattern
 severity: ???
 tags: []
 layers: models/views/forms/serializers/templates/...
