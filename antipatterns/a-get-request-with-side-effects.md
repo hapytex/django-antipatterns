@@ -27,7 +27,7 @@ a POST request.
 
 Search engines have web crawlers that look for URLs on pages, and will make GET
 requests to these pages to analyze the page that is returned and look for more
-URLs. This thus means that a GET request of such crawler might accidently
+URLs. This thus means that a GET request of such crawler might accidentally
 create, remove and update entities.
 
 Django also does not offer security mechanisms like a CSRF-token for GET

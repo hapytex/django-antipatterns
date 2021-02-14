@@ -1,4 +1,4 @@
-% Set values to a create/update object in a class-based view
+% Set values to a created/updated object in a class-based view
 ---
 type: pattern
 ---
