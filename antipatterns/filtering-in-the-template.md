@@ -44,7 +44,7 @@ problem.
 One should filter in the *view*. Django's ORM makes filtering easier and more
 efficient. the filtering is done at the *database side*, and a database is
 designed to do this efficient. It will not generate *N+1* problems if you filter
-on related objects, and furtermore it will reduce the bandwidth between the
+on related objects, and furthermore it will reduce the bandwidth between the
 database and the Django/Python layer.
 
 Instead of filtering the `products` in the template, we thus filter in the view:

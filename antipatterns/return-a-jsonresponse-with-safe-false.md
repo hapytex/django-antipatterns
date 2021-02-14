@@ -19,7 +19,7 @@ As the parameter already indicates, it is unsafe. *Phil Haack* published a [blog
 post in
 2008](https://haacked.com/archive/2008/11/20/anatomy-of-a-subtle-json-vulnerability.aspx/)
 where he manages to exploit the contain of an array by overriding the `Array`
-function in Javascript.
+function in JavaScript.
 
 Most browsers have fixed this exploit, but nevertheless, you never can be sure
 that the browser of the client has been protected against this exploit.

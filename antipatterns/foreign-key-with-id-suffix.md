@@ -33,7 +33,7 @@ Renaming the field without the `_id` suffix, so change it to:
 class MyModel(models.Model):
     <b>other_model</b> = models.ForeignKey(OtherModel, on_delete=models.CASCADE)</code></pre>
 
-You will need to run `makemigrations` to rename the field. The django
+You will need to run `makemigrations` to rename the field. The Django
 makemigrations tool will likely detect that you renamed the field and ask:
 
 > `Did you rename mymodel.other_model_id to activity.other_model (a ForeignKey)? [y/N]`

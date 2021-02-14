@@ -29,10 +29,10 @@ the `verbose_name_plural`, we see:
 
 Django uses this name for example in the admin page. Some Django packages also
 use the `.verbose_name` and `.verbose_name_plural` information to show dialogs
-in forms, templates, etc. This will result in gramatically incorrect phrases,
+in forms, templates, etc. This will result in grammatically incorrect phrases,
 and incorrect plural nouns.
 
-It also makes queries look gramatically incorrect English, for example,
+It also makes queries look grammatically incorrect English, for example,
 one queries with:
 
 ```python3

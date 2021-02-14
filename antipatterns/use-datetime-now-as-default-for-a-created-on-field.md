@@ -16,7 +16,7 @@ class Post(models.Model):
 # Why is it a problem?
 
 A field is by default editable and not optional. This thus means that if you
-construct a `ModelForm` with `fields = '__all__'`, then this will incude the
+construct a `ModelForm` with `fields = '__all__'`, then this will include the
 `created_on` in the form. Normally we do not want to include this. While it is
 of course possible to create a `DateTimeField` with `blank=True` and
 `editable=False`, but if later additional features arise, one needs to specify
