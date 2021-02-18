@@ -104,6 +104,16 @@ mistake: if the mistake is only made in one mixin, it is easy to fix the problem
 for all views with that logic, instead of searching for all views that
 implemented (variants) of that logic.
 
+For the Django admin, we can override the
+[**<code>.save_model</code>** method [Django-doc]](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_model):
+
+<pre class="python"><code>from django.contrib import admin
+
+class MyModelAdmin(admin.ModelAdmin):
+    def save_model(self, request, obj, form, change):
+        obj<b>.author = request.user</b>
+        super().save_model(request, obj, form, change)</code></pre>
+
 # Extra tips
 
 For `DateTimeField`s and `DateField`s we can make use of the
