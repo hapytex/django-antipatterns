@@ -11,7 +11,7 @@ there is no logged in user for that request.
 
 Often people make queries to obtain the user object, for example with:
 
-<pre><code class="python">from django.contrib.auth.models import User
+<pre class="python"><code>from django.contrib.auth.models import User
 
 def my_view(request):
     user = User.objects.get(<b>username=request.user</b>)
@@ -40,7 +40,7 @@ This is an object of the actively used user model, so Django's `User` model by
 default. It means we do not have to worry about the user model, or how it is
 linked to the session.
 
-<pre><code class="python">def my_view(request):
+<pre class="python"><code>def my_view(request):
     user = <b>request.user</b>
     # &hellip;</code></pre>
 
@@ -52,7 +52,7 @@ the reasons explained above. In that case we can use the
 [**<code>.refresh_from_db(&hellip;)</code>** method [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/instances/#django.db.models.Model.refresh_from_db)
 to refresh the data in the `request.user` object with values from the database:
 
-<pre><code class="python">def my_view(request):
+<pre class="python"><code>def my_view(request):
     user = request.user
     # &hellip;
     # we want to retrieve the (updated) values from the database

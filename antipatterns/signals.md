@@ -5,11 +5,10 @@ type: antipattern
 ---
 
 Django has a sophisticated system to trigger certain logic when
-you save, delete, change many-to-many relations, etc.
-
-Very often people make use of such signals and for some edge-cases
-these are indeed the only effective solution, but there are only a
-few cases where using signals is appropriate.
+you save, delete, change many-to-many relations, etc. Very often
+people make use of such signals and for some edge-cases these are
+indeed the only effective solution, but there are only a few cases
+where using signals is appropriate.
 
 # Why is it a problem?
 
@@ -39,7 +38,7 @@ the corresponding signals, then this results in an inconsistent value. Signals
 thus give a *false sense of security* that the handler will indeed update the
 object accordingly.
 
-## Signals can raise exceptions and break the codeflow
+## Signals can raise exceptions and break the code flow
 
 If the signals run, for example when we call `.save()` on a model object, then
 the triggers *will* run. Contrary to popular belief, signals do *not* run asynchronous,
@@ -59,7 +58,7 @@ the object, since the handlers might already have changed the object partially.
 It is also rather easy to get stuck in an infinite loop with signals. If we for example have a model of a
 `Profile` with a signal that will remove the `User` if we remove the `Profile`:
 
-<pre><code>from django.db import models
+<pre class="python3"><code>from django.db import models
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 
@@ -91,7 +90,7 @@ the many-to-many relation. If we for example have two models `Author` and `Book`
 relation, and we want to use a signal that counts the number of books an `Author` has written, then the
 following signal will not work when we create an `Author`, and the form also to specify the books:
 
-<pre><code>from django.db.models.signals import pre_save
+<pre class="python"><code>from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
 @receiver(pre_save, sender=Author)
@@ -127,7 +126,7 @@ a field, but use [**<code>.annotate(&hellip;)</code>** [Django-doc]](https://doc
 to each time annotate the `Author`s with the number of `Book`s they have written. We thus can make a query
 that looks like:
 
-<pre><code>from django.db.models import <b>Count</b>
+<pre class="python3"><code>from django.db.models import <b>Count</b>
 
 Author.objects.annotate(
     <b>num_books=Count('books')</b>
@@ -137,9 +136,22 @@ Often if the number of `Book`s is not that large, this will still scale quite we
 another program removed a book, or a view was triggered that somehow circumvented the update logic, it will
 still work with the correct amount of books.
 
+Here of course we each time recalculate the number of `Book`s per `Author` when we query. If the number of `Book`s
+and `Author`s grows, then this can become a performance bottleneck.
+
 ## Encapsulating update logic in the view/form and ModelAdmin
 
-???
+Another option might be to encapsulate the handler logic in a specific function. For example if we want to count the number of
+books of an `Author` each time we save/update a `Book`, we can implement the logic:
+
+```python3
+def update_book(book):
+    author = book.author
+    author.num_books = author.books.count()
+    author.save()
+```
+
+and then 
 
 ## Periodically update data
 
