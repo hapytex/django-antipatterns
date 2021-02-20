@@ -1,4 +1,4 @@
-% MySQL can not extract/filter on attributes of a `date(time)` object when timezones are enabled
+% MySQL can not extract/filter on attributes of a `date(time)` object when time zones are enabled
 ---
 type: troubleshooting
 ---
@@ -18,7 +18,7 @@ it can happen that certain (date)time-related queries no longer work.
 # What is a *possible* fix?
 
 This often means that the MySQL database has not enough information about the
-timezones to do the extraction. Normally it stores data about timezones in the
+time zones to do the extraction. Normally it stores data about time zones in the
 `time_zone`, `time_zone_name`, `time_zone_transition` and
 `time_zone_transition_table` of the `mysql` database, a database that is used to
 alter the settings of the database manager.
@@ -38,4 +38,4 @@ pipe and work with:
 <pre class="bash"><code>time_zone_transition /usr/share/zoneinfo | mysql -u <i>root</i> -p mysql</code></pre>
 
 By entering the password of the *`root`* user (or another user that can alter
-the `mysql` database), we thus can update the tables to work with the (new) timezones.
+the `mysql` database), we thus can update the tables to work with the (new) time zones.

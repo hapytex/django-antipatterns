@@ -3,7 +3,7 @@
 type: pattern
 ---
 One sometimes does not want to filter on a condition, but use a condition as a
-boolean field.
+Boolean field.
 
 # What problems are solved with this?
 

@@ -35,7 +35,9 @@ with:
 Often people assume that signals *will* run in that case, and for example
 perform calculations with the signals: they recalculate a certain field, based
 on the updated values. Since one can update a field *without* triggering the
-the corresponding signals, then this results in an inconsistent value.
+the corresponding signals, then this results in an inconsistent value. Signals
+thus give a *false sense of security* that the handler will indeed update the
+object accordingly.
 
 ## Signals can raise exceptions and break the codeflow
 
@@ -85,8 +87,19 @@ The `pre_save` and `post_save` signals of an object run immediately before and a
 is saved to the database. If we have a model with a `ManyToManyField`, then when we create that
 object and the signals run, the `ManyToManyField` is *not* yet populated. This is because a `ModelForm`
 first needs to create the object, before that object has a primary key and thus can start populating
-the many-to-many relation. Every now and then people realize this when they want to run aggregates
-on the many-to-many relation(s).
+the many-to-many relation. If we for example have two models `Author` and `Book` with a many-to-many
+relation, and we want to use a signal that counts the number of books an `Author` has written, then the
+following signal will not work when we create an `Author`, and the form also to specify the books:
+
+<pre><code>from django.db.models.signals import pre_save
+from django.dispatch import receiver
+
+@receiver(pre_save, sender=Author)
+def save_author(sender, instance, created, raw, using, update_fields):
+    instance.num_books = instance.books.count()</code></pre>
+
+Regardless whether we use a `pre_save` or `post_save` signal, at that moment in time `instance.books.all()`
+is an empty queryset.
 
 ## Signals make altering objects less predictable
 
@@ -106,6 +119,29 @@ in Django to other programs that interact with the same database.
 # What can be done to resolve the problem?
 
 Often it is better to avoid using signals. One can implement a lot of logic *without* signals.
+
+## Calculating properties on-demand
+
+The most robust way to count the number of `Book`s of an `Author` is *not* to store the number of books in
+a field, but use [**<code>.annotate(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#annotate)
+to each time annotate the `Author`s with the number of `Book`s they have written. We thus can make a query
+that looks like:
+
+<pre><code>from django.db.models import <b>Count</b>
+
+Author.objects.annotate(
+    <b>num_books=Count('books')</b>
+)</code></pre>
+
+Often if the number of `Book`s is not that large, this will still scale quite well. It is more robust: if somehow
+another program removed a book, or a view was triggered that somehow circumvented the update logic, it will
+still work with the correct amount of books.
+
+## Encapsulating update logic in the view/form and ModelAdmin
+
+???
+
+## Periodically update data
 
 
 # Extra tips

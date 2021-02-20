@@ -19,7 +19,7 @@ class Comment(models.Model):
 
 The form will normally only take the `comment` as field, not the `post` and
 `author`. We can for example specify the primary key of the post in the path,
-and the autor is normally the logged in user. The form thus looks like:
+and the author is normally the logged in user. The form thus looks like:
 
 ```python3
 from django import forms
@@ -43,7 +43,7 @@ urlpatterns = [
 # What problems are solved with this?
 
 A class-based view is powerful, but it is often not entirely clear where to
-add certain logic to alter the codeflow slightly. Often people will alter the
+add certain logic to alter the code flow slightly. Often people will alter the
 entire <code>.post(&hellip;)</code> method. This destroys most of the
 boilerplate code in the view. This does not only mean the user needs to define
 a long view, but it is also likely that the user will not think about everything
