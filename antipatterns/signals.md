@@ -58,7 +58,7 @@ the object, since the handlers might already have changed the object partially.
 It is also rather easy to get stuck in an infinite loop with signals. If we for example have a model of a
 `Profile` with a signal that will remove the `User` if we remove the `Profile`:
 
-<pre class="python3"><code>from django.db import models
+<pre class="python"><code>from django.db import models
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 
@@ -151,7 +151,22 @@ def update_book(book):
     author.save()
 ```
 
-and then 
+and then we can call this function in the views where we create/update the book. For example:
+
+<pre class="python"><code>def my_view(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            book = form.save()
+            <b>update_book(</b>book<b>)</b>
+            # &hellip;
+        # &hellip;
+    # &hellip;</code></pre>
+
+we can also construct a mixin that we can use in class-based views and the `ModelAdmin`:
+
+```
+```
 
 ## Periodically update data
 
