@@ -20,3 +20,6 @@ out_/%.ico : media/%.ico
 
 out_/%:
 	mkdir -p "$@"
+
+hunspell:antipatterns/*.md patterns/*.md troubleshooting/*.md
+	hunspell -H "$<"
