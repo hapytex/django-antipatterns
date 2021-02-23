@@ -12,7 +12,7 @@ install:
 - make
 before_script: []
 script:
-- "! grep -P '<pre\s*>' */*.md"
+- "! grep -P '<pre\\s*>' */*.md"
 after_script: []
 deploy:
 - provider: pages
