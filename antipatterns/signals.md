@@ -165,13 +165,22 @@ and then we can call this function in the views where we create/update the book.
 
 we can also construct a mixin that we can use in class-based views and the `ModelAdmin`:
 
-```
+```python3
+from django.contrib import admin
+
+class MyModelAdmin(admin.ModelAdmin):
+    
+    def save_model(self, request, obj, form, change):
+        <b>update_book(</b>obj<b>)</b>
+        super().save_model(request, obj, form, change)
 ```
 
 ## Periodically update data
 
 
+## Use `m2m_change` signals
+
 # Extra tips
 
-Signals can however still be a good solution if you want to handle events raised by a *third party* Django application.
-In many cases, this is the only effective way to handle such 
+Signals can still be a good solution if you want to handle events raised by a *third party* Django application.
+In many cases, this is the only effective way to handle certain events. For example the `auth`
