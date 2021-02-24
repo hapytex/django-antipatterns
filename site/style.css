@@ -1,3 +1,18 @@
+.columns {
+  -moz-column-width: 30.5em; /* Firefox */
+  -webkit-column-width: 30.5em; /* webkit, Safari, Chrome */
+  column-width: 30.5em;
+}
+
+.columns ul {
+  margin: 0;
+  padding: 0;
+}
+/* correct webkit/chrome uneven margin on the first column*/
+.columns ul li:first-child {
+    margin-top:0px;
+}
+
 code {
   white-space: pre;
 }
