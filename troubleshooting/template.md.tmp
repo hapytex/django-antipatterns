@@ -1,4 +1,9 @@
 %% %s
+---
+type: troubleshooting
+tags: []
+layers: models/views/forms/serializers/templates/...
+---
 
 # What are the *symptoms*?
 
