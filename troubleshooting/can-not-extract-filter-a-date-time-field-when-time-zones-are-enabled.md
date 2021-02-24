@@ -1,4 +1,4 @@
-% MySQL can not extract/filter on attributes of a `date(time)` object when time zones are enabled
+% Can not extract/filter a `Date(Time)Field` when time zones are enabled
 ---
 type: troubleshooting
 ---
