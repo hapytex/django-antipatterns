@@ -11,14 +11,14 @@ function make_toc() {
 
 echo -e "% Django (anti)patterns\n"
 
-echo -e "# Antipatterns\n"
+echo -e '<h1 class="patterntype">Antipatterns</h1>\n'
 
 make_toc antipatterns
 
-echo -e "\n\n# Patterns\n"
+echo -e '\n\n<h1 class="patterntype">Patterns</h1>\n'
 
 make_toc patterns
 
-echo -e "\n\n# Troubleshooting\n"
+echo -e '\n\n<h1 class="patterntype">Troubleshooting</h1>\n'
 
 make_toc troubleshooting
