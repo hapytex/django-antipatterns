@@ -8,7 +8,7 @@ outjss = $(jss:site/%=out_/%)
 outcsss = $(csss:site/%=out_/%)
 
 
-all: out_ $(outjss) $(outcsss) out_/antipatterns out_/patterns out_/troubleshooting $(outhtml) out_/index.html out_/favicon.ico out_/sitemap.xml
+all: out_ out_/CNAME $(outjss) $(outcsss) out_/antipatterns out_/patterns out_/troubleshooting $(outhtml) out_/index.html out_/favicon.ico out_/sitemap.xml
 
 out_ :
 	mkdir -p out_
@@ -32,6 +32,9 @@ out_/%.html: %.md Makefile templates/easy_template.html
 
 out_/%.ico : media/%.ico
 	ln "$<" "$@"
+
+out_/CNAME: site/CNAME
+	ln -f site/CNAME out_/CNAME
 
 out_/%:
 	mkdir -p "$@"
