@@ -16,6 +16,25 @@
 .columns ol li {
 }
 
+h1.patterntype {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #092e20;
+}
+h1.patterntype:before, h1.patterntype:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+h1.patterntype:after {
+    margin: 0 0 0 20px;
+}
+
 code {
   white-space: pre;
 }
