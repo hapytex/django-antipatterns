@@ -177,6 +177,8 @@ class MyModelAdmin(admin.ModelAdmin):
 
 ## Periodically update data
 
+If the data depends on updates of a related model, and somehow we can not run logic
+when objects of that model are updated, we might schedule a periodic task.
 
 ## Use `m2m_change` signals
 
