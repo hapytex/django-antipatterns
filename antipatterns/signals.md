@@ -175,17 +175,10 @@ class MyModelAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 ```
 
-If the task takes too much time, you can set up a queue where a message is
-scheduled periodically to 
-
-## Periodically update data
-
-If the data depends on updates of a related model, and somehow we can not run logic
-when objects of that model are updated, we might schedule a periodic task.
-
-
-
-## Use `m2m_change` signals
+If the task takes too much time, you can set up a queue where a message is enqueued
+that will then trigger a task to update the data. This is however not something specific
+to encapsulate logic into a function: if you work with signals, then these signals can
+go in timeout as well, and thus render the server irresponsive.
 
 # Extra tips
 
