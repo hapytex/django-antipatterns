@@ -165,15 +165,13 @@ and then we can call this function in the views where we create/update the book.
 
 we can also construct a mixin that we can use in class-based views and the `ModelAdmin`:
 
-```python3
-from django.contrib import admin
+<pre class="python"><code>from django.contrib import admin
 
 class MyModelAdmin(admin.ModelAdmin):
     
     def save_model(self, request, obj, form, change):
         <b>update_book(</b>obj<b>)</b>
-        super().save_model(request, obj, form, change)
-```
+        super().save_model(request, obj, form, change)</code></pre>
 
 If the task takes too much time, you can set up a queue where a message is queued
 that will then trigger a task to update the data. This is however not something specific
