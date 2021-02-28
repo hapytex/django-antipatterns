@@ -28,7 +28,7 @@ jobs:
     name: Deploy website
     runs-on: ubuntu-latest
     needs: [linux1, linux2]
-    if: github.ref == 'refs/heads/antipattern/signals'
+    if: github.ref == 'refs/heads/master'
     steps:
     - name: update package database
       run: sudo apt-get update

@@ -175,6 +175,9 @@ class MyModelAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 ```
 
+If the task takes too much time, you can set up a queue where a message is
+scheduled periodically to 
+
 ## Periodically update data
 
 If the data depends on updates of a related model, and somehow we can not run logic
