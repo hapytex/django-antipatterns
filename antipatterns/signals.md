@@ -181,4 +181,7 @@ go in timeout as well, and thus render the server irresponsive.
 # Extra tips
 
 Signals can still be a good solution if you want to handle events raised by a *third party* Django application.
-In many cases, this is the only effective way to handle certain events. For example the `auth`
+In many cases, this is the only effective way to handle certain events. For example the `auth` module provides
+[signals when the user logs in, logs out, or fails to log in [Django-doc]](https://docs.djangoproject.com/en/dev/ref/contrib/auth/#module-django.contrib.auth.signals)
+these signals are typically more reliable, since these are not triggered by the ORM. Often for third party applications
+signals are an effective way to communicate with these applications.
