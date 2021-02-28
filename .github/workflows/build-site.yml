@@ -2,7 +2,7 @@ name: Deploy site to GitHub pages
 on: push
 
 jobs:
-- linux1:
+  linux1:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
@@ -12,7 +12,7 @@ jobs:
     - name: install required packages
       run: sudo apt-get install pandoc yui-compressor php php-curl
 
-- linux2:
+  linux2:
     name: Checkout code
     needs: [linux1]
     steps:
