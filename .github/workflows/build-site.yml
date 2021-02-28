@@ -1,4 +1,4 @@
-name: CI
+name: Deploy site to GitHub pages
 on: push
 
 jobs:
@@ -6,6 +6,8 @@ jobs:
     name: echo test
     runs-on: ubuntu-latest
     steps:
+    - name: update package database
+      run: sudo apt-get update
     - name: install required packages
       run: sudo apt-get install pandoc yui-compressor php php-curl
     - name: build the site
