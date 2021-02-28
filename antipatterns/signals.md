@@ -12,7 +12,7 @@ where using signals is appropriate.
 
 # Why is it a problem?
 
-Signals have a variety of problems and unforseen consequences. In the below sections, we list a few.
+Signals have a variety of problems and unforeseen consequences. In the below sections, we list a few.
 
 ## Signals can be circumvented
 
@@ -104,7 +104,7 @@ is an empty queryset.
 
 Even if only one handler is attached to the the signal, and that handler can never raise an error,
 the handler still is often not an elegant solution. Another developer might not be aware of its existence,
-since it has only a "weak" binding to th model, and thus it makes the effect of saving an object less
+since it has only a "weak" binding to the model, and thus it makes the effect of saving an object less
 predictable.
 
 ## Signals do not run when other programs make changes
@@ -175,7 +175,7 @@ class MyModelAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 ```
 
-If the task takes too much time, you can set up a queue where a message is enqueued
+If the task takes too much time, you can set up a queue where a message is queued
 that will then trigger a task to update the data. This is however not something specific
 to encapsulate logic into a function: if you work with signals, then these signals can
 go in timeout as well, and thus render the server irresponsive.
