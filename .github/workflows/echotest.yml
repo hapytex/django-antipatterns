@@ -1,0 +1,12 @@
+name: Echo-test
+
+on: push
+
+jobs:
+  echo-test:
+    name: echo testing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        run: echo test
