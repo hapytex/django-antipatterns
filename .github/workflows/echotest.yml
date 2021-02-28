@@ -1,12 +1,10 @@
-name: Echo-test
-
+name: CI
 on: push
 
 jobs:
-  echo-test:
-    name: echo testing
+  linux:
+    name: echo test
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        run: echo test
+    - name: echoing test
+      run: echo test
