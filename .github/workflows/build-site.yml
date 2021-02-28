@@ -22,13 +22,24 @@ jobs:
     - name: checkout code
       uses: actions/checkout@v2.3.1
     - name: look for todos
-      run: "! grep -i -P '<pre\\s*>|TODO' */*.md"
+      run: "! grep -i -P '<pre\\s*>|TODO|[?]{3,}' */*.md"
 
   linux3:
     name: Deploy website
     runs-on: ubuntu-latest
     needs: [linux1, linux2]
+    if: github.ref == 'refs/heads/antipattern/signals'
     steps:
+    - name: update package database
+      run: sudo apt-get update
+    - name: install required packages
+      run: sudo apt-get install pandoc yui-compressor php php-curl
     - name: checkout code
       uses: actions/checkout@v2.3.1
-
+    - name: build the site
+      run: make
+    - name: deploy site to gh-pages
+      uses: JamesIves/github-pages-deploy-action@4.0.0
+      with:
+        branch: gh-pages
+        folder: out_
