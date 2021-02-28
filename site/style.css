@@ -1,19 +1,16 @@
-.columns {
-  -moz-columns: 2 35.0em; /* Firefox */
-  -webkit-columns: 2 35.0em; /* webkit, Safari, Chrome */
-  columns: 2 35.0em;
+.twocolumns {
 }
 
-.columns ol {
+.twocolumns ol {
   margin: 0;
   padding: 0;
+  -moz-columns: 2 480px; /* Firefox */
+  -webkit-columns: 2 480px; /* webkit, Safari, Chrome */
+  columns: 2 480px;
 }
 /* correct webkit/chrome uneven margin on the first column*/
-.columns ol li:first-child {
+.twocolumns ol li:first-child {
     margin-top:0px;
-}
-
-.columns ol li {
 }
 
 h1.patterntype {

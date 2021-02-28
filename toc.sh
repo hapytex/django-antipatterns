@@ -4,7 +4,7 @@ sep=$(echo -e ". \n")
 
 function make_toc() {
   fl=$(ls $1/*.md)
-  echo '<div class="columns"><ol>'
+  echo '<div class="twocolumns"><ol>'
   head -q -n 1 $fl | cut -c 2- | paste -d ':' - <(echo "$fl") | sed -E 's/^.(.*)[:](.*)[.]md/ [\1](\2.html)/;s/^/<li>/;s#$#</li>#'
   echo '</ol></div>'
 }
