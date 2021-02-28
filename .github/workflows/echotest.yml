@@ -6,5 +6,10 @@ jobs:
     name: echo test
     runs-on: ubuntu-latest
     steps:
-    - name: echoing test
-      run: echo test
+    - name: install required packages
+      run: sudo apt-get install pandoc yui-compressor php php-curl
+    - name: build the site
+      run: make
+    - name: look for todos
+      run: "! grep -i -P '<pre\\s*>|TODO' */*.md"
+
