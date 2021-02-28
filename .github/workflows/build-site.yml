@@ -14,6 +14,7 @@ jobs:
 
   linux2:
     name: Checkout code
+    runs-on: ubuntu-latest
     needs: [linux1]
     steps:
     - name: checkout code
