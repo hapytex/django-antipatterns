@@ -1,4 +1,4 @@
-name: Standard checks and deployment
+name: Deploy site
 on: push
 
 jobs:
