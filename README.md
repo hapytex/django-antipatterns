@@ -1,6 +1,6 @@
 # django-antipatterns
 
-[![Build Status of the package by GitHub actions](https://github.com/hapytex/django-antipatterns/actions/workflows/build-ci.yml/badge.svg)](https://github.com/hapytex/chem-formula/actions/django-antipatterns/build-ci.yml)
+[![Build Status of the package by GitHub actions](https://github.com/hapytex/django-antipatterns/actions/workflows/build-site.yml/badge.svg)](https://github.com/hapytex/django-antipatterns/actions/workflows/build-site.yml)
 
 A repository documenting anti-patterns often found in Django projects.
 
