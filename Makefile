@@ -1,4 +1,4 @@
-markdowns = $(shell ls antipatterns/*.md patterns/*.md troubleshooting/*.md)
+markdowns = $(shell ls antipattern/*.md pattern/*.md troubleshooting/*.md)
 outhtml = $(markdowns:%.md=out_/%.html)
 style = # https://bootswatch.com/4/slate/bootstrap.css  # 'https://raw.githubusercontent.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css' 
 
@@ -8,7 +8,7 @@ outjss = $(jss:site/%=out_/%)
 outcsss = $(csss:site/%=out_/%)
 
 
-all: out_ out_/CNAME $(outjss) $(outcsss) out_/antipatterns out_/patterns out_/troubleshooting $(outhtml) out_/index.html out_/favicon.ico out_/sitemap.xml
+all: out_ out_/CNAME $(outjss) $(outcsss) out_/antipattern out_/pattern out_/troubleshooting $(outhtml) out_/index.html out_/favicon.ico out_/sitemap.xml
 
 out_ :
 	mkdir -p out_
@@ -39,5 +39,5 @@ out_/CNAME: site/CNAME
 out_/%:
 	mkdir -p "$@"
 
-hunspell:antipatterns/*.md patterns/*.md troubleshooting/*.md
+hunspell:antipattern/*.md pattern/*.md troubleshooting/*.md
 	hunspell -H "$<"
