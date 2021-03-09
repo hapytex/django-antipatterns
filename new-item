@@ -33,6 +33,7 @@ if [ ! -f "$file" ]; then
 fi
 
 editor "$file"
+hunspell -H "$file"
 
 # commit the work to the branch
 git add "$file"
