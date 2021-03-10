@@ -1,0 +1,40 @@
+#!/bin/bash
+
+#cd to the directory of the shell script
+cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# move to the master branch
+git stash
+git checkout master
+
+if [ "$#" -lt '1' -o ! -d "$1" -o ! -f "$1/template.md.tmp" ]; then
+  echo "You should provide the type of the file, which should be the name of a root directory."
+fi
+
+typ="$1"
+shift
+
+if [ "$#" -lt '1' ]; then
+  echo 'You should provide the name of the template, you can make use of multiple arguments for a space separated name'
+  exit 1
+fi
+
+name=$(echo "$@")
+
+# conversion to a slug-like filename based on:
+# https://gist.github.com/oneohthree/f528c7ae1e701ad990e6
+file=$(iconv -t ascii//TRANSLIT <<<"$name" | sed -r 's/[^a-zA-Z0-9]+/-/g' | sed -r 's/^-+\|-+$//g' | tr A-Z a-z)
+
+git checkout -b "$typ/$file"
+file="$typ/$file.md"
+
+if [ ! -f "$file" ]; then
+  printf "$(< "$typ/template.md.tmp")" "$name" > "$file"
+fi
+
+editor "$file"
+hunspell -H "$file"
+
+# commit the work to the branch
+git add "$file"
+git commit -am "Work on the \"$name\" $typ"
