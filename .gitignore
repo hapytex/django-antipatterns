@@ -5,3 +5,63 @@ out_/*
 out_/**
 
 index.md
+
+## Haskell ignore
+*.zip
+dist
+dist-*
+cabal-dev
+*.o
+*.hi
+*.hie
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.prof
+*.aux
+*.hp
+*.eventlog
+.stack-work/
+cabal.project.local
+cabal.project.local~
+.HTF/
+.ghc.environment.*
+*.sw?
+*.lock
+
+*.dot
+
+samples
+samples/
+samples/*
+samples/**
+
+# IDE
+*.code-workspace
+
+# Python
+__pycache__
+__pycache__/
+__pycache__/*
+__pycache__/**
+
+# LaTeX
+*.aux
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.log
+*.out
+*.pdf
+*.adx
+*.and
+*.tex
