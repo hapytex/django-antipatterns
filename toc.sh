@@ -5,20 +5,22 @@ sep=$(echo -e ". \n")
 function make_toc() {
   fl=$(ls $1/*.md)
   echo '<div class="twocolumns"><ol>'
-  head -q -n 1 $fl | cut -c 2- | paste -d ':' - <(echo "$fl") | sed -E 's/^.(.*)[:](.*)[.]md/ [\1](\2.html)/;s/^/<li>/;s#$#</li>#'
+  head -q -n 1 $fl | cut -c 2- | paste -d ':' - <(echo "$fl") | sed -E 's#^.(.*)[:](.*)[.]md# [\1](/\2.html)#;s/^/<li>/;s#$#</li>#'
   echo '</ol></div>'
 }
 
-echo -e "% Django (anti)patterns\n"
+if [ "$#" -gt '1' ]; then
+  echo -e "% $2\n"
+  make_toc "$1"
+else
+  echo -e "% Django (anti)patterns\n"
+  
+  echo -e '<h1 class="patterntype">Antipatterns</h1>\n'
+  make_toc antipattern
 
-echo -e '<h1 class="patterntype">Antipatterns</h1>\n'
+  echo -e '\n\n<h1 class="patterntype">Patterns</h1>\n'
+  make_toc pattern
 
-make_toc antipattern
-
-echo -e '\n\n<h1 class="patterntype">Patterns</h1>\n'
-
-make_toc pattern
-
-echo -e '\n\n<h1 class="patterntype">Troubleshooting</h1>\n'
-
-make_toc troubleshooting
+  echo -e '\n\n<h1 class="patterntype">Troubleshooting</h1>\n'
+  make_toc troubleshooting
+fi

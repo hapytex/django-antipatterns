@@ -8,7 +8,7 @@ outjss = $(jss:site/%=out_/%)
 outcsss = $(csss:site/%=out_/%)
 
 
-all: out_ out_/CNAME $(outjss) $(outcsss) out_/antipattern out_/antipatterns out_/pattern out_/patterns out_/troubleshooting $(outhtml) out_/index.html out_/favicon.ico out_/sitemap.xml
+all: out_ out_/CNAME $(outjss) $(outcsss) out_/antipattern out_/antipatterns out_/pattern out_/patterns out_/troubleshooting $(outhtml) out_/index.html   out_/antipattern.html out_/pattern.html out_/troubleshooting.html out_/favicon.ico out_/sitemap.xml
 
 out_ :
 	mkdir -p out_
@@ -19,8 +19,17 @@ out_/%.js: site/%.js
 out_/%.css: site/%.css
 	yui-compressor --type css "$<" >"$@" || ln -f "$<" "$@"
 
-index.md : toc.sh $(outhtml)
+index.md : toc.sh $(markdowns)
 	bash toc.sh > "$@"
+
+antipattern.md : toc.sh $(markdowns)
+	bash toc.sh antipattern Antipatterns > "$@"
+
+pattern.md : toc.sh $(markdowns)
+	bash toc.sh pattern Patterns > "$@"
+
+troubleshooting.md : toc.sh $(markdowns)
+	bash toc.sh troubleshooting Troubleshooting > "$@"
 
 out_/sitemap.xml:
 	git clone https://github.com/knyzorg/Sitemap-Generator-Crawler.git sitemap_
