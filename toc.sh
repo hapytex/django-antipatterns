@@ -15,12 +15,12 @@ if [ "$#" -gt '1' ]; then
 else
   echo -e "% Django (anti)patterns\n"
   
-  echo -e '<h1 class="patterntype">Antipatterns</h1>\n'
+  echo -e '<h1 class="patterntype"><a href="/antipattern.html">Antipatterns</a></h1>\n'
   make_toc antipattern
 
-  echo -e '\n\n<h1 class="patterntype">Patterns</h1>\n'
+  echo -e '\n\n<h1 class="patterntype"><a href="/pattern.html">Patterns</a></h1>\n'
   make_toc pattern
 
-  echo -e '\n\n<h1 class="patterntype">Troubleshooting</h1>\n'
+  echo -e '\n\n<h1 class="patterntype"><a href="/troubleshooting.html">Troubleshooting</a></h1>\n'
   make_toc troubleshooting
 fi
