@@ -2,6 +2,8 @@
 ---
 severity: 2
 type: antipattern
+tags: []
+layers: [views]
 ---
 
 In a view we often want to restrict access to edit an object, for example only

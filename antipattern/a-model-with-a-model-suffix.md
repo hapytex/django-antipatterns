@@ -2,6 +2,8 @@
 ---
 severity: 1
 type: antipattern
+tags: []
+layers: [models]
 ---
 
 Often people use a <code>&hellip;Model</code> suffix for their model, for

@@ -4,6 +4,7 @@ type: antipattern
 severity: ???
 tags: []
 layers: models/views/forms/serializers/templates/...
+related_packages: []
 ---
 
 # Why is it a problem?

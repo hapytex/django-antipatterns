@@ -2,6 +2,8 @@
 ---
 severity: 3
 type: antipattern
+tags: []
+layers: [views, forms]
 ---
 
 Often in a view a *new* form is constructed when validating a bounded form

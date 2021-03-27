@@ -2,6 +2,8 @@
 ---
 severity: 3
 type: antipattern
+tags: []
+layers: [templates]
 ---
 
 Instead of filtering data in the view, we can filter data in the template.

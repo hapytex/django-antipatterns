@@ -2,6 +2,8 @@
 ---
 severity: 4
 type: antipattern
+tags: []
+layers: [views]
 ---
 Often people construct views that have side, effects, for example:
 

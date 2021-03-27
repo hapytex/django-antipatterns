@@ -2,6 +2,8 @@
 ---
 severity: 2
 type: antipattern
+tags: []
+layers: [views]
 ---
 
 If we use Django's [**`AuthenticationMiddleware`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/middleware/#module-django.contrib.auth.middleware),

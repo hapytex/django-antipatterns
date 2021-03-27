@@ -2,6 +2,8 @@
 ---
 severity: 3
 type: antipattern
+tags: []
+layers: [views, orm]
 ---
 
 We can chain querysets together with the [**<code>chain(&hellip;)</code>** function [python-doc]](https://docs.python.org/3/library/itertools.html#itertools.chain)
