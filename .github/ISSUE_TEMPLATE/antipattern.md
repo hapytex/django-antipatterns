@@ -13,6 +13,7 @@ severity: (ADD SEVERITY 1-5)
 type: antipattern
 tags: []
 layers: models/views/forms/serializers/templates/...
+related_packages: []
 ---
 
 TODO
