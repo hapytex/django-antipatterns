@@ -2,6 +2,8 @@
 ---
 severity: 1
 type: antipattern
+tags: []
+layers: [models]
 ---
 
 Often people write model classes with a plural name. For example:

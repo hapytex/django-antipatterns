@@ -2,6 +2,8 @@
 ---
 severity: 3
 type: antipattern
+tags: []
+layers: [views]
 ---
 
 A view sometimes renders content after a *successful* POST request, for example:

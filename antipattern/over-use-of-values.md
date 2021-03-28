@@ -2,6 +2,8 @@
 ---
 severity: 2
 type: antipattern
+tags: []
+layers: [views, orm]
 ---
 
 Often in views, one can find code that looks like:

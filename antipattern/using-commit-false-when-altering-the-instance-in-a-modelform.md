@@ -2,6 +2,8 @@
 ---
 severity: 2
 type: antipattern
+tags: []
+layers: [forms, views]
 ---
 
 Often one sees a pattern where one aims to update an instance wrapped in a

@@ -2,6 +2,8 @@
 ---
 severity: 3
 type: antipattern
+tags: []
+layers: [orm]
 ---
 
 People sometimes calculate the number of records by using <code>len(&hellip;)</code>.

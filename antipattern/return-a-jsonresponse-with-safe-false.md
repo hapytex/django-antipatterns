@@ -2,6 +2,8 @@
 ---
 severity: 3
 type: antipattern
+tags: []
+layers: [views]
 ---
 
 Often people find out that you can not return a *list* as outer item in a

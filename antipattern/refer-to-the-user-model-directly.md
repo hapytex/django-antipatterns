@@ -2,6 +2,8 @@
 ---
 severity: 2
 type: antipattern
+tags: []
+layers: [model]
 ---
 
 We often need to link data to the user model used by Django, for example to store

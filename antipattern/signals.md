@@ -2,6 +2,8 @@
 ---
 severity: 3
 type: antipattern
+tags: []
+layers: [signals]
 ---
 
 Django has a sophisticated system to trigger certain logic when

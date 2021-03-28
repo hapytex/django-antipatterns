@@ -2,6 +2,8 @@
 ---
 severity: 2
 type: antipattern
+tags: []
+layers: [views]
 ---
 
 In a view, people often retrieve the object with the
