@@ -2,6 +2,8 @@
 ---
 severity: 2
 type: antipattern
+layers: [models]
+related_packages: [django-money, django-moneyfield]
 ---
 
 Often for quantities that require *precise* calculations, a [**`FloatField`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#floatfield)

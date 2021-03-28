@@ -2,6 +2,7 @@
 ---
 severity: 2
 type: antipattern
+related_packages: [freezegun]
 ---
 
 Often people make use of `datetime.now` as a default value to specify a field

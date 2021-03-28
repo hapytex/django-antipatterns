@@ -4,6 +4,7 @@ type: antipattern
 severity: 2
 tags: []
 layers: [views, models]
+related_packages: [djang-autoslug]
 ---
 
 Sometimes, people construct slugs manually, for example in a view with:
