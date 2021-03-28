@@ -1,6 +1,8 @@
 % Annotate a condition as `BooleanField`
 ---
 type: pattern
+tags: []
+layers: [orm]
 ---
 One sometimes does not want to filter on a condition, but use a condition as a
 Boolean field.

@@ -1,6 +1,8 @@
 % Set values to a created/updated object in a class-based view
 ---
 type: pattern
+tags: []
+layers: [views, forms]
 ---
 Often not all fields specified in a model are specified through a form.
 These for example originate for example through the path, or we make use of the

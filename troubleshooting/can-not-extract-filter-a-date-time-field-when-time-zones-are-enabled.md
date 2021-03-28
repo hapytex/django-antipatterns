@@ -1,6 +1,8 @@
 % Can not extract/filter a `Date(Time)Field` when time zones are enabled
 ---
 type: troubleshooting
+tags: []
+layers: [database, orm]
 ---
 When using MySQL and we set the [**`USE_TZ`** setting [Django-doc]](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-USE_TZ) to `True`,
 it can happen that certain (date)time-related queries no longer work.
