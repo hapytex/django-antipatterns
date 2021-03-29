@@ -1,0 +1,12 @@
+%% `%s`
+---
+type: package
+tags: []
+layers: models/views/forms/serializers/templates/...
+---
+
+# What does the package do
+
+# How to install the package
+
+<pre class="bash"><code>pip3 install <b>???</b></code></pre>

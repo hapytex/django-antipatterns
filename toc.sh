@@ -17,10 +17,13 @@ else
   
   echo -e '<h1 class="patterntype"><a href="/antipattern.html">Antipatterns</a></h1>\n'
   make_toc antipattern
-
+  
   echo -e '\n\n<h1 class="patterntype"><a href="/pattern.html">Patterns</a></h1>\n'
   make_toc pattern
-
+  
   echo -e '\n\n<h1 class="patterntype"><a href="/troubleshooting.html">Troubleshooting</a></h1>\n'
   make_toc troubleshooting
+  
+  echo -e '\n\n<h1 class="patterntype">Packages</h1>\n'
+  make_toc package
 fi
