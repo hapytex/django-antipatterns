@@ -8,7 +8,7 @@ outjss = $(jss:site/%=out_/%)
 outcsss = $(csss:site/%=out_/%)
 
 
-all: out_ out_/CNAME $(outjss) $(outcsss) out_/antipattern out_/antipatterns out_/pattern out_/patterns out_/troubleshooting $(outhtml) out_/index.html   out_/antipattern.html out_/pattern.html out_/troubleshooting.html out_/favicon.ico out_/sitemap.xml
+all: out_ out_/CNAME $(outjss) $(outcsss) out_/antipattern out_/antipatterns out_/pattern out_/patterns out_/troubleshooting $(outhtml) out_/index.html   out_/antipattern.html out_/pattern.html out_/troubleshooting.html out_/codeflow.html out_/favicon.ico out_/sitemap.xml
 
 out_ :
 	mkdir -p out_
@@ -30,6 +30,9 @@ pattern.md : toc.sh $(markdowns)
 
 troubleshooting.md : toc.sh $(markdowns)
 	bash toc.sh troubleshooting Troubleshooting > "$@"
+
+codeflow.md : toc.sh $(markdowns)
+	bash toc.sh codeflow Codeflows > "$@"
 
 out_/sitemap.xml:
 	git clone https://github.com/knyzorg/Sitemap-Generator-Crawler.git sitemap_

@@ -23,4 +23,7 @@ else
 
   echo -e '\n\n<h1 class="patterntype"><a href="/troubleshooting.html">Troubleshooting</a></h1>\n'
   make_toc troubleshooting
+
+  echo -e '\n\n<h1 class="patterntype"><a href="/codeflow.html">Codeflows</a></h1>\n'
+  make_toc codeflow
 fi
