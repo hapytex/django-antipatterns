@@ -7,11 +7,13 @@ cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 git stash
 git checkout master
 
-if [ "$#" -lt '1' -o ! -d "$1" -o ! -f "$1/template.md.tmp" ]; then
+if [ "$#" -lt '1' -o ! -d "$1" -o ! -f $1/template.*.tmp ]; then
   echo "You should provide the type of the file, which should be the name of a root directory."
 fi
 
 typ="$1"
+tmpfile=$(ls $typ/template.*.tmp)
+ext=$(rev <<<"$tmpfile" | cut -f 2 -d '.' | rev)
 shift
 
 if [ "$#" -lt '1' ]; then
@@ -26,10 +28,10 @@ name=$(echo "$@")
 file=$(iconv -t ascii//TRANSLIT <<<"$name" | sed -r 's/[^a-zA-Z0-9]+/-/g' | sed -r 's/^-+\|-+$//g' | tr A-Z a-z)
 
 git checkout -b "$typ/$file"
-file="$typ/$file.md"
+file="$typ/$file.$ext"
 
 if [ ! -f "$file" ]; then
-  printf "$(< "$typ/template.md.tmp")" "$name" > "$file"
+  printf "$(< "$tmpfile")" "$name" > "$file"
 fi
 
 editor "$file"
