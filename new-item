@@ -3,23 +3,30 @@
 #cd to the directory of the shell script
 cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-# move to the master branch
-git stash
-git checkout master
+typ="$1"
+tmpf=$(find "$typ" -iname 'template.*.tmp')
 
-tmpf=$(find "$typ" -iname '/template.*.tmp')
-
-if [ "$#" -lt '1' -o ! -d "$1" -o ! -z "$tmpf" ]; then
+if [ "$#" -lt '1' -o ! -d "$1" -o -z "$tmpf" ]; then
   echo "You should provide the type of the file, which should be the name of a root directory."
+  exit 1
 fi
 
-typ="$1"
 ext=$(rev <<<"$tmpf" | cut -f 2 -d '.' | rev)
 shift
 
+# If the -b flag is used, then we keep the same branch
+if [ "$1" == '-b' ]; then
+  shift
+else
+  # move to the master branch
+  git stash
+  git checkout master
+fi
+
+
 if [ "$#" -lt '1' ]; then
   echo 'You should provide the name of the template, you can make use of multiple arguments for a space separated name'
-  exit 1
+  exit 2
 fi
 
 name=$(echo "$@")
