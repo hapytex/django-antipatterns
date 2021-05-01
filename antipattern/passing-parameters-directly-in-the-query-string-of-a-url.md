@@ -10,7 +10,7 @@ related_packages: []
 In many templates variables are passed to the [*query string* [wiki]](https://en.wikipedia.org/wiki/Query_string)
 in a URL, for example:
 
-<class="html"><code>&lt;a href=&quot;?search={{ <b>search</b> }}&amp;page={{ result.next_page_number }}&quot;&gt;&lt;/a&gt;</code></pre>
+<pre class="html"><code>&lt;a href=&quot;?search={{ <b>search</b> }}&amp;page={{ result.next_page_number }}&quot;&gt;&lt;/a&gt;</code></pre>
 
 # Why is it a problem?
 
