@@ -56,4 +56,4 @@ and automatically percentage *decode* the items.
 
 We thus should render this as:
 
-<class="html"><code>&lt;a href=&quot;?search={{ search<b>|urlencode</b> }}&amp;page={{ result.next_page_number }}&quot;&gt;&lt;/a&gt;</code></pre>
+<pre class="html"><code>&lt;a href=&quot;?search={{ search<b>|urlencode</b> }}&amp;page={{ result.next_page_number }}&quot;&gt;&lt;/a&gt;</code></pre>
