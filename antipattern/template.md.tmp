@@ -5,6 +5,7 @@ severity: ???
 tags: []
 layers: models/views/forms/serializers/templates/...
 related_packages: []
+since: django-???
 ---
 
 # Why is it a problem?
