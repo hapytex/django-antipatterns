@@ -35,7 +35,7 @@ In that case you thus drop the trailing comma, and work with:
 <pre class="python"><code>from django.db import models
 
 class MyModel(models.Model):
-    #                  <i>no</i> a trailing comma &downarrow;
+    #                    <i>no</i> trailing comma &downarrow;
     name = models.CharField(max_length=128)</code></pre>
 
 
@@ -90,6 +90,7 @@ the wrong module. This thus could look like:
 from django.forms import <b>CharField</b>
 
 class MyModel(models.Model):
+    #         &downarrow; CharField from the django.forms module
     name = <b>CharField(</b>max_length=128<b>)</b></code></pre>
 
 Since this `CharField` does not inherit from the `Field` of the `django.db.models` module, again
