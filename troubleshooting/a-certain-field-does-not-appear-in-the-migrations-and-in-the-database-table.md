@@ -1,4 +1,4 @@
-% Certain field does not appear in the migrations and in the database table
+% A certain field does not appear in the migrations and in the database table
 ---
 type: troubleshooting
 tags: [field, column, database]
