@@ -65,10 +65,10 @@ of `MyModel`, we see:
 
 ```
 >>> MyModel.__annotations__
-{'foo': <django.db.models.fields.CharField>}
+{'name': <django.db.models.fields.CharField>}
 ```
 
-We here thus made an annotation to specify that `foo` will have a certain type, but we never define `foo`
+We here thus made an annotation to specify that `name` will have a certain type, but we never define `name`
 at the class level.
 
 We thus should replace the colon with an equals sign (`=`):
