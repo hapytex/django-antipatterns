@@ -48,6 +48,7 @@ $endif$
     <script src='https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
 
     <!-- <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="/style.css" rel="stylesheet" type="text/css" />
     <!-- <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />  -->
     <!-- <link href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />  -->
@@ -86,14 +87,16 @@ $endfor$
   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
       <div class="container">
+        <nav aria-label="section">
         <!--<span class="doc-title">-->
-          <ul class="breadcrums-one" id="breadcrumbs-one" style="margin:0px;">
-            <li><a href="/">Home</a></li>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
             $if(type)$
-            <li><a href="/$type$.html">$type$</a></li>
+            <li class="breadcrumb-item"><a href="/$type$.html">$type$</a></li>
             $endif$
-            <li><a href="#" class="current">$title$</a></li>
-          </ul>
+            <li class="breadcrumb-item active" aria-current="page">$title$</li>
+          </ol>
+        </nav>
         <!--</span>-->
         <ul class="nav pull-right doc-info">
           $if(severity)$
