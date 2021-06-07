@@ -131,6 +131,6 @@ $endfor$
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  <script>anchors.options={placement:'left',visible:'hover',icon:'¶'};anchors.add('h1,h2,h3');</script>
+  $if(type)$<script>anchors.options={placement:'left',visible:'hover',icon:'¶'};anchors.add('h1,h2,h3');</script>$endif$
 </body>
 </html>
