@@ -4,7 +4,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="frame-src https://www.buymeacoffee.com; style-src 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.rawgit.com 'self'; script-src 'sha256-nP0EI9B9ad8IoFUti2q7EQBabcE5MS5v0nkvRfUbYnM=' https://cdnjs.buymeacoffee.com https://code.jquery.com https://cdnjs.cloudflare.com https://cdn.rawgit.com https://pagead2.googlesyndication.com 'self'; img-src https://repository-images.githubusercontent.com https://cdn.buymeacoffee.com 'self'">
+    <meta http-equiv="Content-Security-Policy" content="frame-src https://www.buymeacoffee.com; style-src 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.rawgit.com 'self'; script-src 'sha256-imF8GK2COF0FH3k9XZpauIkklApKaavS3S5BhNoXbio=' 'sha256-cZF+Uee35x4Ntz8KyGTRwEq74vIlvLgxfBw7ARDKY0o=' 'sha256-nP0EI9B9ad8IoFUti2q7EQBabcE5MS5v0nkvRfUbYnM=' https://cdnjs.buymeacoffee.com https://code.jquery.com https://cdnjs.cloudflare.com https://cdn.rawgit.com https://pagead2.googlesyndication.com 'self'; img-src https://repository-images.githubusercontent.com https://cdn.buymeacoffee.com 'self'">
         <!--[if lt IE 9]>
                 <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
         <![endif]-->
@@ -26,7 +26,6 @@ $endif$
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
     <!-- <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" /> -->
 
@@ -48,6 +47,7 @@ $endif$
   
     <script src="https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js"></script>
     <script data-ad-client="ca-pub-9962024266760159" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="generator" content="pandoc" />
 <title>$pagetitle$ $if(type)$&lsaquo; $type$ $endif$&lsaquo; Django antipatterns</title>
 $if(quotes)$
@@ -128,7 +128,9 @@ $endfor$
       </div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js" integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+  $if(type)$<script>anchors.options={placement:'left',visible:'hover',icon:'¶'};anchors.add('h1,h2,h3');</script>$endif$
 </body>
 </html>
