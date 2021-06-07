@@ -2,6 +2,7 @@
 ---
 severity: 2
 type: antipattern
+typefa: "fas fa-ban"
 layers: [models]
 related_packages: [django-money, django-moneyfield]
 ---

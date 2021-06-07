@@ -80,7 +80,8 @@ $endfor$
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
             $if(type)$
-            <li class="breadcrumb-item"><a href="/$type$.html">$type$</a></li>
+              <li class="breadcrumb-item"><a href="/$type$.html">$if(typefa)$<i class="$typefa$"></i>&nbsp;$endif$
+              $type$</a></li>
             $endif$
             <li class="breadcrumb-item active" aria-current="page">$title$</li>
           </ol>

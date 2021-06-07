@@ -1,6 +1,7 @@
 % Manually constructing a slug
 ---
 type: antipattern
+typefa: "fas fa-ban"
 severity: 2
 tags: []
 layers: [views, models]

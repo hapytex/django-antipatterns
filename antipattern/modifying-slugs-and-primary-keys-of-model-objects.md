@@ -1,6 +1,7 @@
 % Modifying slugs and primary keys of model objects
 ---
 type: antipattern
+typefa: "fas fa-ban"
 severity: 1
 tags: [URL, slug, primary key]
 layers: [models, views]

@@ -1,6 +1,7 @@
 % Annotate a condition as `BooleanField`
 ---
 type: pattern
+typefa: "fas fa-seedling"
 tags: []
 layers: [orm]
 ---
