@@ -1,6 +1,7 @@
 % Can not extract/filter a `Date(Time)Field` when time zones are enabled
 ---
 type: troubleshooting
+typefa: "fas fa-bug"
 tags: []
 layers: [database, orm]
 ---
