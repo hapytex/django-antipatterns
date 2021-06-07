@@ -2,6 +2,7 @@
 ---
 severity: 1
 type: antipattern
+typefa: "fas fa-ban"
 tags: []
 layers: [models]
 ---

@@ -2,6 +2,7 @@
 ---
 severity: 2
 type: antipattern
+typefa: "fas fa-ban"
 tags: []
 layers: [forms]
 ---

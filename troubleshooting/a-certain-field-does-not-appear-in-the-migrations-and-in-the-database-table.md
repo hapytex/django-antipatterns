@@ -1,6 +1,7 @@
 % A certain field does not appear in the migrations and in the database table
 ---
 type: troubleshooting
+typefa: "fas fa-bug"
 tags: [field, column, database]
 layers: models
 ---

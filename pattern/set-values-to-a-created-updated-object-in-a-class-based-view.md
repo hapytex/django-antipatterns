@@ -1,6 +1,7 @@
 % Set values to a created/updated object in a class-based view
 ---
 type: pattern
+typefa: "fas fa-seedling"
 tags: []
 layers: [views, forms]
 ---
