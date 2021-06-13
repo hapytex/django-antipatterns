@@ -7,6 +7,14 @@
   text-decoration: none;
 }
 
+h1 a::selection {
+  color: #000;
+}
+
+h1 a:visited {
+  color: #000;
+}
+
 .breadcrumb {
     display: -webkit-box;
     display: -ms-flexbox;
