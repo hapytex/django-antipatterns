@@ -41,13 +41,14 @@ easier.
 
 One should use POST, PUT, PATCH, or DELETE requests to update entities. These
 are the HTTP methods designed for this. One can use for example the
-[**`@require_http_methods`** decorator [Django-doc]](https://docs.djangoproject.com/en/3.1/topics/http/decorators/#django.views.decorators.http.require_http_methods)
-to restrict a view to certain HTTP methods. This will return a [HTTP 405 "*Method Not Allowed*" response [wiki]](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_client_errors)
+[**`@require_http_methods`** decorator [Django-doc]](https://docs.djangoproject.com/en/dev/topics/http/decorators/#django.views.decorators.http.require_http_methods)
+to restrict a view to certain HTTP methods. For a POST request, we can make use of the [**`@require_POST`** decorator [Django-doc]](require_POST).
+This will return a [HTTP 405 "*Method Not Allowed*" response [wiki]](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_client_errors)
 to warn the client that this request was not allowed:
 
-<pre class="python"><code>from django.views.decorators.http import <b>require_http_methods</b>
+<pre class="python"><code>from django.views.decorators.http import <b>require_POST</b>
 
-<b>@require_http_methods(['POST'])</b>
+<b>@require_POST</b>
 def remove_comment(request, comment_pk):
     Comment.objects.<b>filter(</b>
         comment_id=comment_pk
