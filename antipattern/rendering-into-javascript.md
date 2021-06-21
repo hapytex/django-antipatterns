@@ -11,6 +11,7 @@ related_packages: []
 
 Often one wants to pass some data to JavaScript and to do that one renders into JavaScript using Django. for example:
 
+<<<<<<< HEAD
 <pre class="django"><code>&lt;body&gt;
 Body Content
 &lt;script&gt;
@@ -26,7 +27,12 @@ Body Content
 
 This is very unsafe and it makes one vulnerable to XSS attacks. Let us consider that the values of the variables rendered above are provided from the user. For demonstration purposes below is some view code with these variables set to such values that each of them will cause an alert:
 
+<<<<<<< HEAD
 <pre class="python"><code>import json
+=======
+```python
+import json
+>>>>>>> 857df7e5be80d31752602c9d0fd28e5c30ada66c
 
 
 def test_xss(request):
