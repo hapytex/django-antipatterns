@@ -11,6 +11,7 @@ assignees: ''
 ---
 severity: (ADD SEVERITY 1-5)
 type: antipattern
+typefa: "fas fa-ban"
 tags: []
 layers: models/views/forms/serializers/templates/...
 related_packages: []

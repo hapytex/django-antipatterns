@@ -1,8 +1,10 @@
 %% %s
 ---
 type: pattern
+typefa: "fas fa-seedling"
 tags: []
 layers: []
+related_packages: []
 ---
 
 # What problems are solved with this?

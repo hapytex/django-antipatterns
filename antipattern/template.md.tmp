@@ -1,6 +1,7 @@
 %% %s
 ---
 type: antipattern
+typefa: "fas fa-ban"
 severity: ???
 tags: []
 layers: models/views/forms/serializers/templates/...

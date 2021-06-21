@@ -10,8 +10,10 @@ assignees: ''
 % (ADD TITLE)
 ---
 type: troubleshooting
+typefa: "fas fa-bug"
 tags: []
 layers: models/views/forms/serializers/templates/...
+related_packages: []
 ---
 
 # What are the *symptoms*?
