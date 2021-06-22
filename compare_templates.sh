@@ -1,5 +1,9 @@
 #!/bin/bash
 
 for f in antipattern pattern troubleshooting; do
-  vim -p ".github/ISSUE_TEMPLATE/$f.md" "$f/template.md.tmp"
+  fa=".github/ISSUE_TEMPLATE/$f.md"
+  fb="$f/template.md.tmp"
+  diff -y "$fa" "$fb"
+  read
+  vim -p "$fa" "$fb"
 done
