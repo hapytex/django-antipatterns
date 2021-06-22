@@ -11,7 +11,7 @@ related_packages: []
 In many templates variables are passed to the [*query string* [wiki]](https://en.wikipedia.org/wiki/Query_string)
 in a URL, for example:
 
-<pre class="html"><code>&lt;a href=&quot;?search={{ <b>search</b> }}&amp;page={{ result.next_page_number }}&quot;&gt;&lt;/a&gt;</code></pre>
+<pre class="django"><code>&lt;a href=&quot;?search={{ <b>search</b> }}&amp;page={{ result.next_page_number }}&quot;&gt;&lt;/a&gt;</code></pre>
 
 # Why is it a problem?
 
@@ -57,4 +57,4 @@ and automatically percentage *decode* the items.
 
 We thus should render this as:
 
-<pre class="html"><code>&lt;a href=&quot;?search={{ search<b>|urlencode</b> }}&amp;page={{ result.next_page_number }}&quot;&gt;&lt;/a&gt;</code></pre>
+<pre class="django"><code>&lt;a href=&quot;?search={{ search<b>|urlencode</b> }}&amp;page={{ result.next_page_number }}&quot;&gt;&lt;/a&gt;</code></pre>
