@@ -24,7 +24,7 @@ Body Content
 
 # Why is it a problem?
 
-This is very unsafe and it makes one vulnerable to XSS attacks. Let us consider that the values of the variables rendered above are provided from the user. For demonstration purposes below is some view code with these variables set to such values that each of them will cause an alert:
+This is very unsafe and it makes one vulnerable to [*cross site scripting (XSS)* attacks [wiki]](https://en.wikipedia.org/wiki/Cross-site_scripting). Let us consider that the values of the variables rendered above are provided from the user. For demonstration purposes below is some view code with these variables set to such values that each of them will cause an alert:
 
 <pre class="python"><code>from django.shortcuts import render
 import json
