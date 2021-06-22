@@ -27,7 +27,6 @@ Body Content
 This is very unsafe and it makes one vulnerable to XSS attacks. Let us consider that the values of the variables rendered above are provided from the user. For demonstration purposes below is some view code with these variables set to such values that each of them will cause an alert:
 
 <pre class="python"><code>import json
-import json
 
 
 def test_xss(request):
