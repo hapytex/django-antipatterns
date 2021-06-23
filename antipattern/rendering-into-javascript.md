@@ -41,7 +41,7 @@ This snippet might not cause much damage, **but** it can be much more dangerous.
 
 # What can be done to resolve the problem?
 
-Don't render from Django into JavaScript, instead use the [**`json_script`** template filter [Django-doc]](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#json-script) and parse it's results using `JSON.parse`:
+Don't render from Django into JavaScript, instead use the [**`|json_script`** template filter [Django-doc]](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#json-script) and parse it's results using `JSON.parse`:
 
 <pre class="django"><code>&lt;body&gt;
 Body Content
