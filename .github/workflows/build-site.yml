@@ -1,6 +1,6 @@
 name: Deploy site
 on:
-  push
+  push:
   schedule:
     - cron '47 4 * * 4'
 
