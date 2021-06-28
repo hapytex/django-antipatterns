@@ -2,7 +2,7 @@ name: Deploy site
 on:
   push:
   schedule:
-    - cron '47 4 * * 4'
+    - cron: '47 4 * * 4'
 
 jobs:
   linux1:
