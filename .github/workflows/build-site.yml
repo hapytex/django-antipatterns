@@ -1,5 +1,5 @@
 name: Deploy site
-  on:
+on:
   - push
   - schedule:
     - cron '47 4 * * 4'
