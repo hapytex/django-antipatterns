@@ -3,7 +3,7 @@
 severity: 4
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
+tags: [http, get-request, side-effects, query-string]
 layers: [views]
 ---
 Often people construct views that have side, effects, for example:

@@ -3,7 +3,7 @@
 severity: 3
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
+tags: [signals, updates, modeling]
 layers: [signals]
 ---
 

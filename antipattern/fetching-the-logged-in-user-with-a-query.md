@@ -3,7 +3,7 @@
 severity: 2
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
+tags: [authentication, logged-in, database-query]
 layers: [views]
 ---
 

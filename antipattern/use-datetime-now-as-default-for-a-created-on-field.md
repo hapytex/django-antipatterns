@@ -3,7 +3,7 @@
 severity: 2
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
+tags: [field, default, datetime, datetime-field, freezegun]
 layers: [models]
 related_packages: [freezegun]
 ---
