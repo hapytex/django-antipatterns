@@ -3,7 +3,7 @@
 type: antipattern
 typefa: "fas fa-ban"
 severity: 1
-tags: [URL, slug, primary key]
+tags: [url, uri, slug, primary key]
 layers: [models, views]
 related_packages: []
 ---

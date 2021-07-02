@@ -2,7 +2,7 @@
 ---
 type: troubleshooting
 typefa: "fas fa-bug"
-tags: []
+tags: [mysql, datetime, timestamp]
 layers: [database, orm]
 ---
 When using MySQL and we set the [**`USE_TZ`** setting [Django-doc]](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-USE_TZ) to `True`,

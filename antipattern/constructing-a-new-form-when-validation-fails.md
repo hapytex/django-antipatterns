@@ -3,7 +3,7 @@
 severity: 3
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
+tags: [form-errors, blank-form]
 layers: [views, forms]
 ---
 

@@ -3,7 +3,7 @@
 severity: 3
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
+tags: [http, post-request, redirect, refresh, browser-refresh]
 layers: [views]
 ---
 

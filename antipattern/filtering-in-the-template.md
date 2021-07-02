@@ -3,8 +3,8 @@
 severity: 3
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
-layers: [templates]
+tags: [filter, template, database-query, views]
+layers: [views, templates]
 ---
 
 Instead of filtering data in the view, we can filter data in the template.
