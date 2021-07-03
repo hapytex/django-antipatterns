@@ -3,7 +3,7 @@
 severity: 1
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
+tags: [nomenclature, foreign-key, name-suffix]
 layers: [models]
 ---
 

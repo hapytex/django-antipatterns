@@ -3,6 +3,7 @@
 severity: 2
 type: antipattern
 typefa: "fas fa-ban"
+tags: [float-field, money, currency]
 layers: [models]
 related_packages: [django-money, django-moneyfield]
 ---

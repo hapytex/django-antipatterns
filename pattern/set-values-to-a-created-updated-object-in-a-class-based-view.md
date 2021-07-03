@@ -2,7 +2,7 @@
 ---
 type: pattern
 typefa: "fas fa-seedling"
-tags: []
+tags: [authorization, authentication, author, update]
 layers: [views, forms]
 related_packages: []
 ---

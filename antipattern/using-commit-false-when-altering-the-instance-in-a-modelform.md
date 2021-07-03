@@ -3,7 +3,7 @@
 severity: 2
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
+tags: [form, no-update, many-to-many relation]
 layers: [forms, views]
 ---
 

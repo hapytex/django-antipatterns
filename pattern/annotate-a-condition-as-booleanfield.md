@@ -2,7 +2,7 @@
 ---
 type: pattern
 typefa: "fas fa-seedling"
-tags: []
+tags: [annotate, database-query, boolean-field]
 layers: [orm]
 ---
 One sometimes does not want to filter on a condition, but use a condition as a

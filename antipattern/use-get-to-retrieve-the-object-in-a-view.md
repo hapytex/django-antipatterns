@@ -3,7 +3,7 @@
 severity: 2
 type: antipattern
 typefa: "fas fa-ban"
-tags: []
+tags: [http, permission-denied, http-404, not-found, authorization]
 layers: [views]
 ---
 
