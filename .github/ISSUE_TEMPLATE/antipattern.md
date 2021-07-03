@@ -2,7 +2,7 @@
 name: Antipattern
 about: Suggest a new Django-antipattern
 title: "[Antipattern] ???"
-labels: ''
+labels: antipattern
 assignees: ''
 
 ---
