@@ -2,7 +2,7 @@
 name: Pattern
 about: Suggest a new Django-pattern
 title: "[Pattern] ???"
-labels: ''
+labels: pattern
 assignees: ''
 
 ---
