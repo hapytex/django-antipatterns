@@ -4,7 +4,7 @@ type: antipattern
 typefa: "fas fa-ban"
 severity: 3
 tags: [querystring, querydict, percent-encoding]
-layers: templates
+layers: [templates]
 related_packages: []
 ---
 

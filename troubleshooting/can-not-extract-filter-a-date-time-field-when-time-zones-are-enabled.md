@@ -3,7 +3,7 @@
 type: troubleshooting
 typefa: "fas fa-bug"
 tags: [mysql, datetime, timestamp]
-layers: [database, orm]
+layers: [databases, orm]
 ---
 When using MySQL and we set the [**`USE_TZ`** setting [Django-doc]](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-USE_TZ) to `True`,
 it can happen that certain (date)time-related queries no longer work.

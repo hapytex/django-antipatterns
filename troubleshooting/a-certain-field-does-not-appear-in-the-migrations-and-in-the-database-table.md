@@ -3,7 +3,7 @@
 type: troubleshooting
 typefa: "fas fa-bug"
 tags: [field, column, database]
-layers: models
+layers: [models]
 ---
 
 There are several questions on *StackOverflow* regarding a field that is defined in a model, but does not appear in the database
