@@ -1,7 +1,7 @@
 ---
 name: Troubleshooting
 about: Specify a common Django issue and how to solve it
-title: "[Troubleshooting]"
+title: "[Troubleshooting] ???"
 labels: ''
 assignees: ''
 

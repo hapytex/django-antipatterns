@@ -1,7 +1,7 @@
 ---
 name: Pattern
 about: Suggest a new Django-pattern
-title: "[Pattern]"
+title: "[Pattern] ???"
 labels: ''
 assignees: ''
 
