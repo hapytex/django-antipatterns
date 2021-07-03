@@ -9,6 +9,7 @@ assignees: ''
 
 % (ADD TITLE)
 ---
+author: "TODO"
 type: pattern
 typefa: "fas fa-seedling"
 tags: []
