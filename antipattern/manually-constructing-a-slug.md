@@ -2,7 +2,7 @@
 ---
 type: antipattern
 typefa: "fas fa-ban"
-severity: 2
+severity: 3
 tags: [slug, url, uri, url-path]
 layers: [views, models]
 related_packages: [djang-autoslug]
