@@ -56,7 +56,7 @@ if we render the forms with:
     {% csrf_token %}
     {{ <b>father_form</b> }}
     {{ <b>mother_form</b> }}
-&lt;/form&gt;</code>
+&lt;/form&gt;</code></pre>
 
 both the `father_form` and the `mother_form` will use data from the form elements of the form of the mother.
 This is because the request will simply send two values for the `name` and the `first_name` item, and the
