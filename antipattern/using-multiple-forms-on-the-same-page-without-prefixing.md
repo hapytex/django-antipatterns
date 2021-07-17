@@ -18,6 +18,8 @@ For example one can make two forms to fill in data about the father and
 the mother with:
 
 ```python3
+from django import forms
+
 class FatherForm(forms.Form):
     name = forms.CharField()
     first_name = forms.CharField()
@@ -29,7 +31,9 @@ class MotherForm(forms.Form):
 
 The view then might be defined as:
 
-<pre class="python"><code>def some_view(request):
+<pre class="python3"><code>from django.shortcuts import redirect, render
+
+def some_view(request):
     if request.method == 'POST':
         father_form = <b>FatherForm(</b>request.POST<b>)</b>
         mother_form = <b>MotherForm(</b>request.POST<b>)</b>
@@ -78,7 +82,9 @@ that the prefixes are unique, since otherwise the same problem will arise.
 We need to specify the prefix for both the GET and the POST codepath, so that means that the
 view will look like:
 
-<pre class="python"><code>def some_view(request):
+<pre class="python"><code>from django.shortcuts import redirect, render
+
+def some_view(request):
     if request.method == 'POST':
         father_form = FatherForm(request.POST<b>, prefix='father'</b>)
         mother_form = MotherForm(request.POST<b>, prefix='mother'</b>)
