@@ -8,7 +8,7 @@ layers: [views, forms]
 related_packages: []
 ---
 
-Some views do not work with one form, but with /multiple/ forms. In that
+Some views do not work with one form, but with *multiple* forms. In that
 case it is important to work with prefixes such that the two forms will
 each process their part of the composite form.
 
