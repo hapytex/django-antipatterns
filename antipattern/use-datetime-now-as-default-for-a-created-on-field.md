@@ -5,7 +5,9 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [field, default, datetime, datetime-field, freezegun]
 layers: [models]
-related_packages: [freezegun]
+related_packages:
+ - name: freezegun
+   github: spulec/freezegun
 ---
 
 Often people make use of `datetime.now` as a default value to specify a field

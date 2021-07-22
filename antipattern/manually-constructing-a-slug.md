@@ -5,7 +5,9 @@ typefa: "fas fa-ban"
 severity: 3
 tags: [slug, url, uri, url-path]
 layers: [views, models]
-related_packages: [djang-autoslug]
+related_packages:
+  - name: djang-autoslug
+    github: justinmayer/django-autoslug
 ---
 
 Sometimes, people construct slugs manually, for example in a view with:
