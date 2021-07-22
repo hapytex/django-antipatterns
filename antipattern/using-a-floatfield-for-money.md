@@ -5,7 +5,11 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [float-field, money, currency]
 layers: [models]
-related_packages: [django-money, django-moneyfield]
+related_packages:
+ - name: django-money
+   github: django-money/django-money
+ - name: django-moneyfield
+   github: carlospalol/django-moneyfield
 ---
 
 Often for quantities that require *precise* calculations, a [**`FloatField`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#floatfield)
