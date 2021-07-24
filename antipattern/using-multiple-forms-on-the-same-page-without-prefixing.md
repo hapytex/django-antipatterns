@@ -99,3 +99,9 @@ def some_view(request):
         '<i>name-of-some-template.html</i>',
         {'father_form': father_form, 'mother_form': mother_form}
     )</code></pre>
+
+# Extra tips
+
+Django has a [**`FormSet`** class [Django-doc]](https://docs.djangoproject.com/en/dev/topics/forms/formsets/)
+to render a (large) collection of forms each with a different prefix, this makes it more
+easy to route data to the correct form without having to worry about the prefixes oneself.
