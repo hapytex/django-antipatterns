@@ -1,4 +1,4 @@
-% Using a `FloatField` for money
+% Using a `FloatField` for valuta
 ---
 severity: 2
 type: antipattern
