@@ -23,6 +23,10 @@ h1 a:visited {
   color: #092e20;
 }
 
+blockquote p code {
+  line-break: anywhere;
+}
+
 .breadcrumb {
     display: -webkit-box;
     display: -ms-flexbox;
