@@ -1,7 +1,7 @@
 % Set values to a created/updated object in a class-based view
 ---
 type: pattern
-typefa: "fas fa-seedling"
+typefa: "fas fa-shapes"
 tags: [authorization, authentication, author, update]
 layers: [views, forms]
 related_packages: []

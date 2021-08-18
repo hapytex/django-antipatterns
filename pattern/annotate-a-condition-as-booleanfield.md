@@ -1,7 +1,7 @@
 % Annotate a condition as `BooleanField`
 ---
 type: pattern
-typefa: "fas fa-seedling"
+typefa: "fas fa-shapes"
 tags: [annotate, database-query, boolean-field]
 layers: [orm]
 ---
