@@ -39,6 +39,6 @@ class MyModel(models.Model):
 You will need to run `makemigrations` to rename the field. The Django
 makemigrations tool will likely detect that you renamed the field and ask:
 
-> <pre>Did you rename mymodel.other_model_id to activity.other_model (a ForeignKey)? [y/N]</pre>
+> <pre class="none">Did you rename mymodel.other_model_id to activity.other_model (a ForeignKey)? [y/N]</pre>
 
 A question that should be answered with `y`es.
