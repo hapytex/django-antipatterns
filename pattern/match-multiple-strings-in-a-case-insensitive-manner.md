@@ -25,7 +25,7 @@ at least one of these elements in a case-*in*sensitive way.
 
 We can not make use of the [**`__in`** lookup [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#in)
 since this will only match items that contain exactly the name of one fruit in case-sensitive way.
-This thus means that the content should be `'apple'`, not <s>`'APPLE'`</s>, <s>`'Apple'`</s>, <s>`'An apple'</s>, etc.:
+This thus means that the content should be `'apple'`, not <s>`'APPLE'`</s>, <s>`'Apple'`</s>, <s>`'An apple'`</s>, etc.:
 
 ```python3
 Post.objects.filter(
