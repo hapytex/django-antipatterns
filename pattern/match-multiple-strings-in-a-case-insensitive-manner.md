@@ -56,7 +56,6 @@ to escape the items in the `fruits` list such that tokens that have a special me
 
 If we want to match case-insensitive, this means we should use the
 [**`__iregex`** lookup [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#iregex).
-
 If we thus have a list `fruits` with the name of the fruits, we can construct a regex and filter with:
 
 <pre class="python3"><code>from re import escape
