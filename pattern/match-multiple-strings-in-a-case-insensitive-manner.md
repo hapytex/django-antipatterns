@@ -45,7 +45,7 @@ Regular expressions can be used to look for multiple items with one expression. 
 we have to do is convert our `fruits` list to a regular expression that will simultaneously look
 for an `'apple'`, `'blueberry'`, etc. Such regular expression looks like `'(apple|blueberry|coconut|dragonfruit)'`.
 If we want to restrict this further such that the content *begins* with an element of the `fruits` list,
-we can use a caret (`^`): `^(apple|blueberry|coconut|dragonfruit)` will only match contents that start
+we can use a caret (`^`): `'^(apple|blueberry|coconut|dragonfruit)'` will only match contents that start
 with one of the elements. We can also make use of the end anchor `$` such that the content *ends* with the given
 item.
 
