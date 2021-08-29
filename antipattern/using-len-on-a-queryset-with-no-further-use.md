@@ -49,4 +49,4 @@ qs = Comment.objects.filter(post_id=<i>id_of_post</i>)
 
 number_of_comments = len(qs)
 for comment in qs:
-  print(comment)</code></pre>
+    print(comment)</code></pre>
