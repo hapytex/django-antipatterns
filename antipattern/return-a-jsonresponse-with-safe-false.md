@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [json-response, list, json-object, http-response]
 layers: [views]
+solinks: []
 ---
 
 Often people find out that you can not return a *list* as outer item in a

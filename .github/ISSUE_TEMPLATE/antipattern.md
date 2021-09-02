@@ -16,6 +16,7 @@ typefa: "fas fa-ban"
 tags: []
 layers: models/views/forms/serializers/templates/...
 related_packages: []
+solinks: []
 ---
 
 TODO

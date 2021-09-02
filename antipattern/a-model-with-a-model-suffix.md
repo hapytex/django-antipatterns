@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [pep-8, style-guidelines]
 layers: [models]
+solinks: []
 ---
 
 Often people use a <code>&hellip;Model</code> suffix for their model, for

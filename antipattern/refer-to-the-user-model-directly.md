@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [modeling, indirect-reference, indirection]
 layers: [models]
+solinks: []
 ---
 
 We often need to link data to the user model used by Django, for example to store

@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [authentication, logged-in, database-query]
 layers: [views]
+solinks: []
 ---
 
 If we use Django's [**`AuthenticationMiddleware`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/middleware/#module-django.contrib.auth.middleware),

@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [itertools, chain, queryset]
 layers: [views, orm]
+solinks: []
 ---
 
 We can chain querysets together with the [**<code>chain(&hellip;)</code>** function [python-doc]](https://docs.python.org/3/library/itertools.html#itertools.chain)

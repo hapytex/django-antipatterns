@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [http, post-request, redirect, refresh, browser-refresh]
 layers: [views]
+solinks: []
 ---
 
 A view sometimes renders content after a *successful* POST request, for example:

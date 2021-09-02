@@ -6,6 +6,7 @@ severity: 3
 tags: [querystring, querydict, percent-encoding]
 layers: [templates]
 related_packages: []
+solinks: []
 ---
 
 In many templates variables are passed to the [*query string* [wiki]](https://en.wikipedia.org/wiki/Query_string)

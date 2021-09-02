@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [database-query, orm, values, dictionaries]
 layers: [views, orm]
+solinks: []
 ---
 
 Often in views, one can find code that looks like:

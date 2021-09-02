@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [nomenclature, name-suffix]
 layers: [models]
+solinks: []
 ---
 
 Often people write model classes with a plural name. For example:

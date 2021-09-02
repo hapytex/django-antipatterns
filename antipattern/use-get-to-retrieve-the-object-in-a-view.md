@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [http, permission-denied, http-404, not-found, authorization]
 layers: [views]
+solinks: []
 ---
 
 In a view, people often retrieve the object with the

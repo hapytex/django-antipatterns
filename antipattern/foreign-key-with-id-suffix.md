@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [nomenclature, foreign-key, name-suffix]
 layers: [models]
+solinks: []
 ---
 
 Often people add an `_id` suffix to the `ForeignKey`s or `OneToOneField`s in

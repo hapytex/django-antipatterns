@@ -8,6 +8,7 @@ layers: [views, models]
 related_packages:
   - name: djang-autoslug
     github: justinmayer/django-autoslug
+solinks: []
 ---
 
 Sometimes, people construct slugs manually, for example in a view with:

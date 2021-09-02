@@ -7,6 +7,7 @@ typefa: "fas fa-ban"
 tags: [javascript, json]
 layers: [templates, views]
 related_packages: []
+solinks: []
 ---
 
 Often one wants to pass some data to JavaScript and to do that one renders into JavaScript using Django. for example:

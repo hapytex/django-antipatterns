@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [nomenclature, foreign-key, name-suffix]
 layers: [models]
+solinks: []
 ---
 
 Often one sees modeling with:

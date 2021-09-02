@@ -8,6 +8,7 @@ layers: [models]
 related_packages:
  - name: freezegun
    github: spulec/freezegun
+solinks: []
 ---
 
 Often people make use of `datetime.now` as a default value to specify a field
