@@ -4,6 +4,7 @@ type: pattern
 typefa: "fas fa-shapes"
 tags: [annotate, database-query, boolean-field]
 layers: [orm]
+solinks: []
 ---
 One sometimes does not want to filter on a condition, but use a condition as a
 Boolean field.

@@ -15,6 +15,7 @@ typefa: "fas fa-bug"
 tags: []
 layers: models/views/forms/serializers/templates/...
 related_packages: []
+solinks: []
 ---
 
 # What are the *symptoms*?

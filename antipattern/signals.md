@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [signals, updates, modeling]
 layers: [signals]
+solinks: []
 ---
 
 Django has a sophisticated system to trigger certain logic when

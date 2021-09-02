@@ -6,6 +6,7 @@ severity: 1
 tags: [url, uri, slug, primary key]
 layers: [models, views]
 related_packages: []
+solinks: []
 ---
 
 Often if we define a model object, we will access a page

@@ -1,10 +1,11 @@
 % Match multiple strings in a case-insensitive manner
 ---
 type: pattern
-typefa: "fas fa-seedling"
+typefa: "fas fa-shapes"
 tags: [regex, string-matching]
 layers: [orm, models, views]
 related_packages: []
+solinks: []
 ---
 
 It often happens that we have a list of strings, and we want to obtain

@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [form-errors, blank-form]
 layers: [views, forms]
+solinks: []
 ---
 
 Often in a view a *new* form is constructed when validating a bounded form

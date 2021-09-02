@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [filter, template, database-query, views]
 layers: [views, templates]
+solinks: []
 ---
 
 Instead of filtering data in the view, we can filter data in the template.

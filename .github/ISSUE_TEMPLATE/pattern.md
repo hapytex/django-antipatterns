@@ -11,10 +11,11 @@ assignees: ''
 ---
 author: "TODO"
 type: pattern
-typefa: "fas fa-seedling"
+typefa: "fas fa-shapes"
 tags: []
 layers: models/views/forms/serializers/templates/...
 related_packages: []
+solinks: []
 ---
 
 TODO

@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [form, no-update, many-to-many relation]
 layers: [forms, views]
+solinks: []
 ---
 
 Often one sees a pattern where one aims to update an instance wrapped in a

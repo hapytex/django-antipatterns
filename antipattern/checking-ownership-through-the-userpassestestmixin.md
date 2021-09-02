@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [author, owner, filter, permission, permission-denied]
 layers: [views]
+solinks: []
 ---
 
 In a view we often want to restrict access to edit an object, for example only

@@ -10,6 +10,7 @@ related_packages:
    github: django-money/django-money
  - name: django-moneyfield
    github: carlospalol/django-moneyfield
+solinks: []
 ---
 
 Often for quantities that require *precise* calculations, a [**`FloatField`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#floatfield)

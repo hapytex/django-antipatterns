@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [database-query, count, length]
 layers: [orm]
+solinks: []
 ---
 
 People sometimes calculate the number of records by using <code>len(&hellip;)</code>.

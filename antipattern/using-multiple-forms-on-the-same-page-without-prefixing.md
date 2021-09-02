@@ -6,6 +6,7 @@ typefa: "fas fa-ban"
 tags: [prefix, modelform]
 layers: [views, forms]
 related_packages: []
+solinks: []
 ---
 
 Some views do not work with one form, but with *multiple* forms. In that

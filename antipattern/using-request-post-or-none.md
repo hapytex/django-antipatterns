@@ -5,6 +5,7 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: [http-request, post, form-invalid]
 layers: [forms]
+solinks: []
 ---
 
 Often one initializes a form with:

@@ -6,6 +6,7 @@ typefa: "fas fa-ban"
 tags: [http-method, http-post, class-based-view]
 layers: [views]
 related_packages: []
+solinks: []
 ---
 
 Often people try to determine if the HTTP request is a POST request by checking `request.POST`. The view thus looks like:
