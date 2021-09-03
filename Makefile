@@ -39,7 +39,7 @@ out_/%.html: %.md Makefile templates/easy_template.html
 	printf "<!DOCTYPE html><meta charset=\"utf-8\"><title>Redirecting to /$(@:out_/%=%)</title><meta http-equiv=\"refresh\" content=\"0; URL=/$(@:out_/%=%)\"><link rel=\"canonical\" href=\"/$(@:out_/%=%)\">" "$@" > $(subst -,_,$@)
 	printf "<!DOCTYPE html><meta charset=\"utf-8\"><title>Redirecting to /$(@:out_/%=%)</title><meta http-equiv=\"refresh\" content=\"0; URL=/$(@:out_/%=%)\"><link rel=\"canonical\" href=\"/$(@:out_/%=%)\">" "$@" > $(subst pattern/,patterns/,$@)
 	printf "<!DOCTYPE html><meta charset=\"utf-8\"><title>Redirecting to /$(@:out_/%=%)</title><meta http-equiv=\"refresh\" content=\"0; URL=/$(@:out_/%=%)\"><link rel=\"canonical\" href=\"/$(@:out_/%=%)\">" "$@" > $(subst -,_,$(subst pattern/,patterns/,$@))
-	pandoc -s -f markdown -t html --template=templates/easy_template.html -c "${style}" --highlight-style haddock "$<" | minify --type 'html' --html-keep-document-tags > "$@"
+	pandoc -s -f markdown+footnotes -t html --template=templates/easy_template.html -c "${style}" --highlight-style haddock "$<" | minify --type 'html' --html-keep-document-tags > "$@"
 
 out_/%.ico : media/%.ico
 	ln "$<" "$@"
