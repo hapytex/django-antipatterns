@@ -78,7 +78,8 @@ is implemented as:
 we here thus make a mixin that will, in case the datetime is not `None` call the `truncate_date` which
 by default does not truncate.
 
-With this mixin, we can however implement fields that truncate like a `WeekField` and a `MonthField`:
+With this mixin, we can however implement fields that truncate like a `WeekField` and a `MonthField`. In
+this example a week starts on *Monday*:
 
 <pre class="python3"><code>from datetime import timedelta
 from django.db.models import DateField
@@ -113,3 +114,66 @@ class HourField(DateTruncMixin, DateTimeField):
 Now we can thus implement variants for a `WeekField`, `MonthField`, `QuarterField`, 'SeasonField', etc.
 The idea is that we can use this for querying, creating, and updating values in a model that uses
 such field.
+
+We can for example make a simple `Week` model with a `WeekField`:
+
+<pre class="python3"><code>from django.db import models
+
+class Week(models.Model):
+    week = WeekField(unique=True)</code></pre>
+
+Now we can start creating `Week` objects. If we create the same `Week` object
+twice with [**<code>.get_or_create(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#get-or-create),
+then the second time it will use the old `Week` object, even if we query
+with another `date` of the same week, it will retrieve the `Week` object
+created by the first creation call. We can work with two dates of the 35<sup>th</sup>
+week of 2021:
+
+```pycon
+>>>> Week.objects.get_or_create(week='2021-09-04')
+(<Week: Week object (1)>, True)
+>>> Week.objects.get_or_create(week='2021-08-31')
+(<Week: Week object (1)>, False)
+```
+
+In the database the date is stored as `2021-08-30`:
+
+```sql
+mysql> SELECT * FROM week;
++----+------------+
+| id | week       |
++----+------------+
+|  1 | 2021-08-30 |
++----+------------+
+1 row in set (0.00 sec)
+```
+
+We thus can also compare two `WeekField`s effectively
+to check if they point to the same week. If for example
+our `Week` model would have a second field `week2`, then
+we can filter with `Week.objects.filter(week=F('week2'))`
+to check if the two fields are equivalent.
+
+We can also retrieve the `Week` object we created with
+the start of the week as value for the `week` attribute:
+
+```pycon
+>>> week = Week.objects.get(pk=1)
+>>> week.week
+datetime.date(2021, 8, 30)
+```
+
+If we change the `week` to another `date` object, and save
+the object again, it is updated to the start of the week
+of that date object. If we query for the old week, then we
+do not get any object:
+
+```pycon
+>>> from datetime import date
+>>> week.week = date(2021, 9, 8)
+>>> week.save()
+>>> Week.objects.get(week='2021-9-6')
+<Week: Week object (1)>
+>>> Week.objects.filter(week='2021-09-04')
+<QuerySet []>
+```

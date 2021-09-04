@@ -28,11 +28,13 @@ blockquote p code {
 }
 
 section.footnotes hr { 
-   width: 50%;
+   width: 75%;
+   height: 1px;
+   background: black;
    margin: auto;
    margin-top: 5%;
    margin-bottom: 5%;
-   border: 3px dashed #1A85FD;
+   /*border: #1A85FD*/;
 }
 
 .breadcrumb {
