@@ -14,7 +14,8 @@ when we filter with a specific date, we look if that date is in the same
 week as the one stored in the model.
 
 We can solve this for example with an `IntegerField` and then determine
-the number of weeks since a specific date, for example January 1<sup>st</sup>, 1990^[since the first week of 1990 starts on a monday.].
+the number of weeks since a specific date, for example January 1<sup>st</sup>,
+1990^[since the first week of 1990 starts on a monday.].
 
 The problem with such an `IntegerField` is that it takes a way a lot of
 convenience to determine the week number. For example when filtering
@@ -177,3 +178,9 @@ do not get any object:
 >>> Week.objects.filter(week='2021-09-04')
 <QuerySet []>
 ```
+
+There are still some issues when comparing the value for a `WeekField`
+with the value of a `DateField` for example, since the `WeekField` is,
+behind the curtains, just a `DateField` that is set to the beginning
+of the week. We however think that such fields will result in more programmer
+convenience.
