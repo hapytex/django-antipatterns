@@ -27,6 +27,16 @@ blockquote p code {
   line-break: anywhere;
 }
 
+section.footnotes hr { 
+   width: 75%;
+   height: 1px;
+   background: black;
+   margin: auto;
+   margin-top: 5%;
+   margin-bottom: 5%;
+   /*border: #1A85FD*/;
+}
+
 .breadcrumb {
     display: -webkit-box;
     display: -ms-flexbox;
