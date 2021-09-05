@@ -27,7 +27,7 @@ for example to join two items, or compare one week with a `date` object.
 
 In this pattern we will discuss an approach to define extra fields like a `WeekField`
 and a `MonthField`. These fields will aim to implement querying in a *transparent*
-manner. The model fields will truncate the `date`(time) object to the start of the
+manner. The model fields will truncate the `date`(`time`) object to the start of the
 week or the month respectively, and also truncates the operands in case filtering is
 done with these fields.
 
