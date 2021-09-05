@@ -1,4 +1,4 @@
-% `Date(Time)Field`s that store a week or month
+% `Date`(`Time`)`Field`s that store a week or month
 ---
 type: pattern
 typefa: "fas fa-shapes"
