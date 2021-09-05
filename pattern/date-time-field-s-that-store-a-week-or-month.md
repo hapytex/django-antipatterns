@@ -15,7 +15,7 @@ week as the one stored in the model.
 
 We can solve this for example with an `IntegerField` and then determine
 the number of weeks since a specific date, for example January 1<sup>st</sup>,
-1990^[since the first week of 1990 starts on a monday.].
+1990^[since the first week of 1990 starts on a Monday.].
 
 The problem with such an `IntegerField` is that it takes a way a lot of
 convenience to determine the week number. For example when filtering
@@ -25,11 +25,11 @@ for example to join two items, or compare one week with a `date` object.
 
 # What problems are solved with this?
 
-In this pattern we will discuss an approach to define two extra fields: a `WeekField`
+In this pattern we will discuss an approach to define extra fields like a `WeekField`
 and a `MonthField`. These fields will aim to implement querying in a *transparent*
 manner. The model fields will truncate the `date`(time) object to the start of the
 week or the month respectively, and also truncates the operands in case filtering is
-done with the `WeekField` or `MonthField`.
+done with these fields.
 
 # What does this pattern look like?
 
@@ -43,9 +43,9 @@ items to their database counterpart. The <code>.get_db_prep_value(&hellip;)</cod
 method will thus, for a `DateField` and `DateTimeField`, convert the `date` and `datetime`
 objects to a certain format the specific database backend understands. For example `2021-09-04`.
 
-What is intersting is that the <code>.get_db_prep_value(&hellip;)</code> method will call the
+What is interesting is that the <code>.get_db_prep_value(&hellip;)</code> method will call the
 <code>.get_prep_value(&hellip;)</code> function that will, on its turn call the <code>.to_python(&hellip;)</code>
-method. This thus means that both when serializing and deserialzing the data, the data is
+method. This thus means that both when serializing and serializing the data, the data is
 passed through the <code>.to_python(&hellip;)</code> method. Indeed, we see this if we [inspect the source code [GitHub]](https://github.com/django/django/blob/stable/3.2.x/django/db/models/fields/__init__.py#L1264-L1272):
 
 <blockquote><pre class="python3"><code>class DateField(DateTimeCheckMixin, Field):
@@ -79,7 +79,7 @@ is implemented as:
 we here thus make a mixin that will, in case the datetime is not `None` call the `truncate_date` which
 by default does not truncate.
 
-With this mixin, we can however implement fields that truncate like a `WeekField` and a `MonthField`. In
+With this mixin, we can implement fields that truncate like a `WeekField` and a `MonthField`. In
 this example a week starts on *Monday*:
 
 <pre class="python3"><code>from datetime import timedelta
@@ -127,7 +127,7 @@ Now we can start creating `Week` objects. If we create the same `Week` object
 twice with [**<code>.get_or_create(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#get-or-create),
 then the second time it will use the old `Week` object, even if we query
 with another `date` of the same week, it will retrieve the `Week` object
-created by the first creation call. We can work with two dates of the 35<sup>th</sup>
+created by the first creation call. We can for example use two dates of the 35<sup>th</sup>
 week of 2021:
 
 ```pycon
@@ -182,5 +182,5 @@ do not get any object:
 There are still some issues when comparing the value for a `WeekField`
 with the value of a `DateField` for example, since the `WeekField` is,
 behind the curtains, just a `DateField` that is set to the beginning
-of the week. We however think that such fields will result in more programmer
-convenience.
+of the week. We however think that the fields defined above
+will result in more programmer convenience.
