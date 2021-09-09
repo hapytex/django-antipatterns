@@ -42,6 +42,28 @@ the corresponding signals, then this results in an inconsistent value. Signals
 thus give a *false sense of security* that the handler will indeed update the
 object accordingly.
 
+## Signals are request unaware
+
+Every now and then people try to implement a signal that needs a request object
+to perform a certain piece of logic. For example one might want to send an email
+each time a certain model is created to the person that made the HTTP request.
+
+Django's signal processing however does not capture the request. This makes sense
+since these signals get fired by models that are created, updated, removed, etc. and
+models are request unaware as well.
+
+The fact that these are request unaware makes it harder to implement certain behavior.
+For example a signal that updates the `owner` field of a model object with the currently
+logged in user. Strictly speaking it *is* possible to implement this, for example
+by inspecting the call stack. If the signal is triggered by a view, eventually
+one will find a call to that view, and thus one can obtain the `request` object. Another
+way to do this would be to implement middleware that keeps track of the user that makes
+the request, and then uses that, but that will introduce a *global state* antipattern.
+
+This thus means that while technically there are some ways to make signals request-aware
+these solutions are often *ugly* and furthermore can fail if a management command
+triggers the change.
+
 ## Signals can raise exceptions and break the code flow
 
 If the signals run, for example when we call `.save()` on a model object, then
