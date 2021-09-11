@@ -189,7 +189,7 @@ code {
 	position:relative;
 }
 .pre-wrapper pre{
-	padding-top: 25px;
+	padding-top: 0px;
 }
 .pre-wrapper .copy-snippet {
 	border-radius: 0;
