@@ -185,3 +185,32 @@ code {
   border-color: #dd050b;
 }
 
+.pre-wrapper{
+	position:relative;
+}
+.pre-wrapper pre{
+	padding-top: 0px;
+}
+.pre-wrapper .copy-snippet {
+	border-radius: 0;
+	min-width:55px;
+	background: none repeat scroll 0 0 transparent;
+	border: 1px solid #bbb;
+	color: #26589F;
+	font-family: 'HELEVETICA',sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 1.42rem;
+	margin: 0;
+	padding: 0px 5px;
+	text-align: center;
+	text-decoration: none;
+	text-indent: 0;
+	position:absolute;
+	background:#ccc;
+	top:0;
+	right:0;
+}
+.pre-wrapper .copy-snippet:disabled{
+	color:#555;
+}
