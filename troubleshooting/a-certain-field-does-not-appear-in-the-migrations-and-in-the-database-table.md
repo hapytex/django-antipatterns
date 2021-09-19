@@ -12,7 +12,8 @@ after making migrations and migrating.
 
 # What are the *symptoms*?
 
-If we inspect the migration file that was constructed by the [**`makemigrations`** command [Django-doc]](https://docs.djangoproject.com/en/dev/ref/django-admin/#django-admin-makemigrations).
+If we inspect the migration file that was constructed by the [**`makemigrations`** command [Django-doc]](https://docs.djangoproject.com/en/dev/ref/django-admin/#django-admin-makemigrations),
+we see that only a subset of the fields (or none at all) are mentioned, and some fields that have been defined in the model are thus missing.
 
 # What is a *possible* fix?
 
