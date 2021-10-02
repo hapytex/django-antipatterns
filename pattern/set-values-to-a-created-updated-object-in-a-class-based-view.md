@@ -92,7 +92,7 @@ then the mixin can be used, for example in both views that create a `Post` and a
 <pre class="python"><code>from django.views.generic.edit import CreateView
 from <i>app_name</i>.forms import CommentForm, PostForm
 
-class CommentCreateView(SetAuthorMixin, CreateView):
+class PostCreateView(SetAuthorMixin, CreateView):
     form_class = PostForm
 
 
