@@ -152,7 +152,7 @@ a field, but use [**<code>.annotate(&hellip;)</code>** [Django-doc]](https://doc
 to each time annotate the `Author`s with the number of `Book`s they have written. We thus can make a query
 that looks like:
 
-<pre class="python3"><code>from django.db.models import <b>Count</b>
+<pre class="python"><code>from django.db.models import <b>Count</b>
 
 Author.objects.annotate(
     <b>num_books=Count('books')</b>
@@ -170,7 +170,7 @@ and `Author`s grows, then this can become a performance bottleneck.
 Another option might be to encapsulate the handler logic in a specific function. For example if we want to count the number of
 books of an `Author` each time we save/update a `Book`, we can implement the logic:
 
-```python3
+```python
 def update_book(book):
     author = book.author
     author.num_books = author.books.count()

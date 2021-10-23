@@ -26,7 +26,7 @@ The form will normally only take the `comment` as field, not the `post` and
 `author`. We can for example specify the primary key of the post in the path,
 and the author is normally the logged in user. The form thus looks like:
 
-```python3
+```python
 from django import forms
 
 class CommentForm(forms.ModelForm):

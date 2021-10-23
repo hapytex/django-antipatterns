@@ -15,7 +15,7 @@ Often this is also checked in a case-*in*sensitive way, such that `'apple'` and
 
 Usually we have a list of items that we want to match with that field, for example:
 
-```python3
+```python
 fruits = ['apple', 'blueberry', 'coconut', 'dragonfruit']
 ```
 
@@ -28,7 +28,7 @@ We can not make use of the [**`__in`** lookup [Django-doc]](https://docs.djangop
 since this will only match items that contain exactly the name of one fruit in case-sensitive way.
 This thus means that the content should be `'apple'`, not <s>`'APPLE'`</s>, <s>`'Apple'`</s>, <s>`'An apple'`</s>, etc.:
 
-```python3
+```python
 Post.objects.filter(
     content__in=fruits
 )
@@ -59,7 +59,7 @@ If we want to match case-insensitive, this means we should use the
 [**`__iregex`** lookup [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#iregex).
 If we thus have a list `fruits` with the name of the fruits, we can construct a regex and filter with:
 
-<pre class="python3"><code>from re import escape
+<pre class="python"><code>from re import escape
 
 myregex = f'^({&quot;|&quot;.join(<b>escape(</b>fruit<b>)</b> for fruit in fruits)})$'
 

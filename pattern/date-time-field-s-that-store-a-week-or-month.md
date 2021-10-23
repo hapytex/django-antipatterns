@@ -48,7 +48,7 @@ What is interesting is that the <code>.get_db_prep_value(&hellip;)</code> method
 method. This thus means that both when serializing and serializing the data, the data is
 passed through the <code>.to_python(&hellip;)</code> method. Indeed, we see this if we [inspect the source code [GitHub]](https://github.com/django/django/blob/stable/3.2.x/django/db/models/fields/__init__.py#L1264-L1272):
 
-<blockquote><pre class="python3"><code>class DateField(DateTimeCheckMixin, Field):
+<blockquote><pre class="python"><code>class DateField(DateTimeCheckMixin, Field):
     # &hellip;
 
     def get_prep_value(self, value):
@@ -65,7 +65,7 @@ We can make use of this by overriding the <code>.to_python(&hellip;)</code> meth
 the `date`/`datetime` to the corresponding week, month, etc. We thus can work with a `DateTruncMixin` that
 is implemented as:
 
-<pre class="python3"><code>class DateTruncMixin:
+<pre class="python"><code>class DateTruncMixin:
 
     def truncate_date(self, dt):
         return dt
@@ -82,7 +82,7 @@ by default does not truncate.
 With this mixin, we can implement fields that truncate like a `WeekField` and a `MonthField`. In
 this example a week starts on *Monday*:
 
-<pre class="python3"><code>from datetime import timedelta
+<pre class="python"><code>from datetime import timedelta
 from django.db.models import DateField
 
 class WeekField(DateTruncMixin, DateField):
@@ -98,7 +98,7 @@ class MonthField(DateTruncMixin, DateField):
 
 The same logic can be applied for `DateTimeField`s:
 
-<pre class="python3"><code>from django.db.models import DateTimeField
+<pre class="python"><code>from django.db.models import DateTimeField
 
 class MinuteField(DateTruncMixin, DateTimeField):
     
@@ -118,7 +118,7 @@ such field.
 
 We can for example make a simple `Week` model with a `WeekField`:
 
-<pre class="python3"><code>from django.db import models
+<pre class="python"><code>from django.db import models
 
 class Week(models.Model):
     week = WeekField(unique=True)</code></pre>

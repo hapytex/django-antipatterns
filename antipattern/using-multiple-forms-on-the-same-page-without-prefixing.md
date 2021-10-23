@@ -18,7 +18,7 @@ each process their part of the composite form.
 For example one can make two forms to fill in data about the father and
 the mother with:
 
-```python3
+```python
 from django import forms
 
 class FatherForm(forms.Form):
@@ -32,7 +32,7 @@ class MotherForm(forms.Form):
 
 The view then might be defined as:
 
-<pre class="python3"><code>from django.shortcuts import redirect, render
+<pre class="python"><code>from django.shortcuts import redirect, render
 
 def some_view(request):
     if request.method == 'POST':

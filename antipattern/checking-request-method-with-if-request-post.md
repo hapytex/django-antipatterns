@@ -11,7 +11,7 @@ solinks: []
 
 Often people try to determine if the HTTP request is a POST request by checking `request.POST`. The view thus looks like:
 
-<pre class="python3"><code>def my_view(request):
+<pre class="python"><code>def my_view(request):
     if <b>request.POST</b>:
         # &hellip;
     # &hellip;</code></pre>
@@ -28,7 +28,7 @@ as payload. In that case the `if request.POST` check will fail, but `request.met
 
 One should check the request method with:
 
-<pre class="python3"><code>def my_view(request):
+<pre class="python"><code>def my_view(request):
     if <b>request.method == 'POST'</b>:
         # &hellip;
     # &hellip;</code></pre>
