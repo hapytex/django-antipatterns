@@ -13,7 +13,8 @@ run for objects that refer to an object through a `ForeignKey` or `OneToOnField`
 if that object these refer to is removed.
 
 Often handlers like [**`CASCADE`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.CASCADE) or
-[**<code>SET(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.SET). While
+[**<code>SET(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.SET) are often
+picked to remove the object that refers to the object, or let the `ForeignKey` point to a new object respectively. While
 <code>SET(&hellip;)</code> can be given a callable, but it takes *no* parameters.
 
 Often, it is useful to be given the instance where the modification should take place, such that a method
