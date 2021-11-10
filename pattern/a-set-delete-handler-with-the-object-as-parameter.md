@@ -1,4 +1,4 @@
-% A SET(…) delete handler with the object as parameter
+% A `SET(…)` delete handler with the object as parameter
 ---
 type: pattern
 typefa: "fas fa-shapes"
