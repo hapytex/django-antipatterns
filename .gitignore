@@ -4,6 +4,9 @@ out_/
 out_/*
 out_/**
 
+# note file
+*.note
+
 index.md
 pattern.md
 antipattern.md
