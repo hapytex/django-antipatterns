@@ -50,10 +50,10 @@ Body Content
 {{ var_2<b>|json_script:&quot;var-2-json&quot;</b> }}
 {{ var_3<b>|json_script:&quot;var-3-json&quot;</b> }}
 &lt;script&gt;
-    let a = JSON.parse(document.getElementById(<b>'var-1-json'</b>).textContent);;
-    let b = JSON.parse(document.getElementById(<b>'var-2-json'</b>).textContent);;
+    let a = JSON.parse(document.getElementById(<b>'var-1-json'</b>).textContent);
+    let b = JSON.parse(document.getElementById(<b>'var-2-json'</b>).textContent);
 &lt;/script&gt;
 &lt;script&gt;
-    let c = JSON.parse(document.getElementById(<b>'var-3-json'</b>).textContent);;
+    let c = JSON.parse(document.getElementById(<b>'var-3-json'</b>).textContent);
 &lt;/script&gt;
 &lt;/body&gt;</code></pre>
