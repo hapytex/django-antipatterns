@@ -28,3 +28,21 @@ MyModel.objects.annotate(
         output_field=BooleanField()
     <b>)</b>
 )</code></pre>
+
+# Extra tips
+
+One can encapsulate the logic with an expression that looks like:
+
+<pre class="python"><code>from django.db.models import BooleanField, ExpressionWrapper, Q
+
+def <b>Condition</b>(*args, **kwargs):
+    return ExpressionWrapper(Q(*args, **kwargs), output_field=BooleanField())</code></pre>
+
+then one can annotate the condition with:
+
+<pre class="python"><code>MyModel.objects.annotate(
+    my_condition=<b>Condition(</b>pk__lt=14<b>)</b>
+)</code></pre>
+
+the positional and named parameters can be used like one does in a [**<code>.filter(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#filter)
+method call.
