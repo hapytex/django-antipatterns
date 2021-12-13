@@ -27,6 +27,10 @@ blockquote p code {
   line-break: anywhere;
 }
 
+article .span12 {
+  text-align: justify;
+}
+
 section.footnotes hr { 
    width: 75%;
    height: 1px;
