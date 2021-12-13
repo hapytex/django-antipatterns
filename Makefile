@@ -1,4 +1,4 @@
-markdowns = $(shell ls antipattern/*.md pattern/*.md troubleshooting/*.md)
+markdowns = $(shell ls antipattern/*.md pattern/*.md difference-between/*.md troubleshooting/*.md)
 outhtml = $(markdowns:%.md=out_/%.html)
 style = # https://bootswatch.com/4/slate/bootstrap.css  # 'https://raw.githubusercontent.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css' 
 
@@ -8,7 +8,7 @@ outjss = $(jss:site/%=out_/%)
 outcsss = $(csss:site/%=out_/%)
 
 
-all: out_ out_/CNAME $(outjss) $(outcsss) out_/antipattern out_/antipatterns out_/pattern out_/patterns out_/troubleshooting $(outhtml) out_/index.html   out_/antipattern.html out_/pattern.html out_/troubleshooting.html out_/favicon.ico out_/sitemap.xml
+all: out_ out_/CNAME $(outjss) $(outcsss) out_/antipattern out_/antipatterns out_/pattern out_/patterns out_/difference-between out_/difference_between out_/troubleshooting $(outhtml) out_/index.html   out_/antipattern.html out_/pattern.html out_/difference-between.html out_/troubleshooting.html out_/favicon.ico out_/sitemap.xml
 
 out_ :
 	mkdir -p out_
@@ -27,6 +27,9 @@ antipattern.md : toc.sh $(markdowns)
 
 pattern.md : toc.sh $(markdowns)
 	bash toc.sh pattern Patterns > "$@"
+
+difference-between.md : toc.sh $(markdowns)
+	bash toc.sh difference-between "Difference between …" > "$@"
 
 troubleshooting.md : toc.sh $(markdowns)
 	bash toc.sh troubleshooting Troubleshooting > "$@"
@@ -50,5 +53,5 @@ out_/CNAME: site/CNAME
 out_/%:
 	mkdir -p "$@"
 
-hunspell: antipattern/*.md pattern/*.md troubleshooting/*.md
+hunspell: antipattern/*.md pattern/*.md difference-between/*.md troubleshooting/*.md
 	hunspell -H $^

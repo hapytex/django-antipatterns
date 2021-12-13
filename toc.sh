@@ -21,6 +21,9 @@ else
   echo -e '\n\n<h1 class="patterntype"><a href="/pattern.html"><i class="fas fa-shapes"></i>&nbsp;Patterns</a></h1>\n'
   make_toc pattern
 
+  echo -e '\n\n<h1 class="patterntype"><a href="/difference-between.html"><i class="fas fa-adjust"></i>&nbsp;Difference between &hellip;</a></h1>\n'
+  make_toc difference-between
+
   echo -e '\n\n<h1 class="patterntype"><a href="/troubleshooting.html"><i class="fas fa-bug"></i>&nbsp;Troubleshooting</a></h1>\n'
   make_toc troubleshooting
 fi
