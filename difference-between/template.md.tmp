@@ -1,6 +1,5 @@
-%% %s and
+%% %s and ???
 ---
-severity: ???
 type: difference-between
 typefa: "fas fa-adjust"
 tags: []
@@ -13,7 +12,7 @@ solinks: []
 
 # Summary
 
-     | ??? | ???
+|    | ??? | ???
 |:-- |:--  |:--
 |    |     |
 |    |     |
