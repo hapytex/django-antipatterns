@@ -3,3 +3,6 @@ views
 forms
 templates
 signals
+serializers
+urls
+middleware
