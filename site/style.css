@@ -31,6 +31,15 @@ article .span12 {
   text-align: justify;
 }
 
+ol.breadcrumb {
+  margin: 2px 0 2px 0;
+  padding: 0 0 0 0;
+}
+
+li.breadcrumb-item {
+  font-size: 16px;
+}
+
 section.footnotes hr { 
    width: 75%;
    height: 1px;

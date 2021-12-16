@@ -72,7 +72,6 @@ $endfor$
   <a class="github-fork-ribbon" href="https://github.com/hapytex/django-antipatterns" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
     
   $if(title)$
-  <article>
   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
       <div class="container">
@@ -106,34 +105,33 @@ $endfor$
     </div>
   </div>
   $endif$
-  <div class="container">
-    <div class="row">
-      $if(toc)$
-      <div id="$idprefix$TOC" class="span3">
-        <div class="well toc">
-
-        $toc$
-
+  <article>
+    <div class="container">
+      <div class="row">
+        $if(toc)$
+        <div id="$idprefix$TOC" class="span3">
+          <div class="well toc">
+            $toc$
+          </div>
         </div>
-      </div>
-      $endif$
-      <div class="span$if(toc)$9$else$12$endif$">
-      $for(include-before)$
-      $include-before$
-      $endfor$
-      $body$
-      $for(include-after)$
-      $include-after$
-      $endfor$
-      $if(related_packages)$
-      <h1 id="related-packages">Related packages</h1>
-        $for(related_packages)$
-          $if(related_packages.github)$
-          <a href="https://github.com/$related_packages.github$"><img alt="latest release of $related_packages.name$" src="https://img.shields.io/github/v/tag/$related_packages.github$?color=%23092E20&label=$related_packages.name$&logo=django"></a>
-          $endif$
+        $endif$
+        <div class="span$if(toc)$9$else$12$endif$">
+        $for(include-before)$
+          $include-before$
         $endfor$
-      $endif$
-<script nonce data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="hapytex" data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+        $body$
+        $for(include-after)$
+          $include-after$
+        $endfor$
+        $if(related_packages)$
+          <h1 id="related-packages">Related packages</h1>
+          $for(related_packages)$
+            $if(related_packages.github)$
+              <a href="https://github.com/$related_packages.github$"><img alt="latest release of $related_packages.name$" src="https://img.shields.io/github/v/tag/$related_packages.github$?color=%23092E20&label=$related_packages.name$&logo=django"></a>
+            $endif$
+          $endfor$
+        $endif$
+  <script nonce data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="hapytex" data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting." data-color="#FFDD00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
       </div>
     </div>
   </div>
