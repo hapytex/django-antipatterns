@@ -19,6 +19,6 @@ Finally <code>redirect(&hellip;)</code> also accepts a model object that has a [
 
 |    | [<code>reverse(&hellip;)</code>](https://docs.djangoproject.com/en/dev/ref/urlresolvers/#reverse) | [<code>redirect(&hellip;)</code>](https://docs.djangoproject.com/en/dev/topics/http/shortcuts/#redirect)
 |:-- |:--  |:--
-| return type | `str`ing | `HttpResponseRedirect` or `HttpResponsePermanentRedirect`
+| Return type | `str`ing | `HttpResponseRedirect` or `HttpResponsePermanentRedirect`
 | URL parameters | through <code>args=&hellip;</code> and <code>kwargs=&hellip;</code> | positional and named parameters
-| input possibilities | only the name of the view | the name of the view, a model object with <code>.get_absolute_url(&hellip;)</code>, or a URL/path as input.
+| Input possibilities | only the name of the view | the name of the view, a model object with <code>.get_absolute_url(&hellip;)</code>, or a URL/path as input.
