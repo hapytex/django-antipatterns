@@ -15,6 +15,8 @@ A <code>redirect(&hellip;)</code> does not per se works with a view name. Indeed
 
 Finally <code>redirect(&hellip;)</code> also accepts a model object that has a [**`.get_absolute_url()`** method [Django-doc]](https://docs.djangoproject.com/en/3.2/ref/models/instances/#get-absolute-url). In case one passes such model as first parameter, it will return a HTTP redirect response that redirects the browser to the URL constructed by that `.get_absolute_url()` method.
 
+Sometimes programmers write <code>redirect(reverse('<i>some_view</i>', kwargs={'<i>some_parameter'</i>'='<i>some_value</i>'}))</code>. This makes not much sense: `redirect` indeed will generate a redirect response if it is given a URL, but we can omit the <code>reverse(&hellip;)</code> call and work with <code>redirect('<i>some_view</i>', <i>some_parameter</i>=<i>'some_value'</i>)</code>.
+
 # Summary
 
 |    | [<code>reverse(&hellip;)</code>](https://docs.djangoproject.com/en/dev/ref/urlresolvers/#reverse) | [<code>redirect(&hellip;)</code>](https://docs.djangoproject.com/en/dev/topics/http/shortcuts/#redirect)
