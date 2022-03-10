@@ -25,8 +25,7 @@ Dictionaries are less "rich". These simply map keys to values. A model enhances
 that with several extra functionalities:
 
  1. validation of fields;
- 2. mapping the field to its representation with
-    <code>get_<i>fieldname</i>_display</code>
+ 2. mapping the field to its representation with <code>get_<i>fieldname</i>_display</code>;
  3. properties added on the model;
  4. retrieve related model objects (`ForeignKey`s act like lazy queries); and
  5. updating, removing, etc. of the model to the database.
@@ -53,3 +52,5 @@ One can make use of [**<code>.only(&hellip;)</code>** [Django-doc]](https://docs
 and [**<code>.defer(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#defer) to retrieve
 only a subset of the columns of the model. The remaining columns are then *lazy*
 loaded with extra queries when necessary.
+
+Some people use <code>.values(&hellip;)</code> to *serialize* data to a JSON blob. Usually it is better to make use of [*serializers* [drf-doc]](https://www.django-rest-framework.org/api-guide/serializers/) that are for example offered by the [Django REST framework package](https://www.django-rest-framework.org/). These serializers allow to serialize related model objects, can do more sophisticated serialization, and often work in *both* directions: converting a model object to a serialized form, and deserializing objects into model objects. This will thus reduce the amount of work and do proper validation.
