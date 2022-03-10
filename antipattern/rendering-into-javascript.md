@@ -25,7 +25,7 @@ Body Content
 
 # Why is it a problem?
 
-This is very unsafe and it makes one vulnerable to [*cross site scripting (XSS)* attacks [wiki]](https://en.wikipedia.org/wiki/Cross-site_scripting). Let us consider that the values of the variables rendered above are provided from the user. For demonstration purposes below is some view code with these variables set to such values that each of them will cause an alert:
+This is very unsafe and it makes one vulnerable to [*cross site scripting (XSS)* attacks <sup>[wiki]</sup>](https://en.wikipedia.org/wiki/Cross-site_scripting). Let us consider that the values of the variables rendered above are provided from the user. For demonstration purposes below is some view code with these variables set to such values that each of them will cause an alert:
 
 <pre class="python"><code>from django.shortcuts import render
 import json
@@ -42,7 +42,7 @@ This snippet might not cause much damage, **but** it can be much more dangerous.
 
 # What can be done to resolve the problem?
 
-Don't render from Django into JavaScript, instead use the [**`|json_script`** template filter [Django-doc]](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#json-script) and parse it's results using `JSON.parse`:
+Don't render from Django into JavaScript, instead use the [**`|json_script`** template filter <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#json-script) and parse it's results using `JSON.parse`:
 
 <pre class="django"><code>&lt;body&gt;
 Body Content

@@ -8,8 +8,8 @@ layers: [views, orm]
 solinks: []
 ---
 
-We can chain querysets together with the [**<code>chain(&hellip;)</code>** function [python-doc]](https://docs.python.org/3/library/itertools.html#itertools.chain)
-of the [**`itertools`** package [python-doc]](https://docs.python.org/3/library/itertools.html#itertools.chain). For example if we have two `Post`s, we can chain
+We can chain querysets together with the [**<code>chain(&hellip;)</code>** function <sup>[python-doc]</sup>](https://docs.python.org/3/library/itertools.html#itertools.chain)
+of the [**`itertools`** package <sup>[python-doc]</sup>](https://docs.python.org/3/library/itertools.html#itertools.chain). For example if we have two `Post`s, we can chain
 the posts with a `publish_date` and then the ones where the `publish_date` is `NULL`:
 
 <pre class="python"><code>from itertools import chain
@@ -56,7 +56,7 @@ importance, we can make use of the `|` operator:
 
 <pre class="python"><code>result = qs1 <b>|</b> qs2</code></pre>
 
-if the order is of importance, we can make use of [**<code>.union(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#union):
+if the order is of importance, we can make use of [**<code>.union(&hellip;)</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#union):
 
 <pre class="python"><code>qs1.<b>union(</b>qs2<b>, all=True)</b></code></pre>
 

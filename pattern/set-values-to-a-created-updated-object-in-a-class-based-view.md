@@ -59,7 +59,7 @@ instance through a *mixin*: this makes the logic to inject data more *reusable*.
 
 # What does this pattern look like?
 
-We override the [**<code>.form_valid(&hellip;)</code>** method [Django-doc]](https://docs.djangoproject.com/en/dev/ref/class-based-views/mixins-editing/#django.views.generic.edit.FormMixin.form_valid)
+We override the [**<code>.form_valid(&hellip;)</code>** method <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/class-based-views/mixins-editing/#django.views.generic.edit.FormMixin.form_valid)
 of the view with the `FormMixin`, and there we can alter the `.instance` wrapped
 in the form, for example:
 
@@ -110,7 +110,7 @@ for all views with that logic, instead of searching for all views that
 implemented (variants) of that logic.
 
 For the Django admin, we can override the
-[**<code>.save_model</code>** method [Django-doc]](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_model):
+[**<code>.save_model</code>** method <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/#django.contrib.admin.ModelAdmin.save_model):
 
 <pre class="python"><code>from django.contrib import admin
 
@@ -122,6 +122,6 @@ class MyModelAdmin(admin.ModelAdmin):
 # Extra tips
 
 For `DateTimeField`s and `DateField`s we can make use of the
-[**<code>auto_now_add=&hellip;</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateField.auto_now_add) or
-[**<code>auto_now=&hellip;</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateField.auto_now) can be used to
+[**<code>auto_now_add=&hellip;</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateField.auto_now_add) or
+[**<code>auto_now=&hellip;</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateField.auto_now) can be used to
 automatically specify the current timestamp to specify when to *create* or *update* the object.

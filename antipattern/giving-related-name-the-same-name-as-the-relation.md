@@ -25,7 +25,7 @@ class Post(models.Model):
 # Why is it a problem?
 
 There is often some confusion about the
-[**<code>related_name=&hellip;</code>** parameter [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.ForeignKey.related_name).
+[**<code>related_name=&hellip;</code>** parameter <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.ForeignKey.related_name).
 This parameters specifies the name of the relation in *reverse*. It is thus the
 name of the relation to access the *related* `Post` objects for a given
 `Profile` object. Indeed, with the modeling above, we access the `Post` objects

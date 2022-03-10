@@ -148,7 +148,7 @@ Often it is better to avoid using signals. One can implement a lot of logic *wit
 ## Calculating properties on-demand
 
 The most robust way to count the number of `Book`s of an `Author` is *not* to store the number of books in
-a field, but use [**<code>.annotate(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#annotate)
+a field, but use [**<code>.annotate(&hellip;)</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#annotate)
 to each time annotate the `Author`s with the number of `Book`s they have written. We thus can make a query
 that looks like:
 
@@ -208,6 +208,6 @@ go in timeout as well, and thus render the server irresponsive.
 
 Signals can still be a good solution if you want to handle events raised by a *third party* Django application.
 In many cases, this is the only effective way to handle certain events. For example the `auth` module provides
-[signals when the user logs in, logs out, or fails to log in [Django-doc]](https://docs.djangoproject.com/en/dev/ref/contrib/auth/#module-django.contrib.auth.signals)
+[signals when the user logs in, logs out, or fails to log in <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/contrib/auth/#module-django.contrib.auth.signals)
 these signals are typically more reliable, since these are not triggered by the ORM. Often for third party applications
 signals are an effective way to communicate with these applications.

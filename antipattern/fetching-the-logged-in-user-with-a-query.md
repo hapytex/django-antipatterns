@@ -8,7 +8,7 @@ layers: [views]
 solinks: []
 ---
 
-If we use Django's [**`AuthenticationMiddleware`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/middleware/#module-django.contrib.auth.middleware),
+If we use Django's [**`AuthenticationMiddleware`** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/middleware/#module-django.contrib.auth.middleware),
 then the `HttpRequest`s that are passed to the view have an attribute `.user`
 that we can use to obtain the logged in user, or the `AnonymousUser` in case
 there is no logged in user for that request.
@@ -39,7 +39,7 @@ model that has only an email address, then we will still have to update the view
 
 # What can be done to resolve the problem?
 
-Use [**`request.user`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.user) directly.
+Use [**`request.user`** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.user) directly.
 This is an object of the actively used user model, so Django's `User` model by
 default. It means we do not have to worry about the user model, or how it is
 linked to the session.
@@ -53,7 +53,7 @@ linked to the session.
 It is possible that sometimes we want to update the user model with the values
 stored in the database. Using an explicit query however is not very flexible for
 the reasons explained above. In that case we can use the
-[**<code>.refresh_from_db(&hellip;)</code>** method [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/instances/#django.db.models.Model.refresh_from_db)
+[**<code>.refresh_from_db(&hellip;)</code>** method <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/instances/#django.db.models.Model.refresh_from_db)
 to refresh the data in the `request.user` object with values from the database:
 
 <pre class="python"><code>def my_view(request):

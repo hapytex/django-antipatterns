@@ -44,5 +44,5 @@ then one can annotate the condition with:
     my_condition=<b>Condition(</b>pk__lt=14<b>)</b>
 )</code></pre>
 
-the positional and named parameters can be used like one does in a [**<code>.filter(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#filter)
+the positional and named parameters can be used like one does in a [**<code>.filter(&hellip;)</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#filter)
 method call.

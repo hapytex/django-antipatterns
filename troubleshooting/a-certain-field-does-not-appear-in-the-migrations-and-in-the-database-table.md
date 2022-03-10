@@ -12,7 +12,7 @@ after making migrations and migrating.
 
 # What are the *symptoms*?
 
-If we inspect the migration file that was constructed by the [**`makemigrations`** command [Django-doc]](https://docs.djangoproject.com/en/dev/ref/django-admin/#django-admin-makemigrations),
+If we inspect the migration file that was constructed by the [**`makemigrations`** command <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/django-admin/#django-admin-makemigrations),
 we see that only a subset of the fields (or none at all) are mentioned, and some fields that have been defined in the model are thus missing.
 
 # What is a *possible* fix?
@@ -30,7 +30,7 @@ class MyModel(models.Model):
     name = models.CharField(max_length=128)<b>,</b></code></pre>
 
 This will wrap the `CharField` in a singleton tuple (a tuple with one element).
-Django will look for items in the class that are subclasses of the [**`Field`** class [Django-doc]](https://docs.djangoproject.com/en/3.2/ref/models/fields/#field-options). While the tuple wraps a `CharField` that is a subclass of `Field`,
+Django will look for items in the class that are subclasses of the [**`Field`** class <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/3.2/ref/models/fields/#field-options). While the tuple wraps a `CharField` that is a subclass of `Field`,
 a singleton tuple that contains such element is *not*, so Django will not recognize it.
 
 In that case you thus drop the trailing comma, and work with:
