@@ -32,7 +32,7 @@ one often wants to avoid.
 
 # What can be done to resolve the problem?
 
-The [*Post/Redirect/Get* architectural pattern <sup>[wiki]</sup>](https://en.wikipedia.org/wiki/Post/Redirect/Get)
+The [*Post/Redirect/Get* architectural pattern&nbsp;<sup>[wiki]</sup>](https://en.wikipedia.org/wiki/Post/Redirect/Get)
 sends a HTTP 302 or HTTP 303 response, which is a *non-permanent* redirect to the next page. The browser
 will then make a GET request to that other view. If later the client refreshes
 the browser, the browser will again make a GET request to the new URL, and thus

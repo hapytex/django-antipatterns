@@ -9,7 +9,7 @@ solinks: []
 ---
 
 Often people find out that you can not return a *list* as outer item in a
-[**`JsonResponse`** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/3.1/ref/request-response/#jsonresponse-objects)
+[**`JsonResponse`**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/3.1/ref/request-response/#jsonresponse-objects)
 and decide to use `safe=False` to still allow this. This thus looks like:
 
 <pre class="python"><code>from django.http import JsonResponse

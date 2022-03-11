@@ -35,8 +35,8 @@ done with these fields.
 
 Django's `DateField` is designed to store a given date. When creating a new
 field, the two methods that one often has to implement are
-[**<code>to_python(&hellip;)</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.Field.to_python)
-and [**<code>get_db_prep_value(&hellip;)</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.Field.get_db_prep_value).
+[**<code>to_python(&hellip;)</code>**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.Field.to_python)
+and [**<code>get_db_prep_value(&hellip;)</code>**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.Field.get_db_prep_value).
 The first one is used to transform data from the database to its
 Python counter part^[for example converting a JSON blob to Python objects.] whereas the latter is used to convert
 items to their database counterpart. The <code>.get_db_prep_value(&hellip;)</code>
@@ -46,7 +46,7 @@ objects to a certain format the specific database backend understands. For examp
 What is interesting is that the <code>.get_db_prep_value(&hellip;)</code> method will call the
 <code>.get_prep_value(&hellip;)</code> function that will, on its turn call the <code>.to_python(&hellip;)</code>
 method. This thus means that both when serializing and serializing the data, the data is
-passed through the <code>.to_python(&hellip;)</code> method. Indeed, we see this if we [inspect the source code <sup>[GitHub]</sup>](https://github.com/django/django/blob/stable/3.2.x/django/db/models/fields/__init__.py#L1264-L1272):
+passed through the <code>.to_python(&hellip;)</code> method. Indeed, we see this if we [inspect the source code&nbsp;<sup>[GitHub]</sup>](https://github.com/django/django/blob/stable/3.2.x/django/db/models/fields/__init__.py#L1264-L1272):
 
 <blockquote><pre class="python"><code>class DateField(DateTimeCheckMixin, Field):
     # &hellip;
@@ -124,7 +124,7 @@ class Week(models.Model):
     week = WeekField(unique=True)</code></pre>
 
 Now we can start creating `Week` objects. If we create the same `Week` object
-twice with [**<code>.get_or_create(&hellip;)</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#get-or-create),
+twice with [**<code>.get_or_create(&hellip;)</code>**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#get-or-create),
 then the second time it will use the old `Week` object, even if we query
 with another `date` of the same week, it will retrieve the `Week` object
 created by the first creation call. We can for example use two dates of the 35<sup>th</sup>

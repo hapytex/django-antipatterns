@@ -24,7 +24,7 @@ at least one of these elements in a case-*in*sensitive way.
 
 # What problems are solved with this?
 
-We can not make use of the [**`__in`** lookup <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#in)
+We can not make use of the [**`__in`** lookup&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#in)
 since this will only match items that contain exactly the name of one fruit in case-sensitive way.
 This thus means that the content should be `'apple'`, not <s>`'APPLE'`</s>, <s>`'Apple'`</s>, <s>`'An apple'`</s>, etc.:
 
@@ -52,11 +52,11 @@ item.
 
 There are however some problems we will need to overcome. It is for example possible that the name of the `fruits`
 contain a dot (`.`), pipe character (`|`), etc. If we join items simply together, then it is possible that we
-thus will match different items. One can use the [**<code>escape(&hellip;)</code>** function <sup>[python-doc]</sup>](https://docs.python.org/3/library/re.html#re.escape)
+thus will match different items. One can use the [**<code>escape(&hellip;)</code>** function&nbsp;<sup>[python-doc]</sup>](https://docs.python.org/3/library/re.html#re.escape)
 to escape the items in the `fruits` list such that tokens that have a special meaning in a regex are escaped.
 
 If we want to match case-insensitive, this means we should use the
-[**`__iregex`** lookup <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#iregex).
+[**`__iregex`** lookup&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#iregex).
 If we thus have a list `fruits` with the name of the fruits, we can construct a regex and filter with:
 
 <pre class="python"><code>from re import escape

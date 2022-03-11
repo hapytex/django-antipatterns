@@ -30,7 +30,7 @@ mechanisms than counting the individual records.
 
 # What can be done to resolve the problem?
 
-A `QuerySet` has a [**`.count()`** method <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#count).
+A `QuerySet` has a [**`.count()`** method&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#count).
 This will make a <code>COUNT(\*) FROM &hellip;</code> query such that
 the database will determine the number of records. We thus can transform query
 at the top to:

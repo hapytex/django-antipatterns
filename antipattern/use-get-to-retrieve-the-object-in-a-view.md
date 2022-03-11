@@ -9,7 +9,7 @@ solinks: []
 ---
 
 In a view, people often retrieve the object with the
-[**<code>.get(&hellip;)</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#get)
+[**<code>.get(&hellip;)</code>**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#get)
 call, for example:
 
 <pre class="python"><code>def post_details(request, pk):
@@ -27,7 +27,7 @@ exists no `Post` for the given primary key.
 # What can be done to resolve the problem?
 
 We can make use of
-[**<code>get_object_or_404(&hellip;)</code>** <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/topics/http/shortcuts/#get-object-or-404).
+[**<code>get_object_or_404(&hellip;)</code>**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/topics/http/shortcuts/#get-object-or-404).
 This function will raise a `Http404` exception in case the model object does not
 exists. This will then be handled by Django and eventually a HTTP 404 response
 will be returned:

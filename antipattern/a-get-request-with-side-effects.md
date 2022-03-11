@@ -17,7 +17,7 @@ Often people construct views that have side, effects, for example:
 
 # Why is it a problem?
 
-Because this violates the HTTP standard. In the section [*safe methods* of the HTTP specifications <sup>[w3.org]</sup>](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.1)
+Because this violates the HTTP standard. In the section [*safe methods* of the HTTP specifications&nbsp;<sup>[w3.org]</sup>](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.1)
 it specifies that:
 
 > In particular, the convention has been established **that the GET** and HEAD methods **SHOULD NOT have the significance** of taking an action **other than retrieval**. These methods **ought to be considered "safe"**.
@@ -35,16 +35,16 @@ URLs. This thus means that a GET request of such crawler might accidentally
 create, remove and update entities.
 
 Django also does not offer security mechanisms like a CSRF-token for GET
-requests. This thus makes [cross-site request forgery (CSRF) <sup>[wiki]</sup>](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
+requests. This thus makes [cross-site request forgery (CSRF)&nbsp;<sup>[wiki]</sup>](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
 easier.
 
 # What can be done to resolve the problem?
 
 One should use POST, PUT, PATCH, or DELETE requests to update entities. These
 are the HTTP methods designed for this. One can use for example the
-[**`@require_http_methods`** decorator <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/topics/http/decorators/#django.views.decorators.http.require_http_methods)
-to restrict a view to certain HTTP methods. For a POST request, we can make use of the [**`@require_POST`** decorator <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/topics/http/decorators/#django.views.decorators.http.require_POST).
-This will return a [HTTP 405 "*Method Not Allowed*" response <sup>[wiki]</sup>](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_client_errors)
+[**`@require_http_methods`** decorator&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/topics/http/decorators/#django.views.decorators.http.require_http_methods)
+to restrict a view to certain HTTP methods. For a POST request, we can make use of the [**`@require_POST`** decorator&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/topics/http/decorators/#django.views.decorators.http.require_POST).
+This will return a [HTTP 405 "*Method Not Allowed*" response&nbsp;<sup>[wiki]</sup>](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_client_errors)
 to warn the client that this request was not allowed:
 
 <pre class="python"><code>from django.views.decorators.http import <b>require_POST</b>

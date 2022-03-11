@@ -40,7 +40,7 @@ with the simple slugify algorithm above, we obtain `'--to-be-or-not-to-be'`.
 
 # What can be done to resolve the problem?
 
-Django has a [**<code>slugify(&hellip;)</code>** function <sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/utils/#django.utils.text.slugify)
+Django has a [**<code>slugify(&hellip;)</code>** function&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/utils/#django.utils.text.slugify)
 which aims to do a *best effort* in converting a string to a slug. It will remove diacritics, convert
 the text to lower case, remove all non-ASCII characters, and eventually replace any sequence of white space
 or hyphens with a single hyphen. If we run the titles through the <code>slugify(&hellip;)</code> function, we obtain the
@@ -64,7 +64,7 @@ such cases in a better way.
 
 # Extra tips
 
-Instead of creating a slug in a view, one can work with [**`dango-autoslug`** <sup>[readthedocs.io]</sup>](https://django-autoslug.readthedocs.io/en/latest/)
-and use an [**`AutoSlugField`** <sup>[readthedocs.io]</sup>](https://django-autoslug.readthedocs.io/en/latest/fields.html#autoslug.fields.AutoSlugField)
+Instead of creating a slug in a view, one can work with [**`dango-autoslug`**&nbsp;<sup>[readthedocs.io]</sup>](https://django-autoslug.readthedocs.io/en/latest/)
+and use an [**`AutoSlugField`**&nbsp;<sup>[readthedocs.io]</sup>](https://django-autoslug.readthedocs.io/en/latest/fields.html#autoslug.fields.AutoSlugField)
 to automatically populate a slug field based on another field. This makes the model more *declarative*, and this field
 has extra logic to preserve *uniqueness*.
