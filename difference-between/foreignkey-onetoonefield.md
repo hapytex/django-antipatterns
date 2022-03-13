@@ -23,5 +23,6 @@ The `OneToOneField` often gives the wrong impression that if a model `Profile` h
 |:-- |:--  |:--
 | relation type | many-to-one | optional-to-one
 | uniqueness | not unique (unless specified) | always unique
+| default `related_name` | <code><i>modelname</i>_set</code> | <code><i>modelname</i></code>
 | related relation | `RelatedManager` | trying to fetch the reverse object
 | parameters | | extra <code>parent_link=&hellip;</code>
