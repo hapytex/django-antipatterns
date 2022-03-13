@@ -7,4 +7,4 @@ fi
 
 file="$1"
 
-sed -i -E 's# \[([A-Za-z0-9.\-]+)\]\]\(#&nbsp;<sup>[\1]](#g' "$file"  # rewrite references to Wikipedia-style
+sed -i -E 's# \[([A-Za-z0-9.\-]+)\]\]\(#\&nbsp;<sup>[\1]</sup>](#g' "$file"  # rewrite references to Wikipedia-style
