@@ -38,3 +38,6 @@ hunspell -H "$file"
 # commit the work to the branch
 git add "$file"
 git commit -am "Work on the \"$name\" $typ"
+
+bash rewrite.sh "$file"
+git commit -am 'rewrites by rewrite.sh'

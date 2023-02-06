@@ -6,15 +6,15 @@ tags: [mysql, datetime, timestamp]
 layers: [databases, orm]
 solinks: []
 ---
-When using MySQL and we set the [**`USE_TZ`** setting [Django-doc]](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-USE_TZ) to `True`,
+When using MySQL and we set the [**`USE_TZ`** setting&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-USE_TZ) to `True`,
 it can happen that certain (date)time-related queries no longer work.
 
 # What are the *symptoms*?
 
- - If we [**<code>.filter(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#filter) with an lookup of
+ - If we [**<code>.filter(&hellip;)</code>**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#filter) with an lookup of
    a `DateField` or `DateTimeField`, we retrieve an *empty* `QuerySet`, even
    though it should normally match some records. For example `MyModel.objects.filter(created__date='1958-3-25')` returns an empty `QuerySet`.
- - If we [**<code>.annotate(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#annotate),
+ - If we [**<code>.annotate(&hellip;)</code>**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#annotate),
    then the annotated fields are `NULL` (`None`), for example if we use
    `MyModel.objects.annotate(foo=ExtractMinute('created'))`, then the
    `.foo`s of the retrieved objects are `None`.

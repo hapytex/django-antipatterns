@@ -22,8 +22,8 @@ class <b>CarModel</b>(models.Model):
 Because objects from a model are not *models*, these are *cars*, not *car
 models*. Django will also construct verbose named based on the name of the
 class. Indeed, unless you specify
-[**`verbose_name`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/options/#verbose-name) and
-[**`verbose_name_plural`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/options/#verbose-name-plural)
+[**`verbose_name`**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/options/#verbose-name) and
+[**`verbose_name_plural`**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/options/#verbose-name-plural)
 yourself, Django will "*unsnake*" the name and thus give a verbose name like:
 
 ```pycon

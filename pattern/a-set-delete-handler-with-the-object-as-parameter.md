@@ -12,8 +12,8 @@ Django models offer to specify a piece of logic that will
 run for objects that refer to an object through a `ForeignKey` or `OneToOnField`
 if that object these refer to is removed.
 
-Often handlers like [**`CASCADE`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.CASCADE) or
-[**<code>SET(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.SET) are often
+Often handlers like [**`CASCADE`**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.CASCADE) or
+[**<code>SET(&hellip;)</code>**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.SET) are often
 picked to remove the object that refers to the object, or let the `ForeignKey` point to a new object respectively. While
 <code>SET(&hellip;)</code> can be given a callable, but it takes *no* parameters.
 
@@ -52,7 +52,7 @@ return a new value for the `organizer`, or can also signal that the `Meeting` ob
 
 # What does this pattern look like?
 
-We can take a look at the [implementation of the `SET` handler [GitHub]](https://github.com/django/django/blob/stable/4.0.x/django/db/models/deletion.py#L46-L54):
+We can take a look at the [implementation of the `SET` handler&nbsp;<sup>[GitHub]</sup>](https://github.com/django/django/blob/stable/4.0.x/django/db/models/deletion.py#L46-L54):
 
 <blockquote><pre class="python"><code>def SET(value):
     if callable(value):

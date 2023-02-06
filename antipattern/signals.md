@@ -133,6 +133,37 @@ the handler still is often not an elegant solution. Another developer might not 
 since it has only a "weak" binding to the model, and thus it makes the effect of saving an object less
 predictable.
 
+## Signals do not run in data migrations
+
+One can construct a [*data migration*&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/howto/writing-migrations/#how-to-create-database-migrations),
+such migration could populate a database table, for example:
+
+```python
+from django.apps import apps as global_apps
+from django.db import migrations
+
+def forwards(apps, schema_editor):
+    ModelName = apps.get_model('app_name', 'ModelName')
+    ModelName.objects.create(
+        first_name='foo', last_name='Bar'
+    )
+
+class Migration(migrations.Migration):
+    operations = [
+        migrations.RunPython(forwards, migrations.RunPython.noop),
+    ]
+    dependencies = [
+        ('app_name', '1234_other_migration'),
+    ]
+```
+
+here we thust create a `ModelName` record. We however use a *historical* model: that means the `ModelName` with the fields
+defined on the model at the state after applying all dependencies, not *per se* the current `ModelName` model. Regardless,
+whether that model is equivalent to current model, it is quite limited. One of the consequences is that signals are *not*
+attached to that model, and thus if there is for example a `post_save` signal defined on `ModelName`, than these signals,
+nor the historical nor the current ones will run, and hence the anticipated effects of these signals will thus *not* take
+place.
+
 ## Signals do not run when other programs make changes
 
 Finally other programs can also make changes to the database, and thus will not trigger the signals,
@@ -148,7 +179,7 @@ Often it is better to avoid using signals. One can implement a lot of logic *wit
 ## Calculating properties on-demand
 
 The most robust way to count the number of `Book`s of an `Author` is *not* to store the number of books in
-a field, but use [**<code>.annotate(&hellip;)</code>** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/querysets/#annotate)
+a field, but use [**<code>.annotate(&hellip;)</code>**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/querysets/#annotate)
 to each time annotate the `Author`s with the number of `Book`s they have written. We thus can make a query
 that looks like:
 
@@ -208,6 +239,9 @@ go in timeout as well, and thus render the server irresponsive.
 
 Signals can still be a good solution if you want to handle events raised by a *third party* Django application.
 In many cases, this is the only effective way to handle certain events. For example the `auth` module provides
-[signals when the user logs in, logs out, or fails to log in [Django-doc]](https://docs.djangoproject.com/en/dev/ref/contrib/auth/#module-django.contrib.auth.signals)
+[signals when the user logs in, logs out, or fails to log in&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/contrib/auth/#module-django.contrib.auth.signals)
 these signals are typically more reliable, since these are not triggered by the ORM. Often for third party applications
 signals are an effective way to communicate with these applications.
+
+If you define signals, you should be aware that these will *not* run in data migrations. You will thus have to
+write the logic that is otherwise done by the signals in the data migration file as well.

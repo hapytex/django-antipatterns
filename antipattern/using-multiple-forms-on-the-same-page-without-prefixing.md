@@ -52,7 +52,7 @@ def some_view(request):
 
 The problem is that if we process data with this view, the request
 will post two values for `name` and two values for `first_name`. The
-logic of the [**`QueryDict`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.QueryDict)
+logic of the [**`QueryDict`**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.QueryDict)
 means that if we want to get the value for `name` and/or `first_name`;
 it will use the *last* value that was defined. This thus means that
 if we render the forms with:
@@ -70,7 +70,7 @@ two forms, will both use the last value defined.
 # What can be done to resolve the problem?
 
 Django has a solution for this: it can *prefix* the name of the form elements with a
-[**<code>prefix=&hellip;</code>** parameter [Django-doc]](https://docs.djangoproject.com/en/dev/ref/forms/api/#django.forms.Form.prefix).
+[**<code>prefix=&hellip;</code>** parameter&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/forms/api/#django.forms.Form.prefix).
 This prefix parameter will add a prefix to all the form input items that arise from that
 form. For example if we specify `prefix='father'` for the `FatherForm`, then the name
 of the items will be `father-name`, and `father-first_name`. This thus means that Django
@@ -103,6 +103,6 @@ def some_view(request):
 
 # Extra tips
 
-Django has a [**`FormSet`** class [Django-doc]](https://docs.djangoproject.com/en/dev/topics/forms/formsets/)
+Django has a [**`FormSet`** class&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/topics/forms/formsets/)
 to render a (large) collection of forms each with a different prefix, this makes it more
 easy to route data to the correct form without having to worry about the prefixes oneself.

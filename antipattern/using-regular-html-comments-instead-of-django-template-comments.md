@@ -28,7 +28,7 @@ The Django template engine has enabled comment sections. One can write a single 
 
 <pre class="django"><code><b>{#</b> your comment here <b>#}</b></code></pre>
 
-or one can make use of the [**<code>{% comment %}&hellip;{% endcomment %}</code>** template tags [Django-doc]](https://docs.djangoproject.com/en/dev/ref/templates/builtins/#comment)
+or one can make use of the [**<code>{% comment %}&hellip;{% endcomment %}</code>** template tags&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/templates/builtins/#comment)
 to write comments that span over multiple lines, for example:
 
 <pre class="django"><code><b>{% comment %}</b>

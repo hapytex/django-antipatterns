@@ -21,8 +21,8 @@ class Cars(models.Model):
 # Why is it a problem?
 
 Django defines some meta data based on the name of the class. For example the
-[**`verbose_name`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/options/#django.db.models.Options.verbose_name)
-and the [**`verbose_name_plural`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/options/#django.db.models.Options.verbose_name_plural)
+[**`verbose_name`**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/options/#django.db.models.Options.verbose_name)
+and the [**`verbose_name_plural`**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/options/#django.db.models.Options.verbose_name_plural)
 are automatically defined if you do not specify these. That thus means that if we inspect
 the `verbose_name_plural`, we see:
 
@@ -77,6 +77,6 @@ somehow, it still does not look correct.
 ## Extra tips
 
 Sometimes people name the model after the table name in a database that already
-exists. You can make use of the [**`db_table`** option [Django-doc]](https://docs.djangoproject.com/en/3.0/ref/models/options/#django.db.models.Options.db_table)
+exists. You can make use of the [**`db_table`** option&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/3.0/ref/models/options/#django.db.models.Options.db_table)
 to specify the name of database table, and thus still give your model class a
 singular name.

@@ -32,7 +32,7 @@ Often people will bookmark a page in the browser, send a URI
 in an email to a colleague, and search engines might still point
 to a page that no longer exists.
 
-In 1998, *Tim Berners-Lee* wrote a document named [*Cool URIs don't change* [w3.org]](https://www.w3.org/Provider/Style/URI.html).
+In 1998, *Tim Berners-Lee* wrote a document named [*Cool URIs don't change*&nbsp;<sup>[w3.org]</sup>](https://www.w3.org/Provider/Style/URI.html).
 In this document, *Berners-Lee* explains that changing URI's is not a good idea,
 and further discusses typical excuses to change an URI.
 
@@ -46,7 +46,7 @@ Making no changes to the slug and/or primary key, is however not enough, since
 the `urls.py` will determine the URL as well.
 
 If you really need to make a change to the slug and/or primary key, then you should
-implement (permanent) redirects ([HTTP 301 [wiki]](https://en.wikipedia.org/wiki/HTTP_301))
+implement (permanent) redirects ([HTTP 301&nbsp;<sup>[wiki]</sup>](https://en.wikipedia.org/wiki/HTTP_301))
 from the old URL to the new URL. This thus likely means that you need to make a model
 that translates "old" slugs to new slugs. Since slugs should be unique it also
 means that you should check if the slug for a new model object is already an old slug.

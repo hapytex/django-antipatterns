@@ -9,7 +9,7 @@ related_packages: []
 solinks: []
 ---
 
-In many templates variables are passed to the [*query string* [wiki]](https://en.wikipedia.org/wiki/Query_string)
+In many templates variables are passed to the [*query string*&nbsp;<sup>[wiki]</sup>](https://en.wikipedia.org/wiki/Query_string)
 in a URL, for example:
 
 <pre class="django"><code>&lt;a href=&quot;?search={{ <b>search</b> }}&amp;page={{ result.next_page_number }}&quot;&gt;&lt;/a&gt;</code></pre>
@@ -42,7 +42,7 @@ be interpreted by the server.
 
 # What can be done to resolve the problem?
 
-One can make use of the [**`|urlencode`** template filter [Django-doc]](https://docs.djangoproject.com/en/dev/ref/templates/builtins/#urlencode)
+One can make use of the [**`|urlencode`** template filter&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/templates/builtins/#urlencode)
 that will percentage encode the values. This means that for `foo&bar=qux`, we get `?query=foo%26bar%3Dqux&page=2`, and for `foo#bar`
 we get `?query=foo%23bar&page=2`. These are then converted to:
 

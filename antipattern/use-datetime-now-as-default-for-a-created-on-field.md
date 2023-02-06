@@ -29,13 +29,13 @@ of course possible to create a `DateTimeField` with `blank=True` and
 `editable=False`, but if later additional features arise, one needs to specify
 more attributes.
 
-Furthermore [**`datetime.now()`** [python-doc]](https://docs.python.org/3/library/datetime.html#datetime.datetime.now)
+Furthermore [**`datetime.now()`**&nbsp;<sup>[python-doc]</sup>](https://docs.python.org/3/library/datetime.html#datetime.datetime.now)
 does not include a timezone. This thus means that the database will store the
 timestamp without timezone. If thus later the server works with a different
 timezone, it will render different timestamps.
 
 If one makes use of the [**`freezegun`**
-[GitHub]](https://github.com/spulec/freezegun), then making use of
+<sup>[GitHub]</sup>](https://github.com/spulec/freezegun), then making use of
 `datetime.now` directly will not work. Indeed, if we first define a reference to
 `now()`, then freezing the time will not have impact:
 
@@ -56,7 +56,7 @@ so tests with the freezegun will not work.
 # What can be done to resolve the problem?
 
 Django's `DateTimeField` and `DateField` has a
-[**<code>auto_now_add=&hellip;</code>** parameter [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateField.auto_now_add).
+[**<code>auto_now_add=&hellip;</code>** parameter&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateField.auto_now_add).
 By setting this parameter to `True`, you automatically use the current timestamp
 when you construct the model object. We thus can construct a `DateTimeField`
 with `auto_now_add=True`:
@@ -69,6 +69,6 @@ class Post(models.Model):
 # Extra tips
 
 Django's `DateTimeField` and `DateField` have a
-[**<code>auto_now=&hellip;</code>** parameter [Django-doc]](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateField.auto_now)
+[**<code>auto_now=&hellip;</code>** parameter&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.DateField.auto_now)
 as well. This is a field that will each time take the current timestamp when you
 update the record, so this can be used for an `updated_at` field.

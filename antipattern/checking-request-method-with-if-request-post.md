@@ -19,7 +19,7 @@ Often people try to determine if the HTTP request is a POST request by checking 
 # Why is it a problem?
 
 Because POST requests do not per se carry data. By checking `if request.POST`, we are checking the *truthiness* of the
-`request.POST`. This is a [**`QueryDict`** [Django-doc]](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.QueryDict).
+`request.POST`. This is a [**`QueryDict`**&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.QueryDict).
 A `QueryDict` has as truthiness `False`, if the `QueryDict` is empty. But not all POST requests have "*payload*". For
 example it is possible that a confirm box to confirm deleting an object makes a POST request, but without any data
 as payload. In that case the `if request.POST` check will fail, but `request.method` will still be `'POST'`.
@@ -39,6 +39,6 @@ trigger the <code>.get(&hellip;)</code>, <code>.post(&hellip;)</code>, etc. meth
 # Extra tips
 
 One can also limit the methods that have access to a certain view with the
-[**<code>@require_http_methods(&hellip;)</code>** decorator [Django-doc]](https://docs.djangoproject.com/en/dev/topics/http/decorators/#django.views.decorators.http.require_http_methods)
+[**<code>@require_http_methods(&hellip;)</code>** decorator&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/topics/http/decorators/#django.views.decorators.http.require_http_methods)
 or related decorators. It is often better not only to *check* what method is used,
 but also block requests with a request method that is not foreseen.
