@@ -5,13 +5,15 @@ type: antipattern
 typefa: "fas fa-ban"
 tags: []
 layers: views
-related_packages: [django-filter]
+related_packages:
+  - name: django-filter
+    github: carltongibson/django-filter
 solinks: []
 ---
 
 A "lazy" way to allow filtering on options is to pass `request.GET`, `request.POST`, `request.query_params` as named parameters to the filter clause. For example with:
 
-```
+```python
 MyModel.objects.filter(**request.GET)
 ```
 
