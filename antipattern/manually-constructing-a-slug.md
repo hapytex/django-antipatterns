@@ -56,15 +56,15 @@ following slugs:
 'to-be-or-not-to-be'
 ```
 
-This thus means that this function will aim to create nice and valid slugs for the situations discussed above.
-Usually it is better to work with utility functions that often cover "edge- and corner-cases" that indeed are not
+This means that this function will aim to create nice and valid slugs for the situations discussed above.
+Usually, it is better to work with utility functions that often cover "edge- and corner-cases" that indeed are not
 very common, but eventually if the number of blog posts will grow, some posts will have titles that can have invalid
 or ugly slug counterparts. Therefore it is in general better to work with a library that often deals with
 such cases in a better way.
 
 # Extra tips
 
-Instead of creating a slug in a view, one can work with [**`dango-autoslug`**&nbsp;<sup>[readthedocs.io]</sup>](https://django-autoslug.readthedocs.io/en/latest/)
+Instead of creating a slug in a view, one can work with [**`django-autoslug`**&nbsp;<sup>[readthedocs.io]</sup>](https://django-autoslug.readthedocs.io/en/latest/)
 and use an [**`AutoSlugField`**&nbsp;<sup>[readthedocs.io]</sup>](https://django-autoslug.readthedocs.io/en/latest/fields.html#autoslug.fields.AutoSlugField)
 to automatically populate a slug field based on another field. This makes the model more *declarative*, and this field
 has extra logic to preserve *uniqueness*.
