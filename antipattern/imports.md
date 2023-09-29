@@ -11,7 +11,7 @@ related_packages:
 solinks: []
 ---
 
-Often it's necessary to import modules that you use in your code and often you see them imported as below:
+Often it's necessary to import modules used in your code and often you see them imported as below:
 
 ```python
 from projects.models import Project
@@ -51,3 +51,4 @@ file you are working on and should be grouped together in the order below:
 - Local/App level imports
 You don't need to do this manually if you don't want to. [isort](https://github.com/PyCQA/isort) is a handy library that
 can sort the imports in your file.
+
