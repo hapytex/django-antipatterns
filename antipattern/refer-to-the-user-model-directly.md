@@ -23,7 +23,7 @@ class Post(models.Model):
 
 # Why is it a problem?
 
-One does not per se needs to use Django's `User` model. It is possible that one
+One does not per se need to use Django's `User` model. It is possible that one
 now sticks to Django's default `User` model, but later one defines a [*custom
 user model*](https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#specifying-a-custom-user-model),
 then one has to change all `ForeignKey`s, which is cumbersome, and error-prone.
@@ -37,11 +37,11 @@ we *reference* that model. This thus makes the project less flexible.
 
 We can make use of the [**`AUTH_USER_MODEL`** setting&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-AUTH_USER_MODEL).
 This is a string setting that contains the <code><i>app_name</i>.<i>ModelName</i></code> of the
-user model that is in use. Django thus will thus construct a `ForeignKey` with a
+user model that is in use. Django will thus construct a `ForeignKey` with a
 string as target. This target is then, when all apps are loaded, resolved to the
 corresponding model.
 
-We thus can thus let the `ForeignKey` reference the value of the
+We can thus let the `ForeignKey` reference the value of the
 `AUTH_USER_MODEL` setting:
 
 <pre class="python"><code>from django.conf import <b>settings</b>
