@@ -17,7 +17,7 @@ Often people construct views that have side, effects, for example:
 
 # Why is it a problem?
 
-Because this violates the HTTP standard. In the section [*safe methods* of the HTTP specifications&nbsp;<sup>[w3.org]</sup>](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.1)
+Because this violates the HTTP standard. In the section [*safe methods* of the HTTP specifications&nbsp;<sup>[w3.org]</sup>](https://www.rfc-editor.org/rfc/rfc9110.html#name-safe-methods)
 it specifies that:
 
 > In particular, the convention has been established **that the GET** and HEAD methods **SHOULD NOT have the significance** of taking an action **other than retrieval**. These methods **ought to be considered "safe"**.
