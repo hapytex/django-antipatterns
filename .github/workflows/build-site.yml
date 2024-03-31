@@ -12,7 +12,7 @@ jobs:
     - name: update package database
       run: sudo apt-get update
     - name: install required packages
-      run: sudo apt-get install cabal php php-curl minify yui-compressor
+      run: sudo apt-get install cabal-install php php-curl minify yui-compressor
     - name: install cabal
       run: cabal install pandoc-3.1.1 pandoc-cli --installdir=/tmp/bin
     - name: checkout code
@@ -38,7 +38,7 @@ jobs:
     - name: update package database
       run: sudo apt-get update
     - name: install required packages
-      run: sudo apt-get install minify php php-curl yui-compressor
+      run: sudo apt-get install cabal-install minify php php-curl yui-compressor
     - name: install cabal
       run: cabal install pandoc-3.1.1 pandoc-cli --installdir=/tmp/bin
     - name: checkout code
