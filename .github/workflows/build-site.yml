@@ -12,7 +12,11 @@ jobs:
     - name: update package database
       run: sudo apt-get update
     - name: install required packages
-      run: sudo apt-get install pandoc php php-curl minify yui-compressor
+      run: sudo apt-get install cabal-install php php-curl minify yui-compressor
+    - name: update cabal
+      run: cabal update
+    - name: install pandoc
+      run: cabal install pandoc-3.1.12 pandoc-cli --installdir=/tmp/bin
     - name: checkout code
       uses: actions/checkout@v2.3.1
     - name: build the site
@@ -36,7 +40,11 @@ jobs:
     - name: update package database
       run: sudo apt-get update
     - name: install required packages
-      run: sudo apt-get install minify pandoc php php-curl yui-compressor 
+      run: sudo apt-get install cabal-install minify php php-curl yui-compressor
+    - name: update cabal
+      run: cabal update
+    - name: install pandoc
+      run: cabal install pandoc-3.1.12 pandoc-cli --installdir=/tmp/bin
     - name: checkout code
       uses: actions/checkout@v2.3.1
     - name: build the site
