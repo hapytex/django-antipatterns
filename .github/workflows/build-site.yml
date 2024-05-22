@@ -16,7 +16,7 @@ jobs:
     - name: update cabal
       run: cabal update
     - name: install pandoc
-      run: cabal install pandoc pandoc-cli --minimize-conflict-set --installdir=/tmp/bin
+      run: cabal install --with-ghc=/usr/bin/ghc pandoc pandoc-cli --minimize-conflict-set --installdir=/tmp/bin
     - name: checkout code
       uses: actions/checkout@v2.3.1
     - name: build the site
