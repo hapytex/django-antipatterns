@@ -36,7 +36,7 @@ That makes sense because `prices` is just an ordinary dictionary, and if we make
 
 We can work with a [**`Case`-`When`** expression&nbsp;<sup>\[Django-doc\]</sup>](https://docs.djangoproject.com/en/stable/ref/models/conditional-expressions/#case), this will for each key-value pair make a `WHEN` clause, like:
 
-<pre><code class="lang-py">from django.db.models import Case, Value, When
+<pre class="python">from django.db.models import Case, Value, When
 
 Product.objects.annotate(
     prices=<b>Case(*[When(pk=k, then=Value(v)) for k, v in prices.items()])</b>
