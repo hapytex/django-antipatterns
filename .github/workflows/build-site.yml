@@ -9,6 +9,8 @@ jobs:
     name: Build site
     runs-on: ubuntu-latest
     steps:
+    - name: add hvr
+      run: sudo add-apt-repository ppa:hvr/ghc
     - name: update package database
       run: sudo apt-get update
     - name: install required packages
@@ -37,6 +39,8 @@ jobs:
     needs: [linux1, linux2]
     if: github.ref == 'refs/heads/master'
     steps:
+    - name: add hvr
+      run: sudo add-apt-repository ppa:hvr/ghc
     - name: update package database
       run: sudo apt-get update
     - name: install required packages
