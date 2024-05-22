@@ -9,12 +9,10 @@ jobs:
     name: Build site
     runs-on: ubuntu-latest
     steps:
-    - name: add hvr
-      run: sudo add-apt-repository ppa:hvr/ghc
     - name: update package database
       run: sudo apt-get update
     - name: install required packages
-      run: sudo apt-get install ghc cabal-install php php-curl minify yui-compressor
+      run: sudo apt-get install ghc=8.8.4-3 cabal-install php php-curl minify yui-compressor
     - name: update cabal
       run: cabal update
     - name: install pandoc
@@ -39,12 +37,10 @@ jobs:
     needs: [linux1, linux2]
     if: github.ref == 'refs/heads/master'
     steps:
-    - name: add hvr
-      run: sudo add-apt-repository ppa:hvr/ghc
     - name: update package database
       run: sudo apt-get update
     - name: install required packages
-      run: sudo apt-get install ghc cabal-install minify php php-curl yui-compressor
+      run: sudo apt-get install ghc=8.8.4-3 cabal-install minify php php-curl yui-compressor
     - name: update cabal
       run: cabal update
     - name: install pandoc
