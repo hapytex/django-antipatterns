@@ -18,7 +18,7 @@ jobs:
     - name: make bin directory
       run: mkdir -p /tmp/bin
     - name: install pandoc
-      run: stack install pandoc-3.1.12.3 --resolver lts-8.10
+      run: stack install pandoc --resolver lts-8.10
     - name: checkout code
       uses: actions/checkout@v2.3.1
     - name: build the site
