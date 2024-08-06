@@ -1,0 +1,13 @@
+%% %s
+---
+type: question-answer
+typefa: "fas fa-question"
+tags: []
+layers: models/views/forms/serializers/templates/...
+related_packages: []
+solinks: []
+---
+
+# Question
+
+# Answer

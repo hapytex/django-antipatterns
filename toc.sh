@@ -26,4 +26,7 @@ else
 
   echo -e '\n\n<h1 class="patterntype"><a href="/troubleshooting.html"><i class="fas fa-bug"></i>&nbsp;Troubleshooting</a></h1>\n'
   make_toc troubleshooting
+
+  echo -e '\n\n<h1 class="patterntype"><a href="/qa.html"><i class="fas fa-question"></i>&nbsp;QA</a></h1>\n'
+  make_toc qa
 fi

@@ -1,4 +1,4 @@
-markdowns = $(shell ls antipattern/*.md pattern/*.md difference-between/*.md troubleshooting/*.md)
+markdowns = $(shell ls antipattern/*.md pattern/*.md difference-between/*.md troubleshooting/*.md qa/*.md)
 outhtml = $(markdowns:%.md=out_/%.html)
 style = # https://bootswatch.com/4/slate/bootstrap.css  # 'https://raw.githubusercontent.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css' 
 
@@ -33,6 +33,9 @@ difference-between.md : toc.sh $(markdowns)
 
 troubleshooting.md : toc.sh $(markdowns)
 	bash toc.sh troubleshooting Troubleshooting > "$@"
+
+qa.md : toc.sh $(markdowns)
+	bash toc.sh troubleshooting QA > "$@"
 
 out_/sitemap.xml:
 	git clone https://github.com/knyzorg/Sitemap-Generator-Crawler.git sitemap_
