@@ -13,7 +13,7 @@ solinks: []
 
 Sometimes, people construct slugs manually, for example in a view with:
 
-```python3
+```python
 model_object.slug = model_object.title.replace(' ', '-')
 ```
 

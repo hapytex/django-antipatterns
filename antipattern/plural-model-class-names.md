@@ -10,7 +10,7 @@ solinks: []
 
 Often people write model classes with a plural name. For example:
 
-```python3
+```python
 from django.db import models
 
 class Cars(models.Model):
@@ -39,7 +39,7 @@ and incorrect plural nouns.
 It also makes queries look grammatically incorrect English, for example,
 one queries with:
 
-```python3
+```python
 Cars.objects.all()
 ```
 
@@ -53,7 +53,7 @@ well.
 For related models, this results in ugly looking names as well, for example one
 queries with:
 
-```python3
+```python
 ford.cars_set.all()
 ```
 

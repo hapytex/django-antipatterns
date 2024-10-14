@@ -13,7 +13,7 @@ solinks: []
 
 A "lazy" way to allow filtering on options is to pass `request.GET`, `request.POST`, `request.query_params` as named parameters to the filter clause. For example with:
 
-```python3
+```python
 MyModel.objects.filter(**request.GET)
 ```
 

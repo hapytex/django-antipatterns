@@ -13,7 +13,7 @@ A frequently asked question is how to "*fill the gaps*" in the primary key range
 
 It is understandable that people want to automatically reassign the primary keys of records that have been reassigned. Strictly speaking a database could easily do that, and since the database does not do that, we could run a query to automatically look for the "first" gap. Indeed, we can find the primary key we want with:
 
-```python3
+```python
 # do not use this
 
 from django.db.models import Exists, F, OuterRef
@@ -31,7 +31,7 @@ But a more severe problem is that now the URL `/article/2` no longer points to t
 
 But the most severe problem is that there can still be a lot of items referring to the old article, that now perhaps refer to the new article. Indeed, imagine that you have a [**`GenericForeignKey`**&nbsp;<sup>\[Django-doc\]</sup>](https://docs.djangoproject.com/en/stable/ref/contrib/contenttypes/#django.contrib.contenttypes.fields.GenericForeignKey), if there is no [**`GenericRelation`**&nbsp;<sup>\[Django-doc\]</sup>](https://docs.djangoproject.com/en/stable/ref/contrib/contenttypes/#django.contrib.contenttypes.fields.GenericRelation), it will *not* be triggered to remove the objects. Indeed, imagine that we have a `Tag` model with:
 
-```python3
+```python
 class TaggedItem(models.Model):
     tag = models.SlugField()
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)

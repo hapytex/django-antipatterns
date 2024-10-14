@@ -10,7 +10,7 @@ solinks: []
 
 It happens occasionally we want to perform a lookup with a dictionary for model records. Indeed, imagine we have a dictionary:
 
-```python3
+```python
 prices = {
     13: 2.0,
     14: 25.0,
@@ -25,7 +25,7 @@ In an ideal scenario, we store the prices in the database, for example with as a
 
 In a seldom scenario, it might however not be possible, for example because there is no such table, or because we are not allowed to make modifications to the database, or because we want to calculate a price changes, without storing the prices. In that case we thus want to work with a dictionary lookup. The following will however *not* work:
 
-```python3
+```python
 # will *not* work
 Product.objects.annotate(price=prices.get(F('pk')))
 ```
