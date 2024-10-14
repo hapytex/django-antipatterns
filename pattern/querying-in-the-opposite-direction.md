@@ -13,7 +13,7 @@ solinks: ["https://stackoverflow.com/questions/78132711/i-need-a-django-filter-q
 
 Django's ORM is quite expressive, and lookups can be used to filter in a specific way, for example:
 
-```
+```python3
 MyModel.objects.filter(title__regex='^[0-9]+$')
 ```
 
@@ -25,7 +25,7 @@ At the moment of writing there is no reverse lookup: we can not perform a `MyMod
 
 A simple, but a bit "*ugly*" way to solve this is by using [**<code>.alias(&hellip;)</code>**&nbsp;<sup>\[Django-doc\]</sup>](https://docs.djangoproject.com/en/stable/ref/models/querysets/#alias) to "inject" the value as a field in the queryset and then thus query with that "field", we can then use an [**`F`** expression&nbsp;<sup>\[Django-doc\]](https://docs.djangoproject.com/en/stable/ref/models/expressions/#django.db.models.F) to refer to the `pattern` field. This thus then looks like:
 
-```
+```python3
 from django.db.models import F, Value
 
 MyModel.objects.alias(val=Value('test_string')).filter(val__regex=F('pattern'))
@@ -35,7 +35,7 @@ Since we use <code>.alias(&hellip;)</code> the value will not appear in the `SEL
 
 But probably a more robust, and clearer way to show what we are doing, is building a query object like Django does behind the curtains when we perform lookups. Indeed, if we write `pattern__regex`, it makes a lookup for a field named `pattern`, and inspects what type of field it is. For a `CharField` a different set of lookups will be "registered". If we then write `__regex`, it will start looking for a lookup registered at this field with the name `regex`. These lookups typically reside in the `django.db.models.lookups` module. For this specific case, this is the `Regex` class. We thus can construct such query with:
 
-```
+```python3
 from django.db.models import F, Value
 from django.db.models.lookups import Regex
 

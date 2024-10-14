@@ -11,7 +11,7 @@ Often not all fields specified in a model are specified through a form.
 These for example originate for example through the path, or we make use of the
 logged in user. Take for example the following model:
 
-```python
+```python3
 from django.conf import settings
 from django.db import models
 
@@ -26,7 +26,7 @@ The form will normally only take the `comment` as field, not the `post` and
 `author`. We can for example specify the primary key of the post in the path,
 and the author is normally the logged in user. The form thus looks like:
 
-```python
+```python3
 from django import forms
 
 class CommentForm(forms.ModelForm):

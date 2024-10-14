@@ -15,7 +15,7 @@ Often this is also checked in a case-*in*sensitive way, such that `'apple'` and
 
 Usually we have a list of items that we want to match with that field, for example:
 
-```python
+```python3
 fruits = ['apple', 'blueberry', 'coconut', 'dragonfruit']
 ```
 
@@ -28,7 +28,7 @@ We can not make use of the [**`__in`** lookup&nbsp;<sup>[Django-doc]</sup>](http
 since this will only match items that contain exactly the name of one fruit in case-sensitive way.
 This thus means that the content should be `'apple'`, not <s>`'APPLE'`</s>, <s>`'Apple'`</s>, <s>`'An apple'`</s>, etc.:
 
-```python
+```python3
 Post.objects.filter(
     content__in=fruits
 )

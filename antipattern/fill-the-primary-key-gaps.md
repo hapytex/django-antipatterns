@@ -13,7 +13,7 @@ A frequently asked question is how to "*fill the gaps*" in the primary key range
 
 It is understandable that people want to automatically reassign the primary keys of records that have been reassigned. Strictly speaking a database could easily do that, and since the database does not do that, we could run a query to automatically look for the "first" gap. Indeed, we can find the primary key we want with:
 
-```python
+```python3
 # do not use this
 
 from django.db.models import Exists, F, OuterRef

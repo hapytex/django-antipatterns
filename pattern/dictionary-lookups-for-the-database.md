@@ -10,7 +10,7 @@ solinks: []
 
 It happens occasionally we want to perform a lookup with a dictionary for model records. Indeed, imagine we have a dictionary:
 
-```
+```python3
 prices = {
     13: 2.0,
     14: 25.0,
