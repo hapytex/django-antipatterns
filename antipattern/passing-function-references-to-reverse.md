@@ -11,7 +11,7 @@ solinks: ['https://stackoverflow.com/questions/78035103/in-django-is-it-possible
 
 The [**<code>reverse(&hellip;)</code>** function&nbsp;<sup>\[Django-doc\]</sup>](https://docs.djangoproject.com/en/stable/ref/urlresolvers/#reverse) allows to pass the names of views as well as references to functions. Indeed, for example with:
 
-```python3
+```python
 #app_name/urls.py
 
 from app_name.views import some_view

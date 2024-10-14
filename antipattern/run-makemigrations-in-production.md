@@ -17,7 +17,7 @@ Occasionally people think it is a good idea to also run `makemigrations` in the 
 
 Migrating the database is a *non-trivial problem*. There are multiple ways how you can migrate a database to get the model in sync with the database. Indeed, imagine that you have a model:
 
-```python3
+```python
 from django.db import models
 
 
@@ -27,7 +27,7 @@ class MyModel(models.Model):
 
 and we now change the model to:
 
-```python3
+```python
 from django.db import models
 
 
