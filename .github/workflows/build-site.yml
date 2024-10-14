@@ -40,7 +40,7 @@ jobs:
     - name: checkout code
       uses: actions/checkout@v2.3.1
     - name: look for todos
-      run: "! grep -Pz '\n\n```\n' */*.md"
+      run: "! grep -Pz '\\n\\n```\\n' */*.md"
 
   linux4:
     name: Deploy website
