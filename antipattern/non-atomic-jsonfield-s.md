@@ -25,7 +25,7 @@ A final reason not to use JSON blobs is that validation of the structure of JSON
 
 If the field has a certain structure, convert that structure into models, and *linearize* data. Indeed, imagine that we have a model with:
 
-```
+```python3
 from django.conf import settings
 from django.db import models
 
@@ -37,7 +37,7 @@ class Order(models.Model):
 
 where `lines` for example look like:
 
-```
+```json
 [
     {"product_id": 14, "qty": 25},
     {"product_id": 13, "qty": 2}
@@ -47,7 +47,7 @@ where `lines` for example look like:
 we can convert this to an extra model that has a `ForeignKey` to a `Product` and where we store the quantity, like:
 
 
-```
+```python3
 class Order(models.Model):
     customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
 
@@ -60,7 +60,7 @@ class OrderLine(models.Model):
 
 here we can efficiently filter for orders with a `product_id=14` in it with:
 
-```
+```python3
 Order.objects.filter(lines__product_id=14)
 ```
 

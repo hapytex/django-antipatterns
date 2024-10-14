@@ -66,7 +66,7 @@ AttributeError: type object 'MyModel' has no attribute 'name'
 Colons are here used to create *type annotations*. Indeed, if we inspect the `__annotations__` attribute
 of `MyModel`, we see:
 
-```
+```pycon
 >>> MyModel.__annotations__
 {'name': <django.db.models.fields.CharField>}
 ```

@@ -51,7 +51,7 @@ throw 1; <dont be evil> {"foo": "bar"}
 
 and *Facebook* returns:
 
-```
+```javascript
 for(;;); {"foo": "bar"}
 ```
 
