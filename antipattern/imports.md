@@ -13,7 +13,7 @@ solinks: []
 
 Often it's necessary to import modules used in your code and often you see them imported as below:
 
-```python
+```python3
 from projects.models import Project
 from django.views.generic import *
 
@@ -33,7 +33,7 @@ Secondly, you are importing everything from `django.views.generic` using `*` whi
 
 The code above can be re-written thus:
 
-```python
+```python3
 from django.views.generic import ListView
 from .models import Project
 

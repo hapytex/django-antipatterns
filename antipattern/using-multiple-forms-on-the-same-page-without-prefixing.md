@@ -18,7 +18,7 @@ each process their part of the composite form.
 For example one can make two forms to fill in data about the father and
 the mother with:
 
-```python
+```python3
 from django import forms
 
 class FatherForm(forms.Form):

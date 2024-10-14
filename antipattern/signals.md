@@ -138,7 +138,7 @@ predictable.
 One can construct a [*data migration*&nbsp;<sup>[Django-doc]</sup>](https://docs.djangoproject.com/en/dev/howto/writing-migrations/#how-to-create-database-migrations),
 such migration could populate a database table, for example:
 
-```python
+```python3
 from django.apps import apps as global_apps
 from django.db import migrations
 
@@ -201,7 +201,7 @@ and `Author`s grows, then this can become a performance bottleneck.
 Another option might be to encapsulate the handler logic in a specific function. For example if we want to count the number of
 books of an `Author` each time we save/update a `Book`, we can implement the logic:
 
-```python
+```python3
 def update_book(book):
     author = book.author
     author.num_books = author.books.count()
