@@ -42,7 +42,7 @@ jobs:
     - name: look for unhighlighted code
       run: "! grep -Pz '\\n\\n```\\n' */*.md"
 
-  linux3:
+  linux4:
     name: Deploy website
     runs-on: ubuntu-latest
     needs: [linux1, linux2, linux3]
