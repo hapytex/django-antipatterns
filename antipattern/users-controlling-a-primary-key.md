@@ -86,5 +86,3 @@ class MyUser(models.Model):
     username = models.CharField(max_length=32, unique=True)
     # …
 ```
-
-# Extra tips
