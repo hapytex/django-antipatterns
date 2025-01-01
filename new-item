@@ -32,11 +32,11 @@ if [ ! -f "$file" ]; then
   printf "$(< "$typ/template.md.tmp")" "$name" > "$file"
 fi
 
+git add "$file"
 editor "$file"
 hunspell -H "$file"
 
 # commit the work to the branch
-git add "$file"
 git commit -am "Work on the \"$name\" $typ"
 
 bash rewrite.sh "$file"
