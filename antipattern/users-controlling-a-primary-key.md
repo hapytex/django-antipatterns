@@ -67,7 +67,7 @@ so while a `ModelForm` will indeed do a uniqness check, and thus reject that, ce
 
 ## Security vulnerabilities
 
-To make matters even worse, some parts of Django use the primary key in authentication routines, which makes *perfect sense*. Indeed, if you login with a user, Django will store the primary key in the session variables (for the `BACKEND_SESSION_KEY` key). If a user somehow can trick a view in updating the username, and storing the (new) username in the session variable, it means the user can "steal" a session, and thus all of a sudden see the site like the other user would see that. Yes, that is unlikely, and requires some views with security problems in the Django site, but still it is not a good idea.
+To make matters even worse, some parts of Django use the primary key in authentication routines, which makes *perfect sense*. Indeed, if you login with a user, Django will store the primary key in the session variables (for the `_auth_user_id` key). If a user somehow can trick a view in updating the username, and storing the (new) username in the session variable, it means the user can "steal" a session, and thus all of a sudden see the site like the other user would see that. Yes, that is unlikely, and requires some views with security problems in the Django site, but still it is not a good idea.
 
 ## Performance issues
 
