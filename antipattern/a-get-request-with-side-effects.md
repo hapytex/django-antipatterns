@@ -7,7 +7,7 @@ tags: [http, get-request, side-effects, query-string]
 layers: [views]
 solinks: []
 ---
-Often people construct views that have side, effects, for example:
+Often people construct views that have side effects, for example:
 
 <pre class="python"><code>def remove_comment(request, comment_pk):
     Comment.objects.<b>filter(</b>
@@ -17,8 +17,7 @@ Often people construct views that have side, effects, for example:
 
 # Why is it a problem?
 
-Because this violates the HTTP standard. In the section [*safe methods* of the HTTP specifications&nbsp;<sup>[w3.org]</sup>](https://www.rfc-editor.org/rfc/rfc9110.html#name-safe-methods)
-it specifies that:
+This is a problem, because this violates the HTTP standard, specifically the section on [*safe methods* of the HTTP specifications&nbsp;<sup>[w3.org]</sup>](https://www.rfc-editor.org/rfc/rfc9110.html#name-safe-methods), which states that:
 
 > In particular, the convention has been established **that the GET** and HEAD methods **SHOULD NOT have the significance** of taking an action **other than retrieval**. These methods **ought to be considered "safe"**.
 
@@ -30,11 +29,11 @@ browser with an additional GET request, whereas most browsers will do that for
 a POST request.
 
 Search engines have web crawlers that look for URLs on pages, and will make GET
-requests to these pages to analyze the page that is returned and look for more
+requests to these pages to analyze the response and look for more
 URLs. This thus means that a GET request of such crawler might accidentally
 create, remove and update entities.
 
-Django also does not offer security mechanisms like a CSRF-token for GET
+Django also does not provide security mechanisms like a CSRF-token for GET
 requests. This thus makes [cross-site request forgery (CSRF)&nbsp;<sup>[wiki]</sup>](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
 easier.
 
