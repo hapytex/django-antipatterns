@@ -10,7 +10,7 @@ solinks: []
 
 # What problems are solved with this?
 
-It is usually *not* a good idea to have two or more columns in the database where the value of one column is derived from other column(s). In some cases hover it might not be possible to do this in another way, or the derived column is used by another tool. In that case, we can work use the [**`.pre_save(…)`** method](https://docs.djangoproject.com/en/5.2/ref/models/fields/#django.db.models.Field.pre_save) which runs just before the model record(s) are saved, and therefore thus guarantee that the column is in sync with the columns it depends on. It can however not work cross-table.
+It is usually *not* a good idea to have two or more columns in the database where the value of one column is derived from other column(s). In some cases, it might not be possible to do this in a different way, or the derived column is used by another tool. In that case, we can work use the [**`.pre_save(…)`** method](https://docs.djangoproject.com/en/5.2/ref/models/fields/#django.db.models.Field.pre_save) which runs just before the model record(s) are saved, and therefore thus guarantee that the column is in sync with the columns it depends on. It can however not work cross-table.
 
 # What does this pattern look like?
 
