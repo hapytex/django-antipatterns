@@ -18,7 +18,7 @@ In this particular case, We had to make a field that for another field named `da
 
 We can do this by creating a subclass of a [**`PositiveIntegerField`**](https://docs.djangoproject.com/en/stable/ref/models/fields/#positiveintegerfield) that then overrides the `.pre_save(…)` method as follows:
 
-```
+```python3
 class AutoMonthField(models.PostiveIntegerField):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('editable', False)
@@ -36,7 +36,7 @@ class AutoMonthField(models.PostiveIntegerField):
 
 We can then inject this field into model with a field `.date`, like:
 
-```
+```python3
 class MyModel(models.Model):
     date = models.DateField()
     month = AutoMonthField()
