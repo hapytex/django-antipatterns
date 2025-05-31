@@ -49,3 +49,40 @@ class MyModel(models.Model):
 ```
 
 The `month` field is here non-editable, since it thus derives the value from the `.date` field, and will, each time we save a `MyModel` object, look at the `.date` field, and adapt accordingly.
+
+# Extra tips
+
+We can encapsulate the above logic in mixin that looks like this:
+
+```python3
+class AutoFieldMixin:
+    def __init__(self, *args, function=None, **kwargs):
+        kwargs.setdefault('editable', False)
+        self.function = function
+        super().__init__(*args, **kwargs)
+
+    def determine_value(self, model_instance, add):
+        return self.function(model_instance, add)
+
+    def pre_save(self, model_instance, add):
+        value = self.determine_value(model_instance, add)
+        setattr(model_instance, self.attname, value)
+        return self.get_prep_value(value)
+
+    def deconstruct(self):
+        name, path, args, kwargs = super().deconstruct()
+        kwargs.pop('function', None)
+        return name, path, args, kwargs
+```
+
+and for example work with:
+
+```python3
+from django.db import models
+
+
+class AutoMonthField(AutoFieldMixin, PositiveIntegerField):
+    def determine_value(self, model_instance, add):
+        date = model_instance.date
+        return date.year * 100 + date.month
+```
