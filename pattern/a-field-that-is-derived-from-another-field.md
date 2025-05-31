@@ -81,7 +81,7 @@ and for example work with:
 from django.db import models
 
 
-class AutoMonthField(AutoFieldMixin, PositiveIntegerField):
+class AutoMonthField(AutoFieldMixin, models.PositiveIntegerField):
     def determine_value(self, model_instance, add):
         date = model_instance.date
         return date.year * 100 + date.month
