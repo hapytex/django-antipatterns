@@ -84,5 +84,8 @@ from django.db import models
 class AutoMonthField(AutoFieldMixin, models.PositiveIntegerField):
     def determine_value(self, model_instance, add):
         date = model_instance.date
-        return date.year * 100 + date.month
+        if date is not None:
+            return date.year * 100 + date.month
 ```
+
+This will normally work for [`.bulk_create(…)`](https://docs.djangoproject.com/en/stable/ref/models/querysets/#bulk-create), and [`.bulk_update(…)`](https://docs.djangoproject.com/en/stable/ref/models/querysets/#bulk-update) if you specify the `month` field as field to update. But this will not update the `month` field, if you use [`.update(date=my_date)`](https://docs.djangoproject.com/en/stable/ref/models/querysets/#update)
