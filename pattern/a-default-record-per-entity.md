@@ -10,7 +10,7 @@ solinks: [https://stackoverflow.com/q/79635695/67579]
 
 # What problems are solved with this?
 
-It often occurs that a certain entity, a `User`, a `Company`, etc. has a list of items, with one item being the default one. For example a `User` could have different `Setting`s, with (at most) one `Setting` being the default one, or a `Company` that has multiple names, but one official one. We want to ensure there as at most *one* such default record, and a more efficient way to retrieve that record.
+It often occurs that a certain entity, a `User`, a `Company`, etc. has a list of items, with one item being the default one. For example a `User` could have different `Setting`s, with (at most) one `Setting` being the default one, or a `Company` that has multiple names, but one official one. We want to ensure there is at most *one* such default record, and a more efficient way to retrieve that record.
 
 # What does this pattern look like?
 
