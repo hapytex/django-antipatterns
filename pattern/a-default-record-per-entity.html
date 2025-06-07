@@ -1,0 +1,54 @@
+<!doctype html><html lang=en><head><meta name=viewport content="width=device-width,initial-scale=1"><meta charset=utf-8><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=hapytex data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting." data-color=#e9c012 data-position=Right data-x_margin=18 data-y_margin=18></script><meta name=keywords content="Django,web,programming,antipattern,pattern,troubleshooting,software design,default,default-record,django-models,django-orm "><meta name=author content="Willem Van Onsem"><meta name=description content="A set of Django (anti)patterns: patterns and things to avoid when building a web application with Django."><meta name=twitter:image:src content="https://repository-images.githubusercontent.com/257009680/7a954900-2f5d-11eb-8d0a-c8af0596107f"><meta name=og:title content="A default record per entity"><meta name=og:image content="https://repository-images.githubusercontent.com/257009680/7a954900-2f5d-11eb-8d0a-c8af0596107f"><meta name=og:image:alt content="A prohibition sign in the Django color scheme."><meta name=og:image:type content="image/png"><meta name=og:type content="website"><link rel=stylesheet href=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css><script src=https://code.jquery.com/jquery-3.5.1.min.js></script><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js></script><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js></script><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link href=/style.css rel=stylesheet><link href=https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css rel=stylesheet><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js></script><script data-ad-client=ca-pub-9962024266760159 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script src=/script.js></script><link rel=icon href=/favicon.ico type=image/x-icon><meta name=generator content="pandoc"><title>A default record per entity &#8249; pattern &#8249; Django antipatterns</title>
+<link rel=stylesheet href></head><body><a class=github-fork-ribbon href=https://github.com/hapytex/django-antipatterns data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a><div class="navbar navbar-static-top"><div class=navbar-inner><div class=container><nav aria-label=section><ol class=breadcrumb><li class=breadcrumb-item><a href=/><i class="fas fa-home"></i></a><li class=breadcrumb-item><a href=/pattern.html><i class="fas fa-shapes"></i>&nbsp;
+pattern</a><li class="breadcrumb-item active" aria-current=page>A default record per entity</ol></nav><ul class="nav pull-right doc-info"></ul></div></div></div><article><div class=container><div class=row><div class=span12><h1 id=what-problems-are-solved-with-this>What problems are solved with this?</h1><p>It often occurs that a certain entity, a <code>User</code>, a <code>Company</code>, etc. has a list of items, with one item being the default one. For example a <code>User</code> could have different <code>Setting</code>s, with (at most) one <code>Setting</code> being the default one, or a <code>Company</code> that has multiple names, but one official one. We want to ensure there is at most <em>one</em> such default record, and a more efficient way to retrieve that record.<h1 id=what-does-this-pattern-look-like>What does this pattern look like?</h1><p>First we make a model to store the corresponding <code>Setting</code>s or <code>CompanyName</code>s with a <code>BooleanField()</code> that indicates if the item is the default, for example:<pre class=python3><code>from django.conf import settings
+from django.db import models
+
+class UserSetting(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    is_default = models.BooleanField(default=False)
+    # …</code></pre><p>We can enforce at the database level that there is <em>at most</em> one such element with a <a href=https://docs.djangoproject.com/en/stable/ref/models/constraints/#uniqueconstraint><strong><code>UniqueConstraint</code></strong></a>, this constraint makes the <code>user</code> unique, with as condition that <code>is_default</code> is <code>True</code>, like:<pre class=python3><code>from django.conf import settings
+from django.db import models
+from django.db.models import Q
+
+
+class UserSetting(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    is_default = models.BooleanField(default=False)
+    # …
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=(&#39;user&#39;,),
+                condition=Q(is_default=True),
+                name=&#39;one_default_setting_per_user&#39;
+            )
+        ]</code></pre><p>This now ensures there is at most one default. But this would require making an extra query to retrieve the default setting for a user. Indeed, for <code>some_user</code>, we would query with:<pre class=python3><code>user_settings = some_user.usersetting_set.get(is_default=True)</code></pre><p>this will then either retrieve the <code>UserSetting</code> record, or raise a <a href=https://docs.djangoproject.com/en/stable/ref/models/class/#django.db.models.Model.DoesNotExist><strong><code>UserSetting.DoesNotExist</code></strong></a> exception, if no such record exists. It can <em>not</em> raise a <a href=https://docs.djangoproject.com/en/stable/ref/models/class/#multipleobjectsreturned><strong><code>UserSetting.MultipleObjectsReturned</code></strong></a> exception, unless the database does not enforce the constraint, since there is always at most one default setting <em>per</em> item.<p>But this still requires making a query <em>per</em> <code>User</code>, which might not be efficient if we have to render the settings of all users immediately. We can work with a <code>FilteredRelation</code> for this, indeed:<pre class=python3><code>from django.db.models import FilteredRelation, Q
+
+users = User.objects.annotate(
+    default_setting=FilteredRelation(
+        &#39;usersetting&#39;,
+        condition=Q(usersetting__is_default=True)
+    ),
+).select_related(&#39;default_setting&#39;)</code></pre><p>This will add an extra attribute <code>.default_setting</code> to the <code>User</code> objects arising from the <code>QuerySet</code>, which is a <code>UserSetting</code> object with thus the settings for that user. If no <code>UserSetting</code> exists, it has no such attribute.<p>So we can enumerate over the <code>users</code>, and check if such attribute exists with:<pre class=python3><code>for user in users:
+    try:
+        setting = user.default_setting
+    except AttributeError:
+        setting = None</code></pre><p>we thus fetch all the default settings in bulk, and can then post-process these.<h1 id=extra-tips>Extra tips</h1><h2 id=what-if-we-want-only-one-default-record-for-the-entire-table>What if we want only one default record for the entire table?</h2><p>In that case, we can set the field that is unique, to <code>is_default</code> itself, like:<pre class=python3><code>class GlobalSetting(models.Model):
+    is_default = models.BooleanField(default=True)
+    # …
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=(&#39;is_default&#39;,),
+                condition=Q(is_default=True),
+                name=&#39;one_global_default_setting&#39;
+            )
+        ]</code></pre></div></div></div><script src=https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script><script>anchors.options={placement:"left",visible:"hover",icon:"¶"},anchors.add("h1,h2,h3")</script></article></body></html>

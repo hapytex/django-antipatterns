@@ -1,0 +1,47 @@
+<!doctype html><html lang=en><head><meta name=viewport content="width=device-width,initial-scale=1"><meta charset=utf-8><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=hapytex data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting." data-color=#e9c012 data-position=Right data-x_margin=18 data-y_margin=18></script><meta name=keywords content="Django,web,programming,antipattern,pattern,troubleshooting,software design,fields,derived-field,django-models "><meta name=author content="Willem Van Onsem"><meta name=description content="A set of Django (anti)patterns: patterns and things to avoid when building a web application with Django."><meta name=twitter:image:src content="https://repository-images.githubusercontent.com/257009680/7a954900-2f5d-11eb-8d0a-c8af0596107f"><meta name=og:title content="A field that is derived from another field"><meta name=og:image content="https://repository-images.githubusercontent.com/257009680/7a954900-2f5d-11eb-8d0a-c8af0596107f"><meta name=og:image:alt content="A prohibition sign in the Django color scheme."><meta name=og:image:type content="image/png"><meta name=og:type content="website"><link rel=stylesheet href=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css><script src=https://code.jquery.com/jquery-3.5.1.min.js></script><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js></script><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js></script><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link href=/style.css rel=stylesheet><link href=https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css rel=stylesheet><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js></script><script data-ad-client=ca-pub-9962024266760159 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script src=/script.js></script><link rel=icon href=/favicon.ico type=image/x-icon><meta name=generator content="pandoc"><title>A field that is derived from another field &#8249; pattern &#8249; Django antipatterns</title>
+<link rel=stylesheet href></head><body><a class=github-fork-ribbon href=https://github.com/hapytex/django-antipatterns data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a><div class="navbar navbar-static-top"><div class=navbar-inner><div class=container><nav aria-label=section><ol class=breadcrumb><li class=breadcrumb-item><a href=/><i class="fas fa-home"></i></a><li class=breadcrumb-item><a href=/pattern.html><i class="fas fa-shapes"></i>&nbsp;
+pattern</a><li class="breadcrumb-item active" aria-current=page>A field that is derived from another field</ol></nav><ul class="nav pull-right doc-info"></ul></div></div></div><article><div class=container><div class=row><div class=span12><h1 id=what-problems-are-solved-with-this>What problems are solved with this?</h1><p>It is usually <em>not</em> a good idea to have two or more columns in the database where the value of one column is derived from other column(s). In some cases, it might not be possible to do this in a different way, or the derived column is used by another tool. In that case, we can work use the <a href=https://docs.djangoproject.com/en/5.2/ref/models/fields/#django.db.models.Field.pre_save><strong><code>.pre_save(…)</code></strong> method</a> which runs just before the model record(s) are saved, and therefore thus guarantee that the column is in sync with the columns it depends on. It can however not work cross-table.<h1 id=what-does-this-pattern-look-like>What does this pattern look like?</h1><p>In this particular case, We had to make a field that for another field named <code>date</code>, populated a field named <code>month</code> with the month represented as an integer with the year and month.<p>We can do this by creating a subclass of a <a href=https://docs.djangoproject.com/en/stable/ref/models/fields/#positiveintegerfield><strong><code>PositiveIntegerField</code></strong></a> that then overrides the <code>.pre_save(…)</code> method as follows:<pre class=python3><code>from django.db import models
+
+
+class AutoMonthField(models.PositiveIntegerField):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault(&#39;editable&#39;, False)
+        kwargs.setdefault(&#39;null&#39;, True)
+        kwargs.setdefault(&#39;default&#39;, None)
+
+    def pre_save(self, model_instance, add):
+        date = model_instance.date
+        value = None
+        if date is not None:
+            value = date.year * 100 + date.month
+        setattr(model_instance, self.attname, value)
+        return value</code></pre><p>We can then inject this field into model with a field <code>.date</code>, like:<pre class=python3><code>from django.db import models
+
+
+class MyModel(models.Model):
+    date = models.DateField()
+    month = AutoMonthField()</code></pre><p>The <code>month</code> field is here non-editable, since it thus derives the value from the <code>.date</code> field, and will, each time we save a <code>MyModel</code> object, look at the <code>.date</code> field, and adapt accordingly.<h1 id=extra-tips>Extra tips</h1><p>We can encapsulate the above logic in mixin that looks like this:<pre class=python3><code>class AutoFieldMixin:
+    def __init__(self, *args, function=None, **kwargs):
+        kwargs.setdefault(&#39;editable&#39;, False)
+        self.function = function
+        super().__init__(*args, **kwargs)
+
+    def determine_value(self, model_instance, add):
+        return self.function(model_instance, add)
+
+    def pre_save(self, model_instance, add):
+        value = self.determine_value(model_instance, add)
+        setattr(model_instance, self.attname, value)
+        return self.get_prep_value(value)
+
+    def deconstruct(self):
+        name, path, args, kwargs = super().deconstruct()
+        kwargs.pop(&#39;function&#39;, None)
+        return name, path, args, kwargs</code></pre><p>and for example work with:<pre class=python3><code>from django.db import models
+
+
+class AutoMonthField(AutoFieldMixin, models.PositiveIntegerField):
+    def determine_value(self, model_instance, add):
+        date = model_instance.date
+        if date is not None:
+            return date.year * 100 + date.month</code></pre><p>This will normally work for <a href=https://docs.djangoproject.com/en/stable/ref/models/querysets/#bulk-create><code>.bulk_create(…)</code></a>, and <a href=https://docs.djangoproject.com/en/stable/ref/models/querysets/#bulk-update><code>.bulk_update(…)</code></a> if you specify the <code>month</code> field as field to update. But this will not update the <code>month</code> field, if you use <a href=https://docs.djangoproject.com/en/stable/ref/models/querysets/#update><code>.update(date=my_date)</code></a></div></div></div><script src=https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script><script>anchors.options={placement:"left",visible:"hover",icon:"¶"},anchors.add("h1,h2,h3")</script></article></body></html>
