@@ -74,4 +74,4 @@ class MyModel(models.Model):
 
 This will determine how we got to this `MyModel` object: from the database, or by creating a model object. This however does not say that a record with the primary key does not exists at the database level already.
 
-Indeed, `MyModel(pk=1)._state.adding` will also say `True`, even if a record with `id=1` already exists at the dabase level. If we want to know for sure such record exists in the database, there is not much else we can do but making a query and asking the database.
+Indeed, `MyModel(pk=1)._state.adding` will also say `True`, even if a record with `id=1` already exists at the database level. If we want to know for sure such record exists in the database, there is not much else we can do but making a query and asking the database.
