@@ -9,9 +9,9 @@ related_packages: []
 solinks: []
 ---
 
-Often people tend to process request data manually. For example with:
+Often people tend to process request data manually. For example, with:
 
-```python
+```python3
 from django.shortcuts import redirect
 
 def my_view(request):
@@ -40,7 +40,7 @@ It thus will require a lot of custom validating, and HTML has some caveats. For 
 
 ## Importance of validating before storing
 
-Then we need to validate the data, and this is often harder than it looks: typically databases put constraints on the number of characters a certain column can contain. If we don't validate this in the view, than depending on the database we use, it will likely reject to insert data, or truncate it to the maximum amount of characters. Truncating is probably the most problematic, since then the user does not even realize that the data has been submitted in an altered form. But even if we let the ORM insert data that is too long, and the database rejects it, it means that the ORM raises an error, and even if the view catches that error, often it is hard to introspect what the error is about, and how to report it to the user.
+Then we need to validate the data, and this is often harder than it looks: typically databases put constraints on the number of characters a certain column can contain. If we don't validate this in the view, then depending on the database we use, it will likely reject to insert data, or truncate it to the maximum amount of characters. Truncating is probably the most problematic, since then the user does not even realize that the data has been submitted in an altered form. But even if we let the ORM insert data that is too long, and the database rejects it, it means that the ORM raises an error, and even if the view catches that error, often it is hard to introspect what the error is about, and how to report it to the user.
 
 ## Multiple errors
 
@@ -55,13 +55,13 @@ If one does the validation in the view, often a new problem arises: that one has
 
 Some checks are also hard to implement. Unique constraints for example. Imagine that you are not supposed to register a user with the same username, then we can check this with:
 
-```
+```python3
 User.objects.filter(username=username).exists()
 ```
 
 but if the we *edit* the user, and we retain the same `username`, then this will result in an error, since the username indeed already exists: the object we edit has that username. We can fix this by using:
 
-```
+```python3
 User.objects.exclude(pk=pk).filter(username=username).exists()
 ```
 
@@ -78,7 +78,7 @@ If one thus writes their own validation logic, and does not use Django's transla
 
 Django already has a solution for this: using a [**`Form`**](https://docs.djangoproject.com/en/stable/topics/forms/). An often heared argument is that once you use a Django form, you have to render that form as Django does, but this is not true. Indeed, one can work with a form like:
 
-```
+```python3
 from django.shortcuts import redirect
 from my_app.forms import RegisterForm
 
@@ -94,5 +94,3 @@ We don't have to work with `form` to *render* it. If the `RegisterForm` has as f
 A `Form` itself can first read the data from the `request.POST` and `request.FILES`, then validate that data, and eventually offers the cleaned data. If it is a `ModelForm`, it has even logic to create or update a record, regardless from where the data originates. The template only has to make sure that the name of the form elements is according to the form fields of the `Form`.
 
 We can also pass the `form` to the context, not to render it per se, but to inspects the `form.errors`, and show the errors on the fields accordingly.
-
-# Extra tips
