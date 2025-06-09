@@ -59,7 +59,7 @@ Some checks are also hard to implement. Unique constraints for example. Imagine 
 User.objects.filter(username=username).exists()
 ```
 
-but if the we *edit* the user, and we retain the same `username`, then this will result in an error, since the username indeed already exists: the object we edit has that username. We can fix this by using:
+but if we *edit* the user, and we retain the same `username`, then this will result in an error, since the username indeed already exists: the object we edit has that username. We can fix this by using:
 
 ```python3
 User.objects.exclude(pk=pk).filter(username=username).exists()
