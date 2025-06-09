@@ -46,7 +46,7 @@ class MyModel(models.Model):
 
 If we now create an object without saving it in the database, it will already have a UUID:
 
-```
+```pycon
 >>> my_model = MyModel()
 >>> my_model.id
 UUID('c4e8412a-7ec0-419d-b34c-c0bafb67ff49')
