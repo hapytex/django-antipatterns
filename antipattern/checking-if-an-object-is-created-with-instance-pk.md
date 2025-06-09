@@ -1,4 +1,4 @@
-% Checking if an object is created with instance.pk
+% Checking if an object is created with `instance.pk`
 ---
 severity: 3
 type: antipattern
