@@ -28,7 +28,7 @@ We can now filter on `Project.objects.filter(is_archived=True)` to get all archi
 
 It is very tempting to make an additional field. But often it is *not* a good idea. Sure we can filter on the `is_archived` column, but what keeps the `is_archived` column in sync?
 
-All views now have to take into account that if they somehow change the `archive_date`, they have to change `is_archived` as well, and vice-versa. This may look simple at first, but it means that if you `.update(archive_date=date(2019, 11, 25))`, you need to update the field. If you use `.save(update_fields=('archive_date',))`, you need to remember to include `is_archived`.
+All views that modify `archive_date` must also update `is_archived`, and vice versa. This may look simple at first, but it means that if you `.update(archive_date=date(2019, 11, 25))`, you need to update the field. If you use `.save(update_fields=('archive_date',))`, you need to remember to include `is_archived`.
 
 If `is_archived` does not only depend on fields of the `Project` model, but related models, then it even gets more complicated. If for example a project is not archived if there is still a `Task` that is not archived, it means that creating a task, removing a task, updating a task, etc. all can have impact on the `Project`. So eventually it is almost impossible to tell what to do. Often one also uses [*signals*](https://www.django-antipatterns.com/antipattern/signals.html) for that, a tool that has its own pitfalls.
 
