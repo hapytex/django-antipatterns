@@ -3,7 +3,7 @@
 severity: 4
 type: antipattern
 typefa: "fas fa-ban"
-tags: [3fn, thirdnormalform]
+tags: [3nf, thirdnormalform]
 layers: models
 related_packages: []
 solinks: []
@@ -32,9 +32,9 @@ All views now have to take into account that if they somehow change the `archive
 
 If `is_archived` does not only depend on fields of the `Project` model, but related models, then it even gets more complicated. If for example a project is not archived if there is still a `Task` that is not archived, it means that creating a task, removing a task, updating a task, etc. all can have impact on the `Project`. So eventually it is almost impossible to tell what to do. Often one also uses [*signals*](https://www.django-antipatterns.com/antipattern/signals.html) for that, a tool that has its own pitfalls.
 
-To make matters even worse in the scenario described above, even if we don't do anything with the `Project` model, a `Project` can change from unarchived to archived: if we set the date on July 18<sup>th</sup>, 2035, and it is still 2025, we don't have to worry, but eventually some process will have to set `is_archived` to `True`. There is tooling that can schedule a task to run at a certain moment in time. But this is often not completely reliable: imagine that you use celery, but at a certain point celery fails, then it will not update the project in time. If you use for example a Redis database that lives and dies with a particular deploy, then when redeploying, celery does not even know anymore what tasks it was supposed to run. So while celery is definitely a good tool, it is often not good to rely to much on tasks one schedules years in advance.
+To make matters even worse in the scenario described above, even if we don't do anything with the `Project` model, a `Project` can change from unarchived to archived: if we set the date on July 18<sup>th</sup>, 2035, and it is still 2025, we don't have to worry, but eventually some process will have to set `is_archived` to `True`. There is tooling that can schedule a task to run at a certain moment in time. But this is often not completely reliable: imagine that you use celery, but at a certain point celery fails, then it will not update the project in time. If you use for example a Redis database that lives and dies with a particular deploy, then when redeploying, celery does not even know anymore what tasks it was supposed to run. So while celery is definitely a good tool, it is often not good to rely too much on tasks scheduled years in advance.
 
-Getting rid of functional dependencies is something already well understood in database design: [*Third Normal Form (3NF)*](https://en.wikipedia.org/wiki/Third_normal_form) aims to eliminate such functional dependencies: if we need those, and we can not say through computation how a column *Y* depends on anther column *X* (or multiple columns), it is usually stored in a lookup table, to prevent having to store the functional dependency multiple times, and thus risking *data inconsistency* and *anomalies*.
+Getting rid of functional dependencies is something already well understood in database design: [*Third Normal Form (3NF)*](https://en.wikipedia.org/wiki/Third_normal_form) aims to eliminate such functional dependencies: if we need those, and we can not say through computation how a column *Y* depends on another column *X* (or multiple columns), it is usually stored in a lookup table, to prevent having to store the functional dependency multiple times, and thus risking *data inconsistency* and *anomalies*.
 
 
 # What can be done to resolve the problem?
@@ -51,7 +51,9 @@ class Project(models.Model):
 
     @property
     def is_archived(self):
-        return self.archive_date and self.archive_date <= timezone.now()
+        if self.archive_date is None:
+            return False
+        return self.archive_date <= timezone.now().date()
 ```
 
 We can also attach a setter to it if we want to set a value `is_archived`, which than handles the case accordingly:
@@ -66,12 +68,14 @@ class Project(models.Model):
 
     @property
     def is_archived(self):
-        return self.archive_date and self.archive_date <= timezone.now()
+        if self.archive_date is None:
+            return False
+        return self.archive_date <= timezone.now().date()
 
     @is_archived.setter
     def is_archived(self, value):
         if value:
-            self.archive_date = timezone.now()
+            self.archive_date = timezone.now().date()
         else:
             self.archive_date = None
 ```
