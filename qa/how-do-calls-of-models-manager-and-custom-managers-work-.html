@@ -1,0 +1,78 @@
+<!doctype html><html lang=en><head><meta name=viewport content="width=device-width,initial-scale=1"><meta charset=utf-8><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=hapytex data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting." data-color=#e9c012 data-position=Right data-x_margin=18 data-y_margin=18></script><meta name=keywords content="Django,web,programming,antipattern,pattern,troubleshooting,software design,django-models "><meta name=author content="Willem Van Onsem"><meta name=description content="A set of Django (anti)patterns: patterns and things to avoid when building a web application with Django."><meta name=twitter:image:src content="https://repository-images.githubusercontent.com/257009680/7a954900-2f5d-11eb-8d0a-c8af0596107f"><meta name=og:title content="How do calls of models.Manager and custom managers work?"><meta name=og:image content="https://repository-images.githubusercontent.com/257009680/7a954900-2f5d-11eb-8d0a-c8af0596107f"><meta name=og:image:alt content="A prohibition sign in the Django color scheme."><meta name=og:image:type content="image/png"><meta name=og:type content="website"><link rel=stylesheet href=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/template.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css><script src=https://code.jquery.com/jquery-3.5.1.min.js></script><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.cookie.js></script><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.hoverIntent.minified.js></script><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link href=/style.css rel=stylesheet><link href=https://cdn.rawgit.com/ryangrose/easy-pandoc-templates/948e28e5/css/elegant_bootstrap.css rel=stylesheet><script src=https://cdn.rawgit.com/diversen/pandoc-bootstrap-adaptive-template/959c3622/jquery.sticky-kit.js></script><script data-ad-client=ca-pub-9962024266760159 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script src=/script.js></script><link rel=icon href=/favicon.ico type=image/x-icon><meta name=generator content="pandoc"><title>How do calls of models.Manager and custom managers work? &#8249; question-answer &#8249; Django antipatterns</title>
+<link rel=stylesheet href></head><body><a class=github-fork-ribbon href=https://github.com/hapytex/django-antipatterns data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a><div class="navbar navbar-static-top"><div class=navbar-inner><div class=container><nav aria-label=section><ol class=breadcrumb><li class=breadcrumb-item><a href=/><i class="fas fa-home"></i></a><li class=breadcrumb-item><a href=/question-answer.html><i class="fas fa-question"></i>&nbsp;
+question-answer</a><li class="breadcrumb-item active" aria-current=page>How do calls of models.Manager and custom managers work?</ol></nav><ul class="nav pull-right doc-info"></ul></div></div></div><article><div class=container><div class=row><div class=span12><h1 id=question>Question</h1><p>The question is based on <a href=https://stackoverflow.com/q/78833708/67579>this <em>deleted</em> StackOverflow post</a>:<blockquote><p>I extended the models.Manager class and created a custom manager.<pre><code>class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status=Post.Status.PUBLISHED)</code></pre><p>It's more than understandable, BUT how do calls of managers work?<pre><code>objects = models.Manager() # The default manager.
+published = PublishedManager() # Our custom manager.</code></pre></blockquote><blockquote><p>I don't address get_queryset method, I just call constructors. Then how does it work?</blockquote><h1 id=answer>Answer</h1><p>It does not need to, the <a href=https://docs.djangoproject.com/en/stable/ref/models/querysets/#all><strong><code>.all()</code></strong> <sup>[Django-doc]</sup></a>, <a href=https://docs.djangoproject.com/en/stable/ref/models/querysets/#get><strong><code>.get(…)</code></strong> <sup>[Django-doc]</sup></a>, etc. <a href=https://github.com/django/django/blob/d5bebc1c26d4c0ec9eaa057aefc5b38649c0ba3b/django/db/models/manager.py#L82-L105>all behind the curtains call <code>get_queryset()</code> and then perform that method on the result <sup>[GitHub]</sup></a>:<blockquote><pre><code>class BaseManager:
+    # ...
+    
+    @classmethod
+    def _get_queryset_methods(cls, queryset_class):
+        def create_method(name, method):
+            @wraps(method)
+            def manager_method(self, *args, **kwargs):
+                return getattr(self.get_queryset(), name)(*args, **kwargs)
+
+            return manager_method
+
+        new_methods = {}
+        for name, method in inspect.getmembers(
+            queryset_class, predicate=inspect.isfunction
+        ):
+            # Only copy missing methods.
+            if hasattr(cls, name):
+                continue
+            # Only copy public methods or methods with the attribute
+            # queryset_only=False.
+            queryset_only = getattr(method, &quot;queryset_only&quot;, None)
+            if queryset_only or (queryset_only is None and name.startswith(&quot;_&quot;)):
+                continue
+            # Copy the method onto the manager.
+            new_methods[name] = create_method(name, method)
+        return new_methods</code></pre></blockquote><p>This inspects the methods of the <code>queryset</code> class it will wrap. Now if the <code>QuerySet</code> has a method <code>.all()</code>, it will create a small function <code>.all()</code> for the manager, that first calls the <code>get_queryset()</code> of the manager, and then <code>.all()</code> on the queryset. It does that for <em>all</em> functions defined in the queryset class, and thus creates for each a function for the manager.<p>These are then <a href=https://github.com/django/django/blob/d5bebc1c26d4c0ec9eaa057aefc5b38649c0ba3b/django/db/models/manager.py#L107-L118>injected as members in the <code>Manager</code> with <sup>[GitHub]</sup></a>:<blockquote><pre><code>class BaseManager:
+    # ...
+    
+    @classmethod
+    def from_queryset(cls, queryset_class, class_name=None):
+        if class_name is None:
+            class_name = &quot;%sFrom%s&quot; % (cls.__name__, queryset_class.__name__)
+        return type(
+            class_name,
+            (cls,),
+            {
+                &quot;_queryset_class&quot;: queryset_class,
+                **cls._get_queryset_methods(queryset_class),
+            },
+        )</code></pre></blockquote><p>But there is something else that plays here: how does the manager knows what the model is? Django's models call <a href><strong><code>.contribute_to_class(…)</code></strong></a> on every attribute in the class, if it is available, for a manager, <a href=https://github.com/django/django/blob/d5bebc1c26d4c0ec9eaa057aefc5b38649c0ba3b/django/db/models/manager.py#L120-L126>that looks like <sup>[GitHub]</sup></a>:<blockquote><pre><code>class BaseManager:
+    # ...
+    
+    def contribute_to_class(self, cls, name):
+        self.name = self.name or name
+        self.model = cls
+
+        setattr(cls, name, ManagerDescriptor(self))
+
+        cls._meta.add_manager(self)</code></pre></blockquote><p>This thus injects the model into the manager, which was not even known at the time you constructed the item. It does <em>not</em> sett the manager itself on the model class, but a <em>descriptor</em> of it.<p>The descriptor then will [delegate getting the attribute to the manager:<blockquote><pre><code>class ManagerDescriptor:
+    # ...
+
+    def __get__(self, instance, cls=None):
+        if instance is not None:
+            raise AttributeError(
+                &quot;Manager isn&#39;t accessible via %s instances&quot; % cls.__name__
+            )
+
+        if cls._meta.abstract:
+            raise AttributeError(
+                &quot;Manager isn&#39;t available; %s is abstract&quot; % (cls._meta.object_name,)
+            )
+
+        if cls._meta.swapped:
+            raise AttributeError(
+                &quot;Manager isn&#39;t available; &#39;%s&#39; has been swapped for &#39;%s&#39;&quot;
+                % (
+                    cls._meta.label,
+                    cls._meta.swapped,
+                )
+            )
+
+        return cls._meta.managers_map[self.manager.name]</code></pre></blockquote><p>This will prevent that you can use <code>my_book.objects</code>, and thus only use <code>Book.objects</code>, and also prevents calling the manager on an abstract models.</div></div></div><script src=https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js></script><script>hljs.initHighlightingOnLoad()</script><script>anchors.options={placement:"left",visible:"hover",icon:"¶"},anchors.add("h1,h2,h3")</script></article></body></html>
