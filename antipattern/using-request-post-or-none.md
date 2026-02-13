@@ -19,7 +19,7 @@ since it seems to make things shorter.
 
 # Why is it a problem?
 
-Although it is common, a POST request does not *per se* has content. The `or`
+Although it is common, a POST request does not *per se* have content. The `or`
 operator evaluates the *truthiness* of the `request.POST` operand, and if it is
 `False`, it will take the right operand (so `None`). This means that even if it
 is a POST request, it will take `None`, and thus as result the form is *not*
