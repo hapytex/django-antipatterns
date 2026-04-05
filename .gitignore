@@ -4,6 +4,9 @@ out_/
 out_/*
 out_/**
 
+# proofreads
+*.proofread
+
 # note file
 *.note
 
