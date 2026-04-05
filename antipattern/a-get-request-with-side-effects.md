@@ -7,7 +7,7 @@ tags: [http, get-request, side-effects, query-string]
 layers: [views]
 solinks: []
 ---
-Often people construct views that have side, effects, for example:
+Often people construct views that have side effects, for example:
 
 <pre class="python"><code>def remove_comment(request, comment_pk):
     Comment.objects.<b>filter(</b>
@@ -25,7 +25,7 @@ it specifies that:
 A GET request should thus not create, update, or delete entities.
 
 This is important because other actors on the internet assume that a GET request
-is safe. For example if a browser will not give a warning if you refresh the
+is safe. For example, a browser will not give a warning if you refresh the
 browser with an additional GET request, whereas most browsers will do that for
 a POST request.
 
