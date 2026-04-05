@@ -46,7 +46,7 @@ etc.
 
 Usually it is better to use the plural of the model name, so `posts`, or do not
 specify the <code>related_name=&hellip;</code>, and thus use
-<code><i>modelname</i>_set</code>. It becomes more tricking if there are two or
+<code><i>modelname</i>_set</code>. It becomes more tricky if there are two or
 more relations to the same model, because then the default
 <code>related_name=&hellip;</code> can not be used because it would collide.
 
